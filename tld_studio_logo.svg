@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns='http://www.w3.org/2000/svg'
+     width='800' height='541'
+     viewBox='0 0 800 541'>
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;700&amp;display=swap');
+    </style>
+  </defs>
+  
+  <rect x='0' y='0' width='800' height='270' fill='#FAFAF8'/>
+  <text
+    x='317'
+    y='152'
+    font-family="'DM Sans', 'Arial Black', sans-serif"
+    font-weight='700'
+    font-size='80'
+    fill='#0C0C0B'
+    letter-spacing='-1.5'>TLD</text>
+  <circle cx='476' cy='112' r='7' fill='#C8893A'/>
+  <text
+    x='317'
+    y='190'
+    font-family="'DM Sans', Arial, sans-serif"
+    font-weight='300'
+    font-size='13'
+    fill='#9C9891'
+    letter-spacing='4'>STUDIO.</text>
+
+  <line x1='0' y1='270' x2='800' y2='270' stroke='#C3BFB9' stroke-width='1'/>
+  
+  <rect x='0' y='271' width='800' height='270' fill='#0C0C0B'/>
+  <text
+    x='317'
+    y='423'
+    font-family="'DM Sans', 'Arial Black', sans-serif"
+    font-weight='700'
+    font-size='80'
+    fill='#FAFAF8'
+    letter-spacing='-1.5'>TLD</text>
+  <circle cx='476' cy='383' r='7' fill='#C8893A'/>
+  <text
+    x='317'
+    y='461'
+    font-family="'DM Sans', Arial, sans-serif"
+    font-weight='300'
+    font-size='13'
+    fill='#9C9891'
+    letter-spacing='4'>STUDIO.</text>
+
+</svg>
