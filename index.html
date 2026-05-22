@@ -890,15 +890,15 @@
         <form id="form" class="reveal" novalidate>
             <div class="fgroup">
                 <label class="flabel" for="fname">Nombre</label>
-                <input class="finput" type="text" id="fname" placeholder="Tu nombre completo" required>
+                <input class="finput" type="text" id="fname" name="nombre" placeholder="Tu nombre completo" required>
             </div>
             <div class="fgroup">
                 <label class="flabel" for="femail">Email</label>
-                <input class="finput" type="email" id="femail" placeholder="tu@email.com" required>
+                <input class="finput" type="email" id="femail" name="email" placeholder="tu@email.com" required>
             </div>
             <div class="fgroup">
                 <label class="flabel" for="fmsg">Sobre tu proyecto</label>
-                <textarea class="ftextarea" id="fmsg" placeholder="Cuéntanos qué tienes en mente..." required></textarea>
+                <textarea class="ftextarea" id="fmsg" name="mensaje" placeholder="Cuéntanos qué tienes en mente..." required></textarea>
             </div>
             <div class="ffoot">
                 <button type="submit" class="btn-primary" id="fsend">
@@ -979,16 +979,33 @@
     const form     = document.getElementById('form');
     const fsend    = document.getElementById('fsend');
     const fsuccess = document.getElementById('fsuccess');
-    form.addEventListener('submit', e => {
+    const ARROW    = `<svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5H12.5M12.5 7.5L8.5 3.5M12.5 7.5L8.5 11.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+    form.addEventListener('submit', async e => {
         e.preventDefault();
         fsend.textContent = 'Enviando…';
         fsend.disabled = true;
-        setTimeout(() => {
-            fsuccess.classList.add('show');
-            form.reset();
-            fsend.innerHTML = `Enviar mensaje <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5H12.5M12.5 7.5L8.5 3.5M12.5 7.5L8.5 11.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+        try {
+            const res = await fetch('https://formspree.io/f/mnjrdyel', {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (res.ok) {
+                fsuccess.classList.add('show');
+                form.reset();
+            } else {
+                fsend.textContent = 'Error. Intenta de nuevo.';
+                fsend.disabled = false;
+                return;
+            }
+        } catch {
+            fsend.textContent = 'Error de conexión.';
             fsend.disabled = false;
-        }, 1400);
+            return;
+        }
+        fsend.innerHTML = `Enviar mensaje ${ARROW}`;
+        fsend.disabled = false;
     });
 </script>
 </body>
