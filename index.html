@@ -53,6 +53,7 @@
     }
     </script>
 
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
@@ -900,6 +901,12 @@
                 <label class="flabel" for="fmsg">Sobre tu proyecto</label>
                 <textarea class="ftextarea" id="fmsg" name="mensaje" placeholder="Cuéntanos qué tienes en mente..." required></textarea>
             </div>
+            <div class="fgroup">
+                <div class="cf-turnstile"
+                     data-sitekey="0x4AAAAAADUFVcWcBikZbTkl"
+                     data-theme="light"
+                     data-size="normal"></div>
+            </div>
             <div class="ffoot">
                 <button type="submit" class="btn-primary" id="fsend">
                     Enviar mensaje
@@ -983,6 +990,8 @@
 
     form.addEventListener('submit', async e => {
         e.preventDefault();
+        const token = form.querySelector('[name="cf-turnstile-response"]');
+        if (!token || !token.value) return;
         fsend.textContent = 'Enviando…';
         fsend.disabled = true;
         try {
