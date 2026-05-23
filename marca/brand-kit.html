@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TLD Studio. — Brand Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+        --white: #FAFAF8; --black: #0C0C0B; --amber: #C8893A;
+        --muted: #9C9891; --surface: #F3F1EE; --border: #E2DED8;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--black); padding: 4rem; }
+    h1 { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4rem; }
+    .section { margin-bottom: 5rem; }
+    .section-title { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+    .row { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: flex-start; }
+
+    /* Logos */
+    .logo-box { padding: 3rem 4rem; border: 1px solid var(--border); display: flex; align-items: center; gap: 0; }
+    .logo-box.dark { background: var(--black); border-color: #333; }
+    .logo-tld { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 2rem; letter-spacing: -0.03em; }
+    .logo-dot { display: inline-block; width: 8px; height: 8px; background: var(--amber); border-radius: 50%; margin: 0 6px 2px; vertical-align: middle; }
+    .logo-sub { font-weight: 300; font-size: 0.85em; color: var(--muted); letter-spacing: 0.02em; }
+
+    /* Colors */
+    .swatch { width: 120px; }
+    .swatch-color { height: 80px; border-radius: 4px; margin-bottom: 0.75rem; }
+    .swatch-name { font-size: 0.75rem; font-weight: 500; margin-bottom: 0.2rem; }
+    .swatch-hex { font-size: 0.7rem; color: var(--muted); font-weight: 300; letter-spacing: 0.04em; }
+
+    /* Typography */
+    .type-sample { margin-bottom: 2rem; }
+    .type-label { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; }
+
+    /* Assets */
+    .asset-card { border: 1px solid var(--border); padding: 1.5rem; text-align: center; }
+    .asset-card img, .asset-card object { max-width: 200px; max-height: 150px; display: block; margin: 0 auto 1rem; }
+    .asset-name { font-size: 0.75rem; color: var(--muted); }
+    .asset-size { font-size: 0.65rem; color: var(--border); margin-top: 0.2rem; }
+</style>
+</head>
+<body>
+
+<h1>TLD Studio. — Brand Kit 2026</h1>
+
+<!-- Logos -->
+<div class="section">
+    <div class="section-title">Logotipo</div>
+    <div class="row">
+        <div class="logo-box">
+            <span class="logo-tld">TLD</span>
+            <span class="logo-dot"></span>
+            <span class="logo-sub">Studio.</span>
+        </div>
+        <div class="logo-box dark">
+            <span class="logo-tld" style="color:#FAFAF8">TLD</span>
+            <span class="logo-dot"></span>
+            <span class="logo-sub">Studio.</span>
+        </div>
+    </div>
+</div>
+
+<!-- Ícono -->
+<div class="section">
+    <div class="section-title">Ícono / Perfil</div>
+    <div class="row">
+        <svg width="100" height="100" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" style="border-radius:50%">
+            <rect width="500" height="500" fill="#0C0C0B"/>
+            <text x="80" y="310" font-family="'Arial Black', sans-serif" font-weight="900" font-size="200" fill="#FAFAF8" letter-spacing="-8">TL</text>
+            <circle cx="420" cy="310" r="30" fill="#C8893A"/>
+        </svg>
+        <svg width="100" height="100" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" style="border-radius:8px">
+            <rect width="500" height="500" fill="#0C0C0B"/>
+            <text x="80" y="310" font-family="'Arial Black', sans-serif" font-weight="900" font-size="200" fill="#FAFAF8" letter-spacing="-8">TL</text>
+            <circle cx="420" cy="310" r="30" fill="#C8893A"/>
+        </svg>
+    </div>
+</div>
+
+<!-- Colores -->
+<div class="section">
+    <div class="section-title">Paleta de colores</div>
+    <div class="row">
+        <div class="swatch">
+            <div class="swatch-color" style="background:#0C0C0B; border:1px solid #eee"></div>
+            <div class="swatch-name">Negro</div>
+            <div class="swatch-hex">#0C0C0B</div>
+        </div>
+        <div class="swatch">
+            <div class="swatch-color" style="background:#C8893A"></div>
+            <div class="swatch-name">Ámbar</div>
+            <div class="swatch-hex">#C8893A</div>
+        </div>
+        <div class="swatch">
+            <div class="swatch-color" style="background:#FAFAF8; border:1px solid #E2DED8"></div>
+            <div class="swatch-name">Blanco cálido</div>
+            <div class="swatch-hex">#FAFAF8</div>
+        </div>
+        <div class="swatch">
+            <div class="swatch-color" style="background:#F3F1EE; border:1px solid #E2DED8"></div>
+            <div class="swatch-name">Superficie</div>
+            <div class="swatch-hex">#F3F1EE</div>
+        </div>
+        <div class="swatch">
+            <div class="swatch-color" style="background:#9C9891"></div>
+            <div class="swatch-name">Gris muted</div>
+            <div class="swatch-hex">#9C9891</div>
+        </div>
+    </div>
+</div>
+
+<!-- Tipografía -->
+<div class="section">
+    <div class="section-title">Tipografía — DM Sans</div>
+    <div class="type-sample">
+        <div class="type-label">Bold 700 — Títulos</div>
+        <div style="font-size:2.5rem; font-weight:700; letter-spacing:-0.03em">TLD Studio.</div>
+    </div>
+    <div class="type-sample">
+        <div class="type-label">Regular 400 — Cuerpo</div>
+        <div style="font-size:1rem; font-weight:400; color:#6B6863">Diseño web con propósito. Creamos sitios que inspiran y convierten.</div>
+    </div>
+    <div class="type-sample">
+        <div class="type-label">Light 300 — Subtítulos</div>
+        <div style="font-size:0.8rem; font-weight:300; letter-spacing:0.1em; text-transform:uppercase; color:#9C9891">DISEÑO · FRONTEND · SEO · IA</div>
+    </div>
+</div>
+
+<!-- Archivos -->
+<div class="section">
+    <div class="section-title">Archivos disponibles</div>
+    <div class="row">
+        <div class="asset-card">
+            <div class="asset-name">logo-claro.svg</div>
+            <div class="asset-size">800 × 280px</div>
+        </div>
+        <div class="asset-card">
+            <div class="asset-name">logo-oscuro.svg</div>
+            <div class="asset-size">800 × 280px</div>
+        </div>
+        <div class="asset-card">
+            <div class="asset-name">icono-perfil.svg</div>
+            <div class="asset-size">500 × 500px</div>
+        </div>
+        <div class="asset-card">
+            <div class="asset-name">post-instagram.svg</div>
+            <div class="asset-size">1080 × 1080px</div>
+        </div>
+        <div class="asset-card">
+            <div class="asset-name">historia-instagram.svg</div>
+            <div class="asset-size">1080 × 1920px</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
