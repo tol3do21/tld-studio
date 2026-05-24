@@ -249,12 +249,36 @@
         /* ── Hero ── */
         #hero {
             min-height: 100svh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-content {
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             padding: 0 4rem 5.5rem;
             position: relative;
+        }
+        .hero-img {
+            position: relative;
             overflow: hidden;
+        }
+        .hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            filter: grayscale(15%) brightness(0.96);
+        }
+        .hero-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, var(--white) 0%, transparent 12%);
+            pointer-events: none;
         }
         .hero-watermark {
             position: absolute;
@@ -305,9 +329,9 @@
         .hero-h1 em { font-style: italic; color: var(--text-light); }
         .hero-foot {
             display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 3rem;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2rem;
             opacity: 0;
             transform: translateY(18px);
             animation: up 0.9s var(--ease) 0.5s forwards;
@@ -317,7 +341,7 @@
             font-weight: 300;
             color: var(--text-light);
             line-height: 1.8;
-            max-width: 360px;
+            max-width: 420px;
         }
         .btn-primary {
             display: inline-flex;
@@ -763,7 +787,9 @@
 
         @media (max-width: 768px) {
             section { padding: 5.5rem 1.5rem; }
-            #hero { padding: 0 1.5rem 4rem; }
+            #hero { grid-template-columns: 1fr; }
+            .hero-img { display: none; }
+            .hero-content { padding: 0 1.5rem 4rem; }
             #nav { padding: 1.2rem 1.5rem; }
             footer { padding: 2rem 1.5rem; }
 
@@ -829,27 +855,34 @@
 
 <!-- Hero -->
 <section id="hero">
-    <div class="hero-watermark">TLD</div>
-    <div class="scroll-ticker">
-        <span>Scroll</span>
-        <div class="ticker-line"></div>
+    <!-- Contenido izquierda -->
+    <div class="hero-content">
+        <div class="hero-watermark">TLD</div>
+        <div class="scroll-ticker">
+            <span>Scroll</span>
+            <div class="ticker-line"></div>
+        </div>
+        <div class="hero-kicker">TLD Studio. — Diseño Web 2026</div>
+        <h1 class="hero-h1">
+            Creamos sitios<br>
+            que <em>inspiran</em><br>
+            y convierten.
+        </h1>
+        <div class="hero-foot">
+            <p class="hero-desc">
+                Diseño intencional. Desarrollo preciso. Cada proyecto es una oportunidad de crear algo que importe de verdad.
+            </p>
+            <a href="#contact" class="btn-primary">
+                Empecemos
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M2.5 7.5H12.5M12.5 7.5L8.5 3.5M12.5 7.5L8.5 11.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
     </div>
-    <div class="hero-kicker">TLD Studio. — Diseño Web 2026</div>
-    <h1 class="hero-h1">
-        Creamos sitios<br>
-        que <em>inspiran</em><br>
-        y convierten.
-    </h1>
-    <div class="hero-foot">
-        <p class="hero-desc">
-            Diseño intencional. Desarrollo preciso. Cada proyecto es una oportunidad de crear algo que importe de verdad.
-        </p>
-        <a href="#contact" class="btn-primary">
-            Empecemos
-            <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-                <path d="M2.5 7.5H12.5M12.5 7.5L8.5 3.5M12.5 7.5L8.5 11.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </a>
+    <!-- Foto editorial derecha -->
+    <div class="hero-img">
+        <img src="img/hero.jpg" alt="TLD Studio — Diseño Web" loading="eager">
     </div>
 </section>
 
