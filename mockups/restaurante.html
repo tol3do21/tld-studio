@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raíces — Restaurante</title>
+  <title>Raíces — Restaurante · Cochabamba, Bolivia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -25,123 +25,76 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
       padding: 1.5rem 5rem;
+      background: rgba(15,31,24,0.92); backdrop-filter: blur(8px);
     }
-    .nav-logo {
-      font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 400;
-      letter-spacing: 0.08em; color: var(--offwhite); text-decoration: none;
-    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 400; letter-spacing: 0.08em; color: var(--offwhite); text-decoration: none; }
     .nav-center { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-center a {
-      color: rgba(237,232,224,0.7); text-decoration: none;
-      font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 300;
-      transition: color 0.3s;
-    }
+    .nav-center a { color: rgba(237,232,224,0.7); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 300; transition: color 0.3s; }
     .nav-center a:hover { color: var(--offwhite); }
-    .nav-btn {
-      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500;
-      color: var(--terra); text-decoration: none; border: 1px solid var(--terra);
-      padding: 0.6rem 1.5rem; transition: all 0.3s;
-    }
+    .nav-btn { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; color: var(--terra); text-decoration: none; border: 1px solid var(--terra); padding: 0.6rem 1.5rem; transition: all 0.3s; }
     .nav-btn:hover { background: var(--terra); color: var(--offwhite); }
 
     /* HERO */
     .hero {
       height: 100vh;
-      background: linear-gradient(165deg, var(--green-deep) 0%, var(--green) 50%, var(--green-mid) 100%);
+      background-image: linear-gradient(165deg, rgba(10,20,15,0.75) 0%, rgba(15,31,24,0.6) 50%, rgba(15,31,24,0.88) 100%),
+                        url('https://picsum.photos/seed/restaurant-cochabamba/1600/900');
+      background-size: cover; background-position: center;
       display: flex; align-items: flex-end; padding: 0 5rem 7rem;
       position: relative; overflow: hidden;
     }
-    .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background-image: radial-gradient(ellipse at 10% 90%, rgba(196,114,58,0.12) 0%, transparent 50%),
-                        radial-gradient(ellipse at 90% 10%, rgba(196,114,58,0.06) 0%, transparent 40%);
-    }
     .hero-content { position: relative; max-width: 700px; }
-    .hero-award {
-      display: inline-flex; align-items: center; gap: 0.75rem;
-      background: rgba(196,114,58,0.15); border: 1px solid rgba(196,114,58,0.3);
-      padding: 0.4rem 1rem; margin-bottom: 2rem;
-      color: var(--terra-light); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3.5rem, 7vw, 6rem);
-      font-weight: 400; line-height: 1; color: var(--offwhite); margin-bottom: 1.5rem;
-    }
+    .hero-award { display: inline-flex; align-items: center; gap: 0.75rem; background: rgba(196,114,58,0.15); border: 1px solid rgba(196,114,58,0.3); padding: 0.4rem 1rem; margin-bottom: 2rem; color: var(--terra-light); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 7vw, 6rem); font-weight: 400; line-height: 1; color: var(--offwhite); margin-bottom: 1.5rem; }
     .hero h1 span { display: block; font-style: italic; color: var(--terra-light); }
-    .hero-sub {
-      color: rgba(237,232,224,0.6); font-size: 0.95rem; font-weight: 300; line-height: 1.8;
-      max-width: 480px; margin-bottom: 3rem;
-    }
+    .hero-sub { color: rgba(237,232,224,0.6); font-size: 0.95rem; font-weight: 300; line-height: 1.8; max-width: 480px; margin-bottom: 3rem; }
     .hero-actions { display: flex; gap: 1.5rem; align-items: center; }
-    .btn-terra {
-      background: var(--terra); color: var(--offwhite);
-      padding: 1rem 2.5rem; font-size: 0.78rem; letter-spacing: 0.12em;
-      text-transform: uppercase; font-weight: 500; text-decoration: none; display: inline-block;
-      transition: background 0.3s;
-    }
+    .btn-terra { background: var(--terra); color: var(--offwhite); padding: 1rem 2.5rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; text-decoration: none; display: inline-block; transition: background 0.3s; }
     .btn-terra:hover { background: var(--terra-light); }
-    .btn-ghost-light {
-      color: rgba(237,232,224,0.7); font-size: 0.78rem; letter-spacing: 0.12em;
-      text-transform: uppercase; text-decoration: none;
-      border-bottom: 1px solid rgba(237,232,224,0.3); padding-bottom: 2px;
-    }
+    .btn-ghost-light { color: rgba(237,232,224,0.7); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(237,232,224,0.3); padding-bottom: 2px; }
 
-    /* STORY */
-    .story {
-      display: grid; grid-template-columns: 1fr 1fr;
-    }
+    /* HISTORIA */
+    .story { display: grid; grid-template-columns: 1fr 1fr; }
     .story-text { background: var(--light); padding: 6rem 5rem; }
-    .story-text .section-tag { color: var(--terra); font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; display: block; margin-bottom: 1.5rem; }
+    .section-tag { color: var(--terra); font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; display: block; margin-bottom: 1.5rem; }
     .story-text h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; line-height: 1.2; margin-bottom: 1.5rem; }
     .story-text p { color: var(--gray); line-height: 1.9; font-size: 0.92rem; font-weight: 300; margin-bottom: 1rem; }
-    .chef-tag {
-      display: flex; align-items: center; gap: 1rem; margin-top: 2.5rem;
-      padding-top: 2rem; border-top: 1px solid #ddd;
-    }
-    .chef-avatar {
-      width: 52px; height: 52px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--green), var(--green-mid));
-      flex-shrink: 0;
-    }
+    .chef-tag { display: flex; align-items: center; gap: 1rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid #ddd; }
+    .chef-avatar { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+    .chef-avatar img { width: 100%; height: 100%; object-fit: cover; }
     .chef-name { font-weight: 500; font-size: 0.9rem; }
     .chef-title { font-size: 0.78rem; color: var(--gray); font-weight: 300; }
 
-    .story-visual {
-      background: linear-gradient(145deg, #2d5040 0%, #1e3a2f 40%, #162c24 100%);
-      position: relative; min-height: 550px;
-    }
-    .story-visual-card {
-      position: absolute; bottom: 3rem; right: -1.5rem;
-      background: var(--offwhite); padding: 1.5rem 2rem; max-width: 240px;
-    }
+    .story-visual { position: relative; overflow: hidden; min-height: 550px; }
+    .story-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .story-visual-card { position: absolute; bottom: 3rem; right: -1.5rem; background: var(--offwhite); padding: 1.5rem 2rem; max-width: 240px; }
     .story-visual-card p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.95rem; line-height: 1.6; color: var(--green); }
     .story-visual-card span { font-size: 0.72rem; color: var(--gray); display: block; margin-top: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
 
     /* MENU */
     .menu { padding: 7rem 5rem; background: var(--green); }
     .menu-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
-    .menu-header .section-tag { color: var(--terra-light); font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; display: block; margin-bottom: 1rem; }
+    .menu-header .section-tag { color: var(--terra-light); display: block; margin-bottom: 1rem; }
     .menu-header h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; color: var(--offwhite); }
     .menu-header a { color: var(--terra-light); font-size: 0.78rem; text-decoration: none; border-bottom: 1px solid var(--terra); padding-bottom: 2px; }
     .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-    .menu-item {
-      padding: 2rem 0; border-bottom: 1px solid rgba(237,232,224,0.12);
-      display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-start: start;
-    }
+    .menu-item { padding: 2rem 0; border-bottom: 1px solid rgba(237,232,224,0.12); display: grid; grid-template-columns: 1fr auto; gap: 1rem; }
     .menu-item:nth-child(odd) { padding-right: 4rem; }
     .menu-item:nth-child(even) { padding-left: 4rem; border-left: 1px solid rgba(237,232,224,0.12); }
     .menu-item-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--offwhite); margin-bottom: 0.4rem; font-weight: 400; }
     .menu-item-desc { font-size: 0.8rem; color: rgba(237,232,224,0.5); font-weight: 300; line-height: 1.6; }
     .menu-item-price { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terra-light); white-space: nowrap; }
-    .menu-badge {
-      display: inline-block; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
-      background: var(--terra); color: var(--offwhite); padding: 0.15rem 0.5rem; margin-left: 0.5rem; vertical-align: middle;
-    }
+    .menu-badge { display: inline-block; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--terra); color: var(--offwhite); padding: 0.15rem 0.5rem; margin-left: 0.5rem; vertical-align: middle; }
+
+    /* GALERÍA */
+    .food-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; height: 260px; }
+    .food-gallery-item { overflow: hidden; }
+    .food-gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+    .food-gallery-item:hover img { transform: scale(1.06); }
 
     /* RESERVAS */
     .reservas { padding: 6rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-    .reservas-text .section-tag { color: var(--terra); font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; display: block; margin-bottom: 1.5rem; }
+    .reservas-text .section-tag { margin-bottom: 1.5rem; }
     .reservas-text h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; margin-bottom: 1.5rem; line-height: 1.2; }
     .reservas-text p { color: var(--gray); line-height: 1.8; font-size: 0.9rem; font-weight: 300; margin-bottom: 2rem; }
     .reservas-info { display: flex; gap: 2rem; flex-wrap: wrap; }
@@ -151,11 +104,7 @@
     .reservas-form { background: var(--offwhite); padding: 2.5rem; }
     .form-group { margin-bottom: 1.5rem; }
     .form-group label { display: block; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.5rem; font-weight: 500; }
-    .form-group input, .form-group select {
-      width: 100%; border: none; border-bottom: 1px solid #ccc; background: transparent;
-      padding: 0.75rem 0; font-size: 0.9rem; font-family: 'DM Sans', sans-serif; color: var(--green);
-      outline: none; transition: border-color 0.3s;
-    }
+    .form-group input, .form-group select { width: 100%; border: none; border-bottom: 1px solid #ccc; background: transparent; padding: 0.75rem 0; font-size: 0.9rem; font-family: 'DM Sans', sans-serif; color: var(--green); outline: none; transition: border-color 0.3s; }
     .form-group input:focus, .form-group select:focus { border-color: var(--terra); }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 
@@ -170,7 +119,7 @@
     @media (max-width: 900px) {
       nav { padding: 1.25rem 1.5rem; }
       .nav-center { display: none; }
-      .hero { padding: 0 1.5rem 5rem; align-items: flex-end; }
+      .hero { padding: 0 1.5rem 5rem; }
       .story { grid-template-columns: 1fr; }
       .story-text { padding: 4rem 1.5rem; }
       .story-visual { min-height: 300px; }
@@ -178,6 +127,7 @@
       .menu { padding: 4rem 1.5rem; }
       .menu-grid { grid-template-columns: 1fr; }
       .menu-item:nth-child(odd), .menu-item:nth-child(even) { padding: 1.5rem 0; border-left: none; }
+      .food-gallery { grid-template-columns: repeat(2, 1fr); height: 320px; }
       .reservas { padding: 4rem 1.5rem; grid-template-columns: 1fr; gap: 2rem; }
       footer { padding: 2rem 1.5rem; }
     }
@@ -189,8 +139,8 @@
     <a href="#" class="nav-logo">Raíces</a>
     <ul class="nav-center">
       <li><a href="#">Historia</a></li>
-      <li><a href="#">Menú</a></li>
-      <li><a href="#">Vinos</a></li>
+      <li><a href="#menu">Menú</a></li>
+      <li><a href="#">Vinos & Singani</a></li>
       <li><a href="#">Eventos</a></li>
     </ul>
     <a href="#reservas" class="nav-btn">Reservar mesa</a>
@@ -198,9 +148,9 @@
 
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-award">★ Mejor Restaurante — Guía Mendoza 2024</div>
-      <h1>Cocina de <span>temporada y tierra.</span></h1>
-      <p class="hero-sub">Productos de productores locales, técnicas contemporáneas y el sabor que sólo da la tierra mendocina. Una experiencia gastronómica que cambia con cada estación.</p>
+      <div class="hero-award">★ Mejor Restaurante — Guía Cochabamba 2024</div>
+      <h1>Cocina de <span>temporada y tierra boliviana.</span></h1>
+      <p class="hero-sub">Productos de productores del Valle Alto y los Yungas, técnicas contemporáneas y el sabor auténtico de la mejor mesa de Cochabamba.</p>
       <div class="hero-actions">
         <a href="#reservas" class="btn-terra">Reservar mesa</a>
         <a href="#menu" class="btn-ghost-light">Ver menú</a>
@@ -211,75 +161,86 @@
   <section class="story">
     <div class="story-text">
       <span class="section-tag">Nuestra filosofía</span>
-      <h2>El sabor empieza en la tierra, no en la cocina.</h2>
-      <p>Trabajamos directamente con más de quince productores de la región. Visitamos las fincas, conocemos las personas y entendemos las estaciones. Eso se refleja en cada plato.</p>
-      <p>El menú no es fijo: cambia según lo que el campo tiene para dar. Eso nos mantiene honestos, creativos y conectados con el territorio.</p>
+      <h2>El sabor empieza en el campo, no en la cocina.</h2>
+      <p>Trabajamos con más de doce productores del Valle Alto, los Yungas de La Paz y el trópico de Cochabamba. Visitamos las fincas, conocemos a las familias y entendemos las estaciones del año.</p>
+      <p>El menú cambia cada temporada según lo que la tierra tiene para dar. Eso nos mantiene honestos, creativos y conectados con Bolivia.</p>
       <div class="chef-tag">
-        <div class="chef-avatar"></div>
+        <div class="chef-avatar">
+          <img src="https://picsum.photos/seed/chef-portrait-latin/100/100" alt="Chef Marco Vargas">
+        </div>
         <div>
-          <div class="chef-name">Chef Tomás Herrera</div>
-          <div class="chef-title">Formado en Buenos Aires · París · San Sebastián</div>
+          <div class="chef-name">Chef Marco Vargas</div>
+          <div class="chef-title">Cochabambino · Formado en Lima y Barcelona</div>
         </div>
       </div>
     </div>
     <div class="story-visual">
+      <img src="https://picsum.photos/seed/chef-cooking-kitchen/700/700" alt="Cocina de Raíces" loading="lazy">
       <div class="story-visual-card">
-        <p>"Cada plato es una conversación entre el cocinero y el productor."</p>
-        <span>Tomás Herrera</span>
+        <p>"Cada plato es una conversación entre el cocinero y el productor boliviano."</p>
+        <span>Marco Vargas</span>
       </div>
     </div>
   </section>
+
+  <!-- GALERÍA DE PLATOS -->
+  <div class="food-gallery">
+    <div class="food-gallery-item"><img src="https://picsum.photos/seed/bolivian-food-1/400/300" alt="Plato 1" loading="lazy"></div>
+    <div class="food-gallery-item"><img src="https://picsum.photos/seed/andean-dish-2/400/300" alt="Plato 2" loading="lazy"></div>
+    <div class="food-gallery-item"><img src="https://picsum.photos/seed/restaurant-dish-3/400/300" alt="Plato 3" loading="lazy"></div>
+    <div class="food-gallery-item"><img src="https://picsum.photos/seed/gourmet-food-4/400/300" alt="Plato 4" loading="lazy"></div>
+  </div>
 
   <section class="menu" id="menu">
     <div class="menu-header">
       <div>
         <span class="section-tag">Temporada Otoño 2025</span>
-        <h2>Menú de degustación</h2>
+        <h2>Menú de temporada</h2>
       </div>
       <a href="#">Ver carta completa →</a>
     </div>
     <div class="menu-grid">
       <div class="menu-item">
         <div>
-          <div class="menu-item-name">Burrata de campo con membrillo <span class="menu-badge">Veggie</span></div>
-          <div class="menu-item-desc">Queso de estancia local, membrillo artesanal, pistachos y reducción de aceto.</div>
+          <div class="menu-item-name">Sopa de maní cochabambina <span class="menu-badge">Clásico</span></div>
+          <div class="menu-item-desc">Nuestra versión contemporánea del plato emblema del Valle. Con maní de Samaipata y locoto fresco.</div>
         </div>
-        <div class="menu-item-price">$4.800</div>
+        <div class="menu-item-price">Bs. 48</div>
       </div>
       <div class="menu-item">
         <div>
-          <div class="menu-item-name">Ravioles de zapallo asado</div>
-          <div class="menu-item-desc">Relleno de zapallo cabutia, manteca de salvia y parmesano de 24 meses.</div>
+          <div class="menu-item-name">Trucha del Lago Titicaca</div>
+          <div class="menu-item-desc">Trucha fresca con quinua roja del Altiplano, emulsión de cítricos de yungas y chuño deshidratado.</div>
         </div>
-        <div class="menu-item-price">$6.200</div>
+        <div class="menu-item-price">Bs. 85</div>
       </div>
       <div class="menu-item">
         <div>
-          <div class="menu-item-name">Cordero de Malargüe a baja temperatura</div>
-          <div class="menu-item-desc">12 horas de cocción, puré de zanahoria ahumada y chimichurri de hierbas.</div>
+          <div class="menu-item-name">Silpancho a nuestra manera <span class="menu-badge">Chef rec.</span></div>
+          <div class="menu-item-desc">Carne de res del Valle Alto, papa wayk'u, huevo de campo y sarsa criolla de tomate y cebolla.</div>
         </div>
-        <div class="menu-item-price">$9.800</div>
+        <div class="menu-item-price">Bs. 72</div>
       </div>
       <div class="menu-item">
         <div>
-          <div class="menu-item-name">Trucha de río con quinoa crujiente <span class="menu-badge">Chef rec.</span></div>
-          <div class="menu-item-desc">Trucha de los Andes, emulsión de limón de temporada y huevas de trucha.</div>
+          <div class="menu-item-name">Llama a baja temperatura</div>
+          <div class="menu-item-desc">12 horas de cocción con hierbas andinas, puré de oca ahumada y reducción de singani.</div>
         </div>
-        <div class="menu-item-price">$7.500</div>
+        <div class="menu-item-price">Bs. 95</div>
       </div>
       <div class="menu-item">
         <div>
-          <div class="menu-item-name">Volcán de chocolate con helado de malbec</div>
-          <div class="menu-item-desc">Chocolate 70% con corazón líquido, helado de uva malbec de la bodega.</div>
+          <div class="menu-item-name">Volcán de chocolate boliviano</div>
+          <div class="menu-item-desc">Chocolate El Ceibo 70% con corazón líquido y helado de tumbo de la región.</div>
         </div>
-        <div class="menu-item-price">$3.600</div>
+        <div class="menu-item-price">Bs. 42</div>
       </div>
       <div class="menu-item">
         <div>
-          <div class="menu-item-name">Tabla de quesos regionales</div>
-          <div class="menu-item-desc">Selección de 5 quesos artesanales con dulce de cayote, nueces y pan de campo.</div>
+          <div class="menu-item-name">Tabla de quesos bolivianos <span class="menu-badge">Veggie</span></div>
+          <div class="menu-item-desc">Selección de quesos de Coroico y Tarija con dulce de cayote, nueces y pan de campo.</div>
         </div>
-        <div class="menu-item-price">$4.200</div>
+        <div class="menu-item-price">Bs. 58</div>
       </div>
     </div>
   </section>
@@ -288,43 +249,28 @@
     <div class="reservas-text">
       <span class="section-tag">Reservaciones</span>
       <h2>Reservá tu mesa con anticipación.</h2>
-      <p>Trabajamos con capacidad limitada para cuidar la experiencia de cada comensal. Recomendamos reservar con al menos 48 horas de anticipación.</p>
+      <p>Trabajamos con capacidad limitada para cuidar la experiencia. Recomendamos reservar con al menos 48 horas de anticipación.</p>
       <div class="reservas-info">
         <div class="info-block">
           <div class="info-label">Martes a Domingo</div>
-          <div class="info-value">12:30 — 15:00 · 20:00 — 23:30</div>
+          <div class="info-value">12:00 — 15:00 · 19:00 — 23:00</div>
         </div>
         <div class="info-block">
           <div class="info-label">Teléfono</div>
-          <div class="info-value">+54 261 430-2211</div>
+          <div class="info-value">+591 4 424-1100</div>
         </div>
       </div>
     </div>
     <div class="reservas-form">
       <div class="form-row">
-        <div class="form-group">
-          <label>Nombre</label>
-          <input type="text" placeholder="Tu nombre">
-        </div>
-        <div class="form-group">
-          <label>Personas</label>
-          <select><option>2 personas</option><option>3–4 personas</option><option>5–6 personas</option></select>
-        </div>
+        <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div>
+        <div class="form-group"><label>Personas</label><select><option>2 personas</option><option>3–4 personas</option><option>5–6 personas</option><option>Grupo (7+)</option></select></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label>Fecha</label>
-          <input type="date">
-        </div>
-        <div class="form-group">
-          <label>Turno</label>
-          <select><option>Mediodía (12:30)</option><option>Noche (20:00)</option></select>
-        </div>
+        <div class="form-group"><label>Fecha</label><input type="date"></div>
+        <div class="form-group"><label>Turno</label><select><option>Mediodía (12:00)</option><option>Noche (19:00)</option></select></div>
       </div>
-      <div class="form-group">
-        <label>Notas o alergias</label>
-        <input type="text" placeholder="Ej. celíacos, aniversario, etc.">
-      </div>
+      <div class="form-group"><label>Notas o alergias</label><input type="text" placeholder="Ej. celíacos, cumpleaños, etc."></div>
       <button type="button" style="width:100%;background:var(--terra);color:var(--offwhite);border:none;padding:1rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;cursor:pointer;">Confirmar reserva</button>
     </div>
   </section>
@@ -334,13 +280,13 @@
       <span class="footer-logo">Raíces</span>
       <div class="footer-links">
         <a href="#">Menú</a>
-        <a href="#">Carta de vinos</a>
+        <a href="#">Vinos & Singani</a>
         <a href="#">Eventos privados</a>
         <a href="#">Contacto</a>
       </div>
     </div>
     <div class="footer-credit">
-      Diseñado y desarrollado por <a href="#">TLD Studio.</a> &copy; 2025
+      Av. Ballivián 560, Cochabamba · Bolivia &nbsp;·&nbsp; Diseñado y desarrollado por <a href="#">TLD Studio.</a> &copy; 2025
     </div>
   </footer>
 

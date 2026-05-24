@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fundación Horizonte — Por una educación sin barreras</title>
+  <title>Fundación Horizonte — Por una educación sin barreras en Bolivia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -22,78 +22,46 @@
     html { font-size: 16px; scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--blue-deep); }
 
-    /* TOPBAR */
-    .topbar {
-      background: var(--blue-deep); padding: 0.5rem 4rem;
-      display: flex; justify-content: space-between; align-items: center;
-    }
+    .topbar { background: var(--blue-deep); padding: 0.5rem 4rem; display: flex; justify-content: space-between; align-items: center; }
     .topbar p { font-size: 0.72rem; color: rgba(255,255,255,0.6); font-weight: 300; }
     .topbar a { color: rgba(255,255,255,0.6); font-size: 0.72rem; text-decoration: none; }
     .topbar a:hover { color: #fff; }
 
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.1rem 4rem;
-      background: var(--white); border-bottom: 1px solid var(--border);
-    }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 4rem; background: var(--white); border-bottom: 1px solid var(--border); }
     .nav-brand { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
-    .nav-emblem {
-      width: 40px; height: 40px; border-radius: 4px;
-      background: var(--blue); display: flex; align-items: center; justify-content: center;
-      color: #fff; font-size: 1rem; font-family: 'Merriweather', serif; font-weight: 700;
-    }
-    .nav-brand-text { display: flex; flex-direction: column; }
+    .nav-emblem { width: 40px; height: 40px; border-radius: 4px; background: var(--blue); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1rem; font-family: 'Merriweather', serif; font-weight: 700; }
     .nav-brand-name { font-size: 1rem; font-weight: 600; color: var(--blue-deep); line-height: 1.2; }
     .nav-brand-tagline { font-size: 0.68rem; color: var(--gray); font-weight: 300; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a { color: var(--gray); text-decoration: none; font-size: 0.85rem; font-weight: 400; transition: color 0.3s; }
     .nav-links a:hover { color: var(--blue); }
-    .nav-donate {
-      background: var(--red); color: #fff; padding: 0.65rem 1.5rem;
-      font-size: 0.8rem; font-weight: 600; text-decoration: none; transition: background 0.3s;
-    }
+    .nav-donate { background: var(--red); color: #fff; padding: 0.65rem 1.5rem; font-size: 0.8rem; font-weight: 600; text-decoration: none; transition: background 0.3s; }
     .nav-donate:hover { background: #b5271e; }
 
     /* HERO */
     .hero {
-      background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue) 60%, var(--blue-mid) 100%);
-      padding: 6rem 4rem 5rem;
+      background-image: linear-gradient(135deg, rgba(15,36,68,0.9) 0%, rgba(26,60,107,0.82) 60%, rgba(43,91,160,0.88) 100%),
+                        url('https://picsum.photos/seed/bolivia-school-kids/1600/900');
+      background-size: cover; background-position: center top;
+      padding: 5rem 4rem 5rem;
       display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
     }
     .hero-content {}
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
-      padding: 0.35rem 0.9rem; margin-bottom: 2rem;
-      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.8);
-    }
-    .hero h1 {
-      font-family: 'Merriweather', serif;
-      font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.25;
-      color: #fff; margin-bottom: 1.5rem;
-    }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 0.35rem 0.9rem; margin-bottom: 2rem; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.8); }
+    .hero h1 { font-family: 'Merriweather', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.25; color: #fff; margin-bottom: 1.5rem; }
     .hero h1 em { font-style: italic; font-weight: 300; color: rgba(255,255,255,0.8); }
     .hero-p { color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.8; font-weight: 300; margin-bottom: 2.5rem; max-width: 480px; }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-white {
-      background: #fff; color: var(--blue-deep);
-      padding: 0.9rem 2rem; font-size: 0.8rem; font-weight: 600; text-decoration: none; display: inline-block;
-      transition: transform 0.3s;
-    }
+    .btn-white { background: #fff; color: var(--blue-deep); padding: 0.9rem 2rem; font-size: 0.8rem; font-weight: 600; text-decoration: none; display: inline-block; transition: transform 0.3s; }
     .btn-white:hover { transform: translateY(-1px); }
-    .btn-outline-white {
-      background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.35);
-      padding: 0.9rem 2rem; font-size: 0.8rem; font-weight: 300; text-decoration: none; display: inline-block;
-      transition: border-color 0.3s;
-    }
+    .btn-outline-white { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.35); padding: 0.9rem 2rem; font-size: 0.8rem; font-weight: 300; text-decoration: none; display: inline-block; transition: border-color 0.3s; }
     .btn-outline-white:hover { border-color: rgba(255,255,255,0.7); }
-    .hero-impact { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.1); }
-    .impact-cell { background: rgba(255,255,255,0.05); padding: 2rem 1.5rem; text-align: center; }
+    .hero-impact { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.12); }
+    .impact-cell { background: rgba(255,255,255,0.06); padding: 2rem 1.5rem; text-align: center; }
     .impact-num { font-family: 'Merriweather', serif; font-size: 2.5rem; font-weight: 700; color: #fff; display: block; }
-    .impact-label { font-size: 0.75rem; color: rgba(255,255,255,0.55); font-weight: 300; margin-top: 0.25rem; }
+    .impact-label { font-size: 0.72rem; color: rgba(255,255,255,0.55); font-weight: 300; margin-top: 0.25rem; }
 
-    /* MISION */
+    /* MISIÓN */
     .mision { display: grid; grid-template-columns: 1fr 1fr; }
     .mision-text { padding: 6rem 5rem; }
     .section-tag { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--blue); display: block; margin-bottom: 1.25rem; }
@@ -104,20 +72,12 @@
     .value-icon { width: 28px; height: 28px; background: var(--sky); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.75rem; color: var(--blue); font-weight: 700; margin-top: 2px; }
     .value-text h4 { font-size: 0.88rem; font-weight: 600; margin-bottom: 0.2rem; }
     .value-text p { font-size: 0.82rem; color: var(--gray); font-weight: 300; }
-    .mision-visual { background: var(--sky); display: flex; flex-direction: column; gap: 0; }
-    .mision-quote {
-      background: var(--blue); padding: 3rem;
-      flex: 1; display: flex; flex-direction: column; justify-content: center;
-    }
-    .mision-quote blockquote {
-      font-family: 'Merriweather', serif; font-style: italic; font-size: 1.1rem;
-      color: #fff; line-height: 1.8; margin-bottom: 1rem;
-    }
-    .mision-quote cite { font-size: 0.78rem; color: rgba(255,255,255,0.6); font-style: normal; }
-    .mision-stats-mini { background: var(--sky); padding: 2.5rem 3rem; }
-    .mini-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .mini-stat-num { font-family: 'Merriweather', serif; font-size: 1.8rem; font-weight: 700; color: var(--blue); display: block; }
-    .mini-stat-label { font-size: 0.75rem; color: var(--gray); font-weight: 300; }
+
+    .mision-visual { position: relative; overflow: hidden; }
+    .mision-visual img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 480px; }
+    .mision-visual-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15,36,68,0.88); padding: 2.5rem 3rem; }
+    .mision-visual-overlay blockquote { font-family: 'Merriweather', serif; font-style: italic; font-size: 1rem; color: #fff; line-height: 1.8; margin-bottom: 0.75rem; }
+    .mision-visual-overlay cite { font-size: 0.75rem; color: rgba(255,255,255,0.55); font-style: normal; }
 
     /* PROGRAMAS */
     .programas { padding: 6rem 4rem; background: var(--light); }
@@ -125,39 +85,34 @@
     .programas-header h2 { font-family: 'Merriweather', serif; font-size: 2rem; font-weight: 700; margin-top: 0.75rem; }
     .programas-header p { color: var(--gray); font-size: 0.9rem; margin-top: 0.75rem; max-width: 520px; margin-left: auto; margin-right: auto; font-weight: 300; }
     .programas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
-    .programa-card { background: var(--white); padding: 2.5rem 2rem; border-top: 3px solid var(--blue); }
-    .programa-icon { font-size: 2rem; margin-bottom: 1.25rem; display: block; }
-    .programa-card h3 { font-family: 'Merriweather', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; }
-    .programa-card p { color: var(--gray); font-size: 0.85rem; line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem; }
+    .programa-card { background: var(--white); overflow: hidden; border-top: 3px solid var(--blue); }
+    .programa-card-img { height: 200px; overflow: hidden; }
+    .programa-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+    .programa-card:hover .programa-card-img img { transform: scale(1.04); }
+    .programa-card-body { padding: 2rem; }
+    .programa-icon { font-size: 1.75rem; margin-bottom: 1rem; display: block; }
+    .programa-card h3 { font-family: 'Merriweather', serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .programa-card p { color: var(--gray); font-size: 0.85rem; line-height: 1.7; font-weight: 300; margin-bottom: 1.25rem; }
     .programa-link { font-size: 0.78rem; color: var(--blue); font-weight: 600; text-decoration: none; }
     .programa-link:hover { text-decoration: underline; }
     .programa-beneficiarios { font-size: 0.72rem; color: var(--gray); border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 1rem; font-weight: 300; }
     .programa-beneficiarios strong { color: var(--blue); font-weight: 600; }
 
-    /* DONACION */
+    /* DONACIÓN */
     .donacion { padding: 5rem 4rem; background: var(--blue-deep); text-align: center; }
     .donacion .section-tag { color: rgba(255,255,255,0.5); }
     .donacion h2 { font-family: 'Merriweather', serif; font-size: 2.5rem; font-weight: 300; color: #fff; margin-bottom: 1rem; }
     .donacion h2 strong { font-weight: 700; }
     .donacion p { color: rgba(255,255,255,0.6); font-size: 0.92rem; font-weight: 300; margin-bottom: 3rem; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.8; }
     .donate-amounts { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
-    .amount-btn {
-      border: 1px solid rgba(255,255,255,0.25); background: transparent; color: rgba(255,255,255,0.8);
-      padding: 0.75rem 1.5rem; font-size: 0.88rem; cursor: pointer; font-family: 'Inter', sans-serif;
-      transition: all 0.3s;
-    }
+    .amount-btn { border: 1px solid rgba(255,255,255,0.25); background: transparent; color: rgba(255,255,255,0.8); padding: 0.75rem 1.5rem; font-size: 0.88rem; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.3s; }
     .amount-btn.active, .amount-btn:hover { background: var(--red); border-color: var(--red); color: #fff; }
-    .btn-donate {
-      background: var(--red); color: #fff; border: none;
-      padding: 1rem 3rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase; cursor: pointer; font-family: 'Inter', sans-serif;
-      transition: background 0.3s;
-    }
+    .btn-donate { background: var(--red); color: #fff; border: none; padding: 1rem 3rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.3s; }
     .btn-donate:hover { background: #b5271e; }
 
     footer { background: #070f1c; padding: 3rem 4rem; }
     .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem; }
-    .footer-brand .footer-logo { font-family: 'Merriweather', serif; font-size: 1.1rem; color: #fff; font-weight: 700; margin-bottom: 0.75rem; display: block; }
+    .footer-brand .footer-logo-text { font-family: 'Merriweather', serif; font-size: 1.05rem; color: #fff; font-weight: 700; margin-bottom: 0.75rem; display: block; }
     .footer-brand p { font-size: 0.8rem; color: rgba(255,255,255,0.4); font-weight: 300; line-height: 1.7; }
     .footer-col h4 { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1rem; font-weight: 600; }
     .footer-col a { display: block; color: rgba(255,255,255,0.55); font-size: 0.82rem; text-decoration: none; margin-bottom: 0.5rem; font-weight: 300; }
@@ -184,21 +139,21 @@
 <body>
 
   <div class="topbar">
-    <p>Fundación Horizonte · CUIT 30-71456823-7 · Personería jurídica otorgada</p>
+    <p>Fundación Horizonte Bolivia · NIT 1023456789 · Personería jurídica Nº 187/2010</p>
     <a href="#">Transparencia y reportes →</a>
   </div>
 
   <nav>
     <a href="#" class="nav-brand">
       <div class="nav-emblem">H</div>
-      <div class="nav-brand-text">
-        <span class="nav-brand-name">Fundación Horizonte</span>
-        <span class="nav-brand-tagline">Por una educación sin barreras</span>
+      <div>
+        <div class="nav-brand-name">Fundación Horizonte</div>
+        <div class="nav-brand-tagline">Por una educación sin barreras en Bolivia</div>
       </div>
     </a>
     <ul class="nav-links">
       <li><a href="#">Quiénes somos</a></li>
-      <li><a href="#">Programas</a></li>
+      <li><a href="#programas">Programas</a></li>
       <li><a href="#">Impacto</a></li>
       <li><a href="#">Novedades</a></li>
       <li><a href="#">Contacto</a></li>
@@ -208,9 +163,9 @@
 
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-badge">Desde 2010 transformando vidas</div>
+      <div class="hero-badge">Desde 2010 transformando vidas en Bolivia</div>
       <h1>Educación de calidad para quienes <em>más lo necesitan.</em></h1>
-      <p class="hero-p">Trabajamos para que ningún niño o joven quede fuera del sistema educativo por razones económicas, geográficas o sociales. Porque el futuro empieza en el aula.</p>
+      <p class="hero-p">Trabajamos en los nueve departamentos de Bolivia para que ningún niño o joven quede fuera del sistema educativo por razones económicas, geográficas o sociales.</p>
       <div class="hero-actions">
         <a href="#donacion" class="btn-white">Quiero donar</a>
         <a href="#programas" class="btn-outline-white">Ver programas</a>
@@ -218,16 +173,16 @@
     </div>
     <div class="hero-impact">
       <div class="impact-cell">
-        <span class="impact-num">18.400</span>
+        <span class="impact-num">12.800</span>
         <span class="impact-label">Niños beneficiados</span>
       </div>
       <div class="impact-cell">
-        <span class="impact-num">247</span>
+        <span class="impact-num">180</span>
         <span class="impact-label">Escuelas aliadas</span>
       </div>
       <div class="impact-cell">
-        <span class="impact-num">14</span>
-        <span class="impact-label">Provincias activas</span>
+        <span class="impact-num">9/9</span>
+        <span class="impact-label">Departamentos activos</span>
       </div>
     </div>
   </section>
@@ -235,43 +190,29 @@
   <section class="mision">
     <div class="mision-text">
       <span class="section-tag">Nuestra misión</span>
-      <h2>Creemos en la educación como derecho fundamental, no como privilegio.</h2>
-      <p>La Fundación Horizonte nació en 2010 con el convencimiento de que la educación es la herramienta más poderosa para transformar la realidad. Desde entonces no paramos de crecer.</p>
-      <p>Trabajamos en tres ejes principales: acceso, permanencia y calidad educativa, siempre con foco en las comunidades más vulneradas del país.</p>
+      <h2>Creemos en la educación como derecho, no como privilegio.</h2>
+      <p>La Fundación Horizonte nació en La Paz en 2010 con el convencimiento de que la educación es la herramienta más poderosa para transformar la realidad de Bolivia. Desde entonces trabajamos sin parar.</p>
+      <p>Nuestro enfoque: acceso, permanencia y calidad educativa en las comunidades más vulneradas del país, con especial atención al área rural y las comunidades indígenas.</p>
       <div class="values-list">
         <div class="value-item">
           <div class="value-icon">✓</div>
-          <div class="value-text">
-            <h4>Transparencia total</h4>
-            <p>Publicamos todos nuestros estados financieros y reportes de impacto anualmente.</p>
-          </div>
+          <div class="value-text"><h4>Transparencia total</h4><p>Publicamos estados financieros y reportes de impacto con auditoría externa anual.</p></div>
         </div>
         <div class="value-item">
           <div class="value-icon">✓</div>
-          <div class="value-text">
-            <h4>Enfoque territorial</h4>
-            <p>Trabajamos con organizaciones locales para entender cada realidad en profundidad.</p>
-          </div>
+          <div class="value-text"><h4>Enfoque territorial</h4><p>Trabajamos con organizaciones comunitarias locales en cada región de Bolivia.</p></div>
         </div>
         <div class="value-item">
           <div class="value-icon">✓</div>
-          <div class="value-text">
-            <h4>Impacto medible</h4>
-            <p>Evaluamos constantemente nuestros programas para mejorar y rendir cuentas.</p>
-          </div>
+          <div class="value-text"><h4>Impacto medible</h4><p>Evaluamos constantemente con indicadores claros para rendir cuentas a donantes y beneficiarios.</p></div>
         </div>
       </div>
     </div>
     <div class="mision-visual">
-      <div class="mision-quote">
-        <blockquote>"Ver a un chico que creía que el secundario no era para él terminar la escuela y entrar a la universidad... eso no tiene precio."</blockquote>
-        <cite>— Lucía Torres, coordinadora regional de Tucumán</cite>
-      </div>
-      <div class="mision-stats-mini">
-        <div class="mini-stats">
-          <div><span class="mini-stat-num">94%</span><span class="mini-stat-label">Tasa de egreso en programas propios</span></div>
-          <div><span class="mini-stat-num">$1 de cada $10</span><span class="mini-stat-label">Donados va directo al beneficiario</span></div>
-        </div>
+      <img src="https://picsum.photos/seed/bolivian-children-school/700/700" alt="Niños bolivianos en clase" loading="lazy">
+      <div class="mision-visual-overlay">
+        <blockquote>"Ver a un chico de una comunidad del altiplano terminar el bachillerato y entrar a la universidad... eso no tiene precio."</blockquote>
+        <cite>— Lucía Quispe, coordinadora regional de Oruro</cite>
       </div>
     </div>
   </section>
@@ -280,52 +221,67 @@
     <div class="programas-header">
       <span class="section-tag">Líneas de acción</span>
       <h2>Nuestros programas</h2>
-      <p>Intervenciones diseñadas con evidencia, implementadas con compromiso y evaluadas con rigor.</p>
+      <p>Intervenciones diseñadas con evidencia, implementadas en comunidades bolivianas y evaluadas con rigor.</p>
     </div>
     <div class="programas-grid">
       <div class="programa-card">
-        <span class="programa-icon">📚</span>
-        <h3>Becas de permanencia</h3>
-        <p>Apoyo económico mensual para que los jóvenes en situación de vulnerabilidad puedan continuar sus estudios secundarios sin necesidad de trabajar.</p>
-        <a href="#" class="programa-link">Conocer el programa →</a>
-        <div class="programa-beneficiarios"><strong>4.200 jóvenes</strong> becados actualmente</div>
+        <div class="programa-card-img">
+          <img src="https://picsum.photos/seed/student-scholarship/600/300" alt="Becas de permanencia" loading="lazy">
+        </div>
+        <div class="programa-card-body">
+          <span class="programa-icon">📚</span>
+          <h3>Becas de permanencia</h3>
+          <p>Apoyo económico mensual para que jóvenes bolivianos en situación de vulnerabilidad puedan continuar el bachillerato sin necesidad de trabajar.</p>
+          <a href="#" class="programa-link">Conocer el programa →</a>
+          <div class="programa-beneficiarios"><strong>3.400 jóvenes</strong> becados actualmente en Bolivia</div>
+        </div>
       </div>
       <div class="programa-card">
-        <span class="programa-icon">💻</span>
-        <h3>Conectividad educativa</h3>
-        <p>Entrega de dispositivos y conectividad para estudiantes de zonas rurales y periurbanas donde el acceso a la educación digital sigue siendo una barrera real.</p>
-        <a href="#" class="programa-link">Conocer el programa →</a>
-        <div class="programa-beneficiarios"><strong>8.100 dispositivos</strong> entregados desde 2020</div>
+        <div class="programa-card-img">
+          <img src="https://picsum.photos/seed/laptop-education-rural/600/300" alt="Conectividad educativa" loading="lazy">
+        </div>
+        <div class="programa-card-body">
+          <span class="programa-icon">💻</span>
+          <h3>Conectividad educativa</h3>
+          <p>Entrega de tablets y conectividad satelital para estudiantes de zonas rurales del Beni, Pando, Potosí y el Chaco boliviano.</p>
+          <a href="#" class="programa-link">Conocer el programa →</a>
+          <div class="programa-beneficiarios"><strong>5.200 dispositivos</strong> entregados desde 2021</div>
+        </div>
       </div>
       <div class="programa-card">
-        <span class="programa-icon">🏫</span>
-        <h3>Infraestructura escolar</h3>
-        <p>Refacción, equipamiento y mantenimiento de escuelas rurales y de frontera que cuentan con escasos recursos para garantizar condiciones dignas de aprendizaje.</p>
-        <a href="#" class="programa-link">Conocer el programa →</a>
-        <div class="programa-beneficiarios"><strong>62 escuelas</strong> refaccionadas en 2024</div>
+        <div class="programa-card-img">
+          <img src="https://picsum.photos/seed/school-construction-africa/600/300" alt="Infraestructura escolar" loading="lazy">
+        </div>
+        <div class="programa-card-body">
+          <span class="programa-icon">🏫</span>
+          <h3>Infraestructura escolar</h3>
+          <p>Refacción y equipamiento de unidades educativas rurales en Bolivia que carecen de condiciones mínimas para el aprendizaje.</p>
+          <a href="#" class="programa-link">Conocer el programa →</a>
+          <div class="programa-beneficiarios"><strong>48 escuelas</strong> refaccionadas en 2024</div>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="donacion" id="donacion">
     <span class="section-tag">Sumate</span>
-    <h2><strong>Tu donación</strong> cambia una historia.</h2>
-    <p>El 87% de cada donación va directamente a los programas. El resto cubre administración y costos operativos. Siempre con transparencia.</p>
+    <h2><strong>Tu donación</strong> cambia una historia en Bolivia.</h2>
+    <p>El 88% de cada donación va directamente a los programas. Aceptamos transferencias en bolivianos y dólares. Con transparencia total.</p>
     <div class="donate-amounts">
-      <button class="amount-btn">$1.000</button>
-      <button class="amount-btn active">$2.500</button>
-      <button class="amount-btn">$5.000</button>
-      <button class="amount-btn">$10.000</button>
+      <button class="amount-btn">Bs. 50</button>
+      <button class="amount-btn active">Bs. 100</button>
+      <button class="amount-btn">Bs. 200</button>
+      <button class="amount-btn">Bs. 500</button>
       <button class="amount-btn">Otro monto</button>
     </div>
-    <button class="btn-donate">Donar $2.500 / mes</button>
+    <button class="btn-donate">Donar Bs. 100 / mes</button>
   </section>
 
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <span class="footer-logo">Fundación Horizonte</span>
-        <p>Trabajando desde 2010 para garantizar que la educación sea un derecho real para todos los chicos de Argentina.</p>
+        <span class="footer-logo-text">Fundación Horizonte</span>
+        <p>Trabajando desde 2010 en los 9 departamentos de Bolivia para que la educación sea un derecho real para todos los niños y jóvenes del país.</p>
       </div>
       <div class="footer-col">
         <h4>Organización</h4>
@@ -343,13 +299,13 @@
       </div>
       <div class="footer-col">
         <h4>Contacto</h4>
-        <a href="#">info@horizonte.org.ar</a>
-        <a href="#">+54 11 4555-2020</a>
-        <a href="#">Av. del Libertador 4200<br>Buenos Aires</a>
+        <a href="#">info@horizonte.org.bo</a>
+        <a href="#">+591 2 244-5500</a>
+        <a href="#">Av. 6 de Agosto 2340<br>La Paz, Bolivia</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Fundación Horizonte. Todos los derechos reservados.</p>
+      <p>&copy; 2025 Fundación Horizonte Bolivia. Todos los derechos reservados.</p>
       <div class="footer-credit">
         Diseñado y desarrollado por <a href="#">TLD Studio.</a>
       </div>
