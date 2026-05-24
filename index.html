@@ -444,151 +444,139 @@
             letter-spacing: 0.06em;
         }
 
-        /* Grid principal: featured arriba + 3 columnas abajo */
-        .port-featured {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
         .port-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+            gap: 2px;
         }
 
         /* Cards */
-        .port-card { position: relative; overflow: hidden; cursor: pointer; }
-        a.port-card { display: block; text-decoration: none; color: inherit; }
+        .port-card { position: relative; overflow: hidden; }
+        a.port-card { display: block; text-decoration: none; color: inherit; cursor: pointer; }
 
         .card-img {
             width: 100%;
+            aspect-ratio: 4 / 3;
             position: relative;
             overflow: hidden;
+            background: var(--surface);
         }
-        .card-img.tall   { aspect-ratio: 3 / 2; }
-        .card-img.square { aspect-ratio: 1 / 1; }
-        .card-img.short  { aspect-ratio: 4 / 3; }
 
-        /* Fondos de placeholder */
+        /* Fondos claros por proyecto */
         .card-ph {
             position: absolute;
             inset: 0;
-            overflow: hidden;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-        .port-card:hover .card-ph { transform: scale(1.04); }
+        a.port-card:hover .card-ph { transform: scale(1.03); }
 
-        /* Patrón geométrico decorativo en cada card */
-        .card-ph::before {
-            content: '';
+        /* Etiqueta central en cada placeholder */
+        .card-ph-label {
             position: absolute;
-            inset: 0;
-            background-image: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.06) 0%, transparent 60%);
+            bottom: 1.25rem;
+            left: 1.25rem;
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            letter-spacing: -0.02em;
+            color: rgba(12,12,11,0.12);
+            pointer-events: none;
+            user-select: none;
         }
-        .card-ph .ph-line {
+
+        /* Línea decorativa */
+        .card-ph-line {
             position: absolute;
-            background: rgba(255,255,255,0.06);
+            bottom: 0; left: 0; right: 0;
+            height: 2px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.45s var(--ease);
         }
-        .card-ph .ph-line.h { height: 1px; width: 60%; top: 45%; left: 20%; }
-        .card-ph .ph-line.v { width: 1px; height: 50%; top: 25%; left: 50%; }
-        .card-ph .ph-circle {
-            position: absolute;
-            border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.08);
-        }
+        a.port-card:hover .card-ph-line { transform: scaleX(1); }
 
         /* Overlay hover */
         .card-hover {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(12,12,11,0.88) 0%, rgba(12,12,11,0.2) 60%, transparent 100%);
+            background: rgba(12,12,11,0.72);
             opacity: 0;
             display: flex;
-            align-items: flex-end;
+            flex-direction: column;
+            justify-content: flex-end;
             padding: 1.5rem;
-            transition: opacity 0.4s;
+            transition: opacity 0.35s;
         }
-        .port-card:hover .card-hover { opacity: 1; }
+        a.port-card:hover .card-hover { opacity: 1; }
 
         .hover-text {
-            opacity: 0;
-            transform: translateY(8px);
-            transition: opacity 0.3s 0.07s, transform 0.3s 0.07s var(--ease);
+            transform: translateY(6px);
+            transition: transform 0.3s 0.05s var(--ease);
         }
-        .port-card:hover .hover-text { opacity: 1; transform: none; }
+        a.port-card:hover .hover-text { transform: none; }
+
         .hover-text h3 {
             font-family: var(--serif);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--white);
             letter-spacing: -0.02em;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.2rem;
         }
         .hover-text p {
-            font-size: 0.65rem;
+            font-size: 0.63rem;
             font-weight: 300;
-            color: rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.55);
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }
-
-        /* Badge "Ver proyecto" */
-        .hover-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            margin-top: 0.6rem;
+        .hover-arrow {
+            margin-top: 0.75rem;
             font-size: 0.65rem;
             font-weight: 500;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--amber);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
         }
-        .hover-badge::after {
-            content: '→';
+        .hover-arrow span {
+            display: inline-block;
             transition: transform 0.2s;
         }
-        .port-card:hover .hover-badge::after { transform: translateX(3px); }
+        a.port-card:hover .hover-arrow span { transform: translateX(4px); }
 
-        /* Meta bajo la card */
+        /* Meta */
         .card-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 0.75rem;
+            padding: 0.85rem 0 1.5rem;
+            border-bottom: 1px solid var(--border);
         }
         .card-title {
             font-family: var(--serif);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: var(--black);
             letter-spacing: -0.01em;
         }
         .card-cat {
-            font-size: 0.63rem;
+            font-size: 0.62rem;
             font-weight: 400;
             color: var(--muted);
             letter-spacing: 0.07em;
             text-transform: uppercase;
         }
-        .card-tag-demo {
+        .card-live {
             font-size: 0.6rem;
             font-weight: 500;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--amber);
-            border: 1px solid var(--amber);
-            padding: 0.15rem 0.5rem;
-            border-radius: 2px;
-            opacity: 0.75;
+            color: #5A8A5A;
         }
 
-        @media (max-width: 900px) {
-            .port-featured { grid-template-columns: 1fr; }
-            .port-grid { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 600px) {
-            .port-grid { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 900px) { .port-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 600px) { .port-grid { grid-template-columns: 1fr; } }
 
         /* ── About ── */
         #about { background: var(--black); color: var(--white); }
@@ -919,159 +907,133 @@
         <span class="port-note">Demo = concepto · Live = proyecto real</span>
     </div>
 
-    <!-- Fila destacada -->
-    <div class="port-featured">
+    <div class="port-grid">
 
-        <!-- SOMOS — proyecto real, card grande -->
+        <!-- SOMOS — proyecto real -->
         <a class="port-card reveal" href="https://tol3do21.github.io/somos-specialty-coffee-web/" target="_blank" rel="noopener noreferrer">
-            <div class="card-img tall">
-                <div class="card-ph" style="background:#2C1E14;">
-                    <div class="ph-circle" style="width:280px;height:280px;top:-60px;right:-60px;"></div>
-                    <div class="ph-circle" style="width:160px;height:160px;bottom:40px;left:40px;"></div>
-                    <div class="ph-line h" style="top:55%;width:70%;left:15%;"></div>
+            <div class="card-img">
+                <div class="card-ph" style="background:#EDE3D4;">
+                    <span class="card-ph-label">SOMOS</span>
+                    <div class="card-ph-line" style="background:var(--amber);"></div>
                 </div>
                 <div class="card-hover">
                     <div class="hover-text">
                         <h3>SOMOS Specialty Coffee</h3>
                         <p>Landing Page · Sucre, Bolivia</p>
-                        <div class="hover-badge">Ver proyecto</div>
+                        <div class="hover-arrow">Ver proyecto <span>→</span></div>
                     </div>
                 </div>
             </div>
             <div class="card-meta">
                 <span class="card-title">SOMOS Specialty Coffee</span>
-                <span class="card-cat">Live · Landing Page</span>
+                <span class="card-live">● Live</span>
             </div>
         </a>
 
-        <!-- La Pausa — mockup -->
+        <!-- La Pausa -->
         <a class="port-card reveal" href="mockups/cafeteria.html" target="_blank" rel="noopener noreferrer">
-            <div class="card-img tall">
-                <div class="card-ph" style="background:#3D2314;">
-                    <div class="ph-circle" style="width:200px;height:200px;top:-40px;left:-40px;"></div>
-                    <div class="ph-line h" style="top:60%;"></div>
-                    <div class="ph-line v"></div>
+            <div class="card-img">
+                <div class="card-ph" style="background:#F5EDD8;">
+                    <span class="card-ph-label">La Pausa</span>
+                    <div class="card-ph-line" style="background:#8B5E3C;"></div>
                 </div>
                 <div class="card-hover">
                     <div class="hover-text">
                         <h3>La Pausa</h3>
-                        <p>Café & Bakery · Sucre, Bolivia</p>
-                        <div class="hover-badge">Ver demo</div>
+                        <p>Café & Bakery · Sucre</p>
+                        <div class="hover-arrow">Ver demo <span>→</span></div>
                     </div>
                 </div>
             </div>
             <div class="card-meta">
                 <span class="card-title">La Pausa — Café</span>
-                <span class="card-tag-demo">Demo</span>
+                <span class="card-cat">Demo</span>
             </div>
         </a>
 
-    </div>
-
-    <!-- Grilla 3 columnas -->
-    <div class="port-grid">
-
         <!-- Raíces -->
         <a class="port-card reveal" href="mockups/restaurante.html" target="_blank" rel="noopener noreferrer">
-            <div class="card-img short">
-                <div class="card-ph" style="background:#1E3A2F;">
-                    <div class="ph-circle" style="width:180px;height:180px;bottom:-30px;right:-30px;"></div>
-                    <div class="ph-line h" style="top:40%;"></div>
+            <div class="card-img">
+                <div class="card-ph" style="background:#DDE8E3;">
+                    <span class="card-ph-label">Raíces</span>
+                    <div class="card-ph-line" style="background:#2D5040;"></div>
                 </div>
                 <div class="card-hover">
                     <div class="hover-text">
                         <h3>Raíces</h3>
                         <p>Restaurante · Cochabamba</p>
-                        <div class="hover-badge">Ver demo</div>
+                        <div class="hover-arrow">Ver demo <span>→</span></div>
                     </div>
                 </div>
             </div>
             <div class="card-meta">
                 <span class="card-title">Raíces — Restaurante</span>
-                <span class="card-tag-demo">Demo</span>
+                <span class="card-cat">Demo</span>
             </div>
         </a>
 
         <!-- Gran Vista -->
         <a class="port-card reveal" href="mockups/hotel.html" target="_blank" rel="noopener noreferrer">
-            <div class="card-img short">
-                <div class="card-ph" style="background:#1A2535;">
-                    <div class="ph-circle" style="width:220px;height:220px;top:-60px;right:-40px;"></div>
-                    <div class="ph-circle" style="width:80px;height:80px;bottom:30px;left:30px;"></div>
-                    <div class="ph-line h"></div>
+            <div class="card-img">
+                <div class="card-ph" style="background:#DDE3EC;">
+                    <span class="card-ph-label">Gran Vista</span>
+                    <div class="card-ph-line" style="background:#2A3F5F;"></div>
                 </div>
                 <div class="card-hover">
                     <div class="hover-text">
                         <h3>Gran Vista</h3>
                         <p>Hotel & Spa · Salar de Uyuni</p>
-                        <div class="hover-badge">Ver demo</div>
+                        <div class="hover-arrow">Ver demo <span>→</span></div>
                     </div>
                 </div>
             </div>
             <div class="card-meta">
                 <span class="card-title">Gran Vista — Hotel</span>
-                <span class="card-tag-demo">Demo</span>
+                <span class="card-cat">Demo</span>
             </div>
         </a>
 
         <!-- Vertex -->
         <a class="port-card reveal" href="mockups/arquitectura.html" target="_blank" rel="noopener noreferrer">
-            <div class="card-img short">
-                <div class="card-ph" style="background:#1C1C1A;">
-                    <div class="ph-line h" style="top:35%;width:50%;left:25%;"></div>
-                    <div class="ph-line h" style="top:55%;width:30%;left:35%;"></div>
-                    <div class="ph-line v" style="left:35%;height:40%;top:30%;"></div>
-                    <div class="ph-line v" style="left:65%;height:40%;top:30%;"></div>
+            <div class="card-img">
+                <div class="card-ph" style="background:#E8E8E5;">
+                    <span class="card-ph-label">Vertex</span>
+                    <div class="card-ph-line" style="background:#333330;"></div>
                 </div>
                 <div class="card-hover">
                     <div class="hover-text">
                         <h3>Vertex</h3>
                         <p>Arquitectura · Santa Cruz</p>
-                        <div class="hover-badge">Ver demo</div>
+                        <div class="hover-arrow">Ver demo <span>→</span></div>
                     </div>
                 </div>
             </div>
             <div class="card-meta">
                 <span class="card-title">Vertex — Arquitectura</span>
-                <span class="card-tag-demo">Demo</span>
+                <span class="card-cat">Demo</span>
             </div>
         </a>
 
         <!-- Fundación Horizonte -->
         <a class="port-card reveal" href="mockups/institucional.html" target="_blank" rel="noopener noreferrer">
-            <div class="card-img short">
-                <div class="card-ph" style="background:#1F2D3D;">
-                    <div class="ph-circle" style="width:160px;height:160px;top:20px;right:20px;"></div>
-                    <div class="ph-line h" style="top:70%;width:55%;left:10%;"></div>
+            <div class="card-img">
+                <div class="card-ph" style="background:#E2E8F0;">
+                    <span class="card-ph-label">Horizonte</span>
+                    <div class="card-ph-line" style="background:#1A3C6B;"></div>
                 </div>
                 <div class="card-hover">
                     <div class="hover-text">
                         <h3>Fundación Horizonte</h3>
                         <p>Institucional · Bolivia</p>
-                        <div class="hover-badge">Ver demo</div>
+                        <div class="hover-arrow">Ver demo <span>→</span></div>
                     </div>
                 </div>
             </div>
             <div class="card-meta">
                 <span class="card-title">Fundación Horizonte</span>
-                <span class="card-tag-demo">Demo</span>
+                <span class="card-cat">Demo</span>
             </div>
         </a>
-
-        <!-- Fitness Center — próximamente -->
-        <div class="port-card reveal" style="cursor:default; grid-column: span 2;">
-            <div class="card-img" style="aspect-ratio: 16/5;">
-                <div class="card-ph" style="background:#111110; display:flex; align-items:center; justify-content:center; gap:1.5rem;">
-                    <span style="font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(250,250,248,0.2);">Próximo proyecto</span>
-                    <span style="width:30px;height:1px;background:rgba(200,137,58,0.3);display:inline-block;"></span>
-                    <span style="font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(200,137,58,0.4);">Fitness Center — Sucre</span>
-                </div>
-            </div>
-            <div class="card-meta">
-                <span class="card-title" style="color:var(--muted)">Fitness Center</span>
-                <span class="card-cat">En desarrollo</span>
-            </div>
-        </div>
 
     </div>
 </section>
