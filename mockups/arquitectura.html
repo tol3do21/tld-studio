@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vertex — Estudio de Arquitectura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --black: #0C0C0C;
+      --near-black: #141414;
+      --dark: #1E1E1E;
+      --mid: #3A3A3A;
+      --gray: #888888;
+      --light-gray: #CCCCCC;
+      --border: #E8E8E8;
+      --white: #FFFFFF;
+      --off-white: #F8F8F6;
+      --orange: #E05A1E;
+    }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--white); color: var(--black); }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.75rem 5rem;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em;
+      color: var(--black); text-decoration: none;
+    }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      color: var(--mid); text-decoration: none; font-size: 0.85rem; font-weight: 400;
+      letter-spacing: -0.01em; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--black); }
+    .nav-contact {
+      font-size: 0.82rem; font-weight: 600; color: var(--black); text-decoration: none;
+      border-bottom: 1.5px solid var(--orange); padding-bottom: 1px;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+      background: var(--black); padding-top: 80px;
+    }
+    .hero-left {
+      padding: 5rem;
+      display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 5rem;
+    }
+    .hero-num {
+      font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .hero-num::after { content: ''; flex: 1; height: 1px; background: var(--mid); }
+    .hero h1 {
+      font-size: clamp(3rem, 5vw, 5rem);
+      font-weight: 700; line-height: 0.95; letter-spacing: -0.04em;
+      color: var(--white); margin-bottom: 2rem;
+    }
+    .hero h1 .light { font-weight: 300; color: var(--gray); }
+    .hero-desc { color: var(--gray); font-size: 0.9rem; font-weight: 300; line-height: 1.8; max-width: 380px; margin-bottom: 3rem; }
+    .hero-cta { display: flex; gap: 1.5rem; align-items: center; }
+    .btn-orange {
+      background: var(--orange); color: var(--white);
+      padding: 0.9rem 2rem; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+      letter-spacing: -0.01em; transition: background 0.3s; display: inline-block;
+    }
+    .btn-orange:hover { background: #c94d15; }
+    .btn-text { color: var(--gray); font-size: 0.82rem; text-decoration: none; font-weight: 400; }
+    .btn-text:hover { color: var(--white); }
+    .hero-right { background: linear-gradient(160deg, #1a1a1a 0%, #0a0a0a 50%, #111 100%); position: relative; overflow: hidden; }
+    .hero-right::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23333' stroke-width='0.5'%3E%3Cpath d='M0 0 L40 40 M40 0 L0 40'/%3E%3C/g%3E%3C/svg%3E") repeat;
+      opacity: 0.3;
+    }
+    .hero-right-label {
+      position: absolute; bottom: 3rem; left: 3rem;
+      color: var(--gray); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .hero-counter {
+      position: absolute; top: 3rem; right: 3rem;
+      text-align: right; color: var(--gray);
+    }
+    .hero-counter .big { display: block; font-size: 4rem; font-weight: 700; color: rgba(255,255,255,0.06); line-height: 1; }
+    .hero-counter .small { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; }
+
+    /* WORKS */
+    .works { padding: 7rem 5rem; }
+    .works-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
+    .works-header h2 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.03em; }
+    .works-header a { font-size: 0.82rem; color: var(--gray); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 2px; }
+    .works-header a:hover { color: var(--black); border-color: var(--black); }
+    .works-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+    .work-item { background: var(--white); cursor: pointer; }
+    .work-img {
+      aspect-ratio: 4/3; position: relative; overflow: hidden;
+    }
+    .work-item:nth-child(1) .work-img { background: linear-gradient(145deg, #1a1a1a, #2d2d2d); }
+    .work-item:nth-child(2) .work-img { background: linear-gradient(145deg, #242424, #181818); }
+    .work-item:nth-child(3) .work-img { background: linear-gradient(145deg, #2a2a2a, #151515); }
+    .work-item:nth-child(4) .work-img { background: linear-gradient(145deg, #1e1e1e, #333); }
+    .work-item:nth-child(5) .work-img { background: linear-gradient(145deg, #222, #1a1a1a); }
+    .work-item:nth-child(6) .work-img { background: linear-gradient(145deg, #282828, #141414); }
+    .work-img::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to top, rgba(12,12,12,0.8), transparent 50%);
+    }
+    .work-img-num {
+      position: absolute; top: 1.25rem; left: 1.25rem; z-index: 2;
+      font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4);
+    }
+    .work-img-label {
+      position: absolute; bottom: 1.25rem; left: 1.25rem; right: 1.25rem; z-index: 2;
+      color: rgba(255,255,255,0.8); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+    }
+    .work-body { padding: 1.5rem; border-top: 1px solid var(--border); }
+    .work-name { font-size: 1rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.25rem; }
+    .work-meta { font-size: 0.78rem; color: var(--gray); font-weight: 300; }
+
+    /* NOSOTROS */
+    .nosotros {
+      background: var(--off-white); padding: 7rem 5rem;
+      display: grid; grid-template-columns: 1fr 2fr; gap: 6rem; align-items: start;
+    }
+    .nosotros-left h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; }
+    .nosotros-left h2 span { color: var(--gray); font-weight: 300; }
+    .nosotros-right {}
+    .nosotros-lead { font-size: 1.1rem; font-weight: 300; line-height: 1.8; color: var(--mid); margin-bottom: 2rem; }
+    .nosotros-body { font-size: 0.9rem; color: var(--gray); line-height: 1.9; font-weight: 300; margin-bottom: 2rem; }
+    .nosotros-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: var(--black); }
+    .n-stat { padding: 2rem 1.5rem; border-right: 1px solid var(--dark); }
+    .n-stat:last-child { border-right: none; }
+    .n-stat-num { font-size: 2rem; font-weight: 700; color: var(--white); display: block; margin-bottom: 0.25rem; letter-spacing: -0.04em; }
+    .n-stat-num span { font-size: 1rem; color: var(--orange); }
+    .n-stat-label { font-size: 0.75rem; color: var(--gray); font-weight: 300; }
+
+    /* SERVICIOS */
+    .servicios { padding: 7rem 5rem; }
+    .servicios-header { margin-bottom: 4rem; }
+    .servicios-header h2 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.03em; }
+    .servicios-list { display: grid; grid-template-columns: 1fr; gap: 0; }
+    .servicio-item {
+      display: grid; grid-template-columns: 60px 1fr 1fr auto;
+      align-items: center; gap: 3rem;
+      padding: 2rem 0; border-bottom: 1px solid var(--border);
+      cursor: pointer; transition: background 0.2s;
+    }
+    .servicio-item:first-child { border-top: 1px solid var(--border); }
+    .servicio-num { font-size: 0.72rem; letter-spacing: 0.15em; color: var(--gray); font-weight: 300; }
+    .servicio-name { font-size: 1.2rem; font-weight: 600; letter-spacing: -0.02em; }
+    .servicio-desc { font-size: 0.85rem; color: var(--gray); font-weight: 300; line-height: 1.6; }
+    .servicio-arrow { font-size: 1.2rem; color: var(--light-gray); transition: color 0.2s, transform 0.2s; }
+    .servicio-item:hover .servicio-arrow { color: var(--orange); transform: translateX(4px); }
+    .servicio-item:hover .servicio-name { color: var(--orange); }
+
+    /* CONTACTO */
+    .contacto {
+      background: var(--black); padding: 7rem 5rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+    }
+    .contacto-text {}
+    .contacto-text h2 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.04em; color: var(--white); line-height: 1.15; margin-bottom: 1.5rem; }
+    .contacto-text h2 span { color: var(--gray); font-weight: 300; }
+    .contacto-text p { color: var(--gray); font-size: 0.9rem; line-height: 1.8; font-weight: 300; margin-bottom: 2.5rem; }
+    .contacto-data { display: flex; flex-direction: column; gap: 1rem; }
+    .data-item { display: flex; gap: 1rem; align-items: center; }
+    .data-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); width: 80px; flex-shrink: 0; }
+    .data-value { color: var(--light-gray); font-size: 0.88rem; font-weight: 400; }
+    .contacto-form {}
+    .form-field { margin-bottom: 1.5rem; }
+    .form-field label { display: block; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.6rem; font-weight: 500; }
+    .form-field input, .form-field textarea {
+      width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--dark);
+      color: var(--white); font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; padding: 0.75rem 0;
+      outline: none; transition: border-color 0.2s; resize: none;
+    }
+    .form-field input:focus, .form-field textarea:focus { border-color: var(--orange); }
+    .form-field input::placeholder, .form-field textarea::placeholder { color: var(--mid); }
+
+    footer { background: var(--near-black); padding: 2rem 5rem; border-top: 1px solid var(--dark); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo-sm { font-size: 0.9rem; font-weight: 700; color: var(--white); }
+    .footer-logo-sm span { color: var(--orange); }
+    footer p { font-size: 0.75rem; color: var(--gray); font-weight: 300; }
+    .footer-credit a { color: var(--gray); text-decoration: none; }
+    .footer-credit a:hover { color: var(--white); }
+
+    @media (max-width: 900px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 5rem 1.5rem 3rem; }
+      .hero-right { min-height: 300px; }
+      .works { padding: 4rem 1.5rem; }
+      .works-grid { grid-template-columns: 1fr; }
+      .nosotros { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2rem; }
+      .nosotros-stats { grid-template-columns: 1fr; }
+      .n-stat { border-right: none; border-bottom: 1px solid var(--dark); }
+      .servicios { padding: 4rem 1.5rem; }
+      .servicio-item { grid-template-columns: auto 1fr auto; gap: 1rem; }
+      .servicio-desc { display: none; }
+      .contacto { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
+      footer { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="nav-logo">Vertex<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#works">Proyectos</a></li>
+      <li><a href="#nosotros">Estudio</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#contacto" class="nav-contact">Hablemos →</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-num">Estudio de arquitectura · Buenos Aires</p>
+      <h1>Diseñamos <span class="light">lo que<br>otros</span> imaginan.</h1>
+      <p class="hero-desc">Proyectos residenciales, comerciales e institucionales con una sola premisa: que el espacio construido mejore la vida de quienes lo habitan.</p>
+      <div class="hero-cta">
+        <a href="#works" class="btn-orange">Ver proyectos</a>
+        <a href="#contacto" class="btn-text">Trabajemos juntos →</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-counter">
+        <span class="big">15</span>
+        <span class="small">Años de experiencia</span>
+      </div>
+      <div class="hero-right-label">Proyecto seleccionado: Casa Bosque · 2024</div>
+    </div>
+  </section>
+
+  <section class="works" id="works">
+    <div class="works-header">
+      <h2>Proyectos seleccionados</h2>
+      <a href="#">Ver todos los proyectos →</a>
+    </div>
+    <div class="works-grid">
+      <div class="work-item">
+        <div class="work-img">
+          <span class="work-img-num">01 / 2024</span>
+          <span class="work-img-label">Residencial</span>
+        </div>
+        <div class="work-body">
+          <div class="work-name">Casa Bosque</div>
+          <div class="work-meta">Nordelta, Buenos Aires · 380 m²</div>
+        </div>
+      </div>
+      <div class="work-item">
+        <div class="work-img">
+          <span class="work-img-num">02 / 2024</span>
+          <span class="work-img-label">Comercial</span>
+        </div>
+        <div class="work-body">
+          <div class="work-name">Showroom Basso</div>
+          <div class="work-meta">Palermo, CABA · 520 m²</div>
+        </div>
+      </div>
+      <div class="work-item">
+        <div class="work-img">
+          <span class="work-img-num">03 / 2023</span>
+          <span class="work-img-label">Corporativo</span>
+        </div>
+        <div class="work-body">
+          <div class="work-name">Oficinas Meridian</div>
+          <div class="work-meta">Microcentro, CABA · 1.200 m²</div>
+        </div>
+      </div>
+      <div class="work-item">
+        <div class="work-img">
+          <span class="work-img-num">04 / 2023</span>
+          <span class="work-img-label">Residencial</span>
+        </div>
+        <div class="work-body">
+          <div class="work-name">Apartamento Reconquista</div>
+          <div class="work-meta">Puerto Madero, CABA · 180 m²</div>
+        </div>
+      </div>
+      <div class="work-item">
+        <div class="work-img">
+          <span class="work-img-num">05 / 2022</span>
+          <span class="work-img-label">Hostelería</span>
+        </div>
+        <div class="work-body">
+          <div class="work-name">Hotel Lapacho</div>
+          <div class="work-meta">Salta · 2.400 m²</div>
+        </div>
+      </div>
+      <div class="work-item">
+        <div class="work-img">
+          <span class="work-img-num">06 / 2022</span>
+          <span class="work-img-label">Cultural</span>
+        </div>
+        <div class="work-body">
+          <div class="work-name">Centro Cultural Raíz</div>
+          <div class="work-meta">Mendoza · 960 m²</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nosotros" id="nosotros">
+    <div class="nosotros-left">
+      <h2>Un estudio construido <span>sobre ideas.</span></h2>
+    </div>
+    <div class="nosotros-right">
+      <p class="nosotros-lead">Vertex nació en 2010 como la unión de tres arquitectos con una visión compartida: que el diseño de calidad no debería ser exclusivo de presupuestos millonarios.</p>
+      <p class="nosotros-body">Trabajamos en proyectos de escala variada, desde intervenciones de interiores hasta edificios completos. En todos los casos el proceso es el mismo: escuchar, entender el programa, y proponer algo que dure más que las modas.</p>
+      <p class="nosotros-body">Colaboramos con ingenieros, paisajistas, iluminadores y artistas. Creemos en los equipos multidisciplinarios y en la obra como resultado de una conversación amplia.</p>
+      <div class="nosotros-stats">
+        <div class="n-stat">
+          <span class="n-stat-num">84<span>+</span></span>
+          <span class="n-stat-label">Proyectos realizados</span>
+        </div>
+        <div class="n-stat">
+          <span class="n-stat-num">15</span>
+          <span class="n-stat-label">Años de trayectoria</span>
+        </div>
+        <div class="n-stat">
+          <span class="n-stat-num">3<span> premios</span></span>
+          <span class="n-stat-label">Bienal de Arquitectura</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="servicios" id="servicios">
+    <div class="servicios-header">
+      <h2>Servicios</h2>
+    </div>
+    <div class="servicios-list">
+      <div class="servicio-item">
+        <span class="servicio-num">01</span>
+        <span class="servicio-name">Arquitectura residencial</span>
+        <span class="servicio-desc">Casas y apartamentos de todas las escalas. Diseño, documentación y dirección de obra.</span>
+        <span class="servicio-arrow">→</span>
+      </div>
+      <div class="servicio-item">
+        <span class="servicio-num">02</span>
+        <span class="servicio-name">Arquitectura comercial</span>
+        <span class="servicio-desc">Locales, oficinas, hoteles y espacios de trabajo. Foco en la experiencia del usuario final.</span>
+        <span class="servicio-arrow">→</span>
+      </div>
+      <div class="servicio-item">
+        <span class="servicio-num">03</span>
+        <span class="servicio-name">Interiorismo</span>
+        <span class="servicio-desc">Proyectos de ambientación, selección de materiales y mobiliario a medida.</span>
+        <span class="servicio-arrow">→</span>
+      </div>
+      <div class="servicio-item">
+        <span class="servicio-num">04</span>
+        <span class="servicio-name">Consultoría y asesoría</span>
+        <span class="servicio-desc">Revisión de proyectos, pre-factibilidad y optimización de espacios construidos.</span>
+        <span class="servicio-arrow">→</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="contacto" id="contacto">
+    <div class="contacto-text">
+      <h2>¿Tenés un proyecto <span>en mente?</span></h2>
+      <p>Contanos de qué se trata. Respondemos en menos de 24 horas hábiles y la primera consulta no tiene costo.</p>
+      <div class="contacto-data">
+        <div class="data-item">
+          <span class="data-label">Email</span>
+          <span class="data-value">hola@vertexarq.com.ar</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Teléfono</span>
+          <span class="data-value">+54 11 4320-8800</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Estudio</span>
+          <span class="data-value">Armenia 1457, Palermo · CABA</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Horario</span>
+          <span class="data-value">Lunes a Viernes · 9:00 — 18:00</span>
+        </div>
+      </div>
+    </div>
+    <div class="contacto-form">
+      <div class="form-field">
+        <label>Nombre completo</label>
+        <input type="text" placeholder="Tu nombre">
+      </div>
+      <div class="form-field">
+        <label>Email</label>
+        <input type="email" placeholder="tu@email.com">
+      </div>
+      <div class="form-field">
+        <label>Tipo de proyecto</label>
+        <input type="text" placeholder="Ej. Casa en terreno propio, local comercial...">
+      </div>
+      <div class="form-field">
+        <label>Mensaje</label>
+        <textarea rows="3" placeholder="Contanos brevemente de qué se trata..."></textarea>
+      </div>
+      <button type="button" style="background:var(--orange);color:#fff;border:none;padding:0.9rem 2rem;font-family:'Space Grotesk',sans-serif;font-size:0.82rem;font-weight:600;cursor:pointer;letter-spacing:-0.01em;width:100%;">Enviar mensaje →</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo-sm">Vertex<span>.</span></span>
+      <p>&copy; 2025 Vertex Arquitectura. Armenia 1457, CABA.</p>
+      <p class="footer-credit">Diseñado y desarrollado por <a href="#">TLD Studio.</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

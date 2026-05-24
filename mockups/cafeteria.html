@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Pausa — Café & Bakery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --cream: #F5EDD8;
+      --cream-dark: #EDE2C8;
+      --coffee: #3D2314;
+      --medium: #7A5230;
+      --light: #FAF7F0;
+      --red: #B8432F;
+      --gray: #8A7A6A;
+    }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; background: var(--light); color: var(--coffee); }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 4rem;
+      background: var(--cream); border-bottom: 1px solid var(--cream-dark);
+    }
+    .nav-logo {
+      font-family: 'Lora', serif; font-size: 1.5rem; font-style: italic;
+      color: var(--coffee); text-decoration: none; font-weight: 500;
+    }
+    .nav-logo span { font-style: normal; font-weight: 400; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--medium); text-decoration: none;
+      font-size: 0.85rem; font-weight: 400; transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--coffee); }
+    .nav-tag {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em;
+      color: var(--red); border: 1.5px solid var(--red); padding: 0.45rem 1.2rem;
+      text-transform: uppercase;
+    }
+
+    /* HERO */
+    .hero {
+      display: grid; grid-template-columns: 1fr 1fr; min-height: 90vh;
+    }
+    .hero-text {
+      background: var(--cream);
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 6rem 5rem 6rem 6rem;
+    }
+    .hero-label {
+      font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--medium); margin-bottom: 1.5rem; font-weight: 600;
+    }
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      line-height: 1.2; margin-bottom: 1.5rem; font-weight: 400;
+    }
+    .hero h1 em { font-style: italic; color: var(--medium); }
+    .hero-p { color: var(--gray); line-height: 1.8; font-size: 0.95rem; font-weight: 300; margin-bottom: 2.5rem; }
+    .hero-actions { display: flex; gap: 1rem; align-items: center; }
+    .btn-fill {
+      background: var(--coffee); color: var(--cream);
+      padding: 0.9rem 2rem; font-size: 0.82rem; letter-spacing: 0.08em;
+      text-transform: uppercase; font-weight: 600; text-decoration: none; display: inline-block;
+      transition: background 0.3s;
+    }
+    .btn-fill:hover { background: var(--medium); }
+    .btn-link {
+      font-size: 0.82rem; color: var(--medium); text-decoration: none;
+      border-bottom: 1px solid var(--medium); padding-bottom: 2px;
+    }
+    .hero-visual {
+      background: linear-gradient(145deg, #5a3420 0%, #7a4a2a 40%, #6b3d22 70%, #4a2810 100%);
+      position: relative; overflow: hidden;
+    }
+    .hero-visual::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 30% 60%, rgba(245,237,216,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 75% 30%, rgba(245,237,216,0.05) 0%, transparent 40%);
+    }
+    .hero-visual-quote {
+      position: absolute; bottom: 3rem; left: 3rem; right: 3rem;
+      background: rgba(245,237,216,0.12); backdrop-filter: blur(4px);
+      padding: 1.5rem; border-left: 2px solid var(--cream-dark);
+    }
+    .hero-visual-quote p {
+      font-family: 'Lora', serif; font-style: italic; color: var(--cream);
+      font-size: 1rem; line-height: 1.6;
+    }
+    .hero-visual-quote span { display: block; font-style: normal; font-size: 0.75rem; color: var(--cream-dark); margin-top: 0.5rem; }
+
+    /* ABOUT */
+    .about {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      background: var(--light);
+    }
+    .about-visual {
+      background: linear-gradient(155deg, #c4a46a 0%, #b8924e 50%, #a07a3a 100%);
+      min-height: 480px; position: relative;
+    }
+    .about-visual::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to right, transparent 60%, var(--light));
+    }
+    .about-text { padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center; }
+    .about-text .section-tag { color: var(--medium); font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 600; }
+    .about-text h2 {
+      font-family: 'Lora', serif; font-size: 2rem; font-weight: 400; line-height: 1.3; margin-bottom: 1.5rem;
+    }
+    .about-text p { color: var(--gray); line-height: 1.8; font-size: 0.9rem; font-weight: 300; margin-bottom: 1rem; }
+    .about-stats { display: flex; gap: 2.5rem; margin-top: 2rem; }
+    .stat-num {
+      font-family: 'Lora', serif; font-size: 2rem; font-weight: 500; color: var(--coffee); display: block;
+    }
+    .stat-label { font-size: 0.75rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.1em; }
+
+    /* MENU */
+    .menu { padding: 6rem 4rem; background: var(--cream); }
+    .menu .section-header { text-align: center; margin-bottom: 4rem; }
+    .menu .section-tag { color: var(--red); font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1rem; display: block; font-weight: 600; }
+    .menu .section-header h2 { font-family: 'Lora', serif; font-size: 2.5rem; font-weight: 400; }
+    .menu-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+    .menu-card { background: var(--light); padding: 2rem 1.5rem; border-bottom: 3px solid transparent; transition: border-color 0.3s; }
+    .menu-card:hover { border-color: var(--red); }
+    .menu-icon { font-size: 2rem; margin-bottom: 1.25rem; display: block; }
+    .menu-card h4 { font-family: 'Lora', serif; font-size: 1.1rem; margin-bottom: 0.5rem; font-weight: 500; }
+    .menu-card p { font-size: 0.82rem; color: var(--gray); line-height: 1.6; margin-bottom: 1rem; font-weight: 300; }
+    .menu-price { font-family: 'Lora', serif; font-size: 1.25rem; color: var(--coffee); }
+
+    /* HORARIOS */
+    .hours { padding: 5rem 4rem; display: flex; gap: 4rem; justify-content: center; align-items: flex-start; flex-wrap: wrap; }
+    .hours-block h3 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 1.5rem; }
+    .hours-row { display: flex; justify-content: space-between; gap: 3rem; padding: 0.75rem 0; border-bottom: 1px solid var(--cream-dark); font-size: 0.88rem; }
+    .hours-day { color: var(--gray); font-weight: 300; }
+    .hours-time { font-weight: 500; }
+    .location-block { max-width: 280px; }
+    .location-block h3 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 1.5rem; }
+    .location-block p { color: var(--gray); font-size: 0.88rem; line-height: 1.8; font-weight: 300; }
+    .location-block a { color: var(--red); font-size: 0.82rem; font-weight: 600; text-decoration: none; }
+
+    footer { background: var(--coffee); color: rgba(245,237,216,0.6); padding: 3rem 4rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Lora', serif; font-style: italic; font-size: 1.25rem; color: var(--cream); }
+    footer p { font-size: 0.8rem; font-weight: 300; }
+    .footer-credit { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(245,237,216,0.1); text-align: center; font-size: 0.72rem; }
+    .footer-credit a { color: var(--cream-dark); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-text { padding: 5rem 2rem 3rem; }
+      .hero-visual { min-height: 40vh; }
+      .about { grid-template-columns: 1fr; }
+      .about-visual { min-height: 250px; }
+      .about-text { padding: 3rem 1.5rem; }
+      .menu { padding: 4rem 1.5rem; }
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
+      .hours { padding: 3rem 1.5rem; flex-direction: column; gap: 3rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="nav-logo"><em>La Pausa</em></a>
+    <ul class="nav-links">
+      <li><a href="#">Menú</a></li>
+      <li><a href="#">Nuestra historia</a></li>
+      <li><a href="#">Pedidos</a></li>
+      <li><a href="#">Horarios</a></li>
+    </ul>
+    <span class="nav-tag">Abrir hasta 20:00</span>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-text">
+      <p class="hero-label">Café de especialidad · Rosario, Santa Fe</p>
+      <h1>El café que<br>te merece<br><em>una pausa.</em></h1>
+      <p class="hero-p">
+        Granos seleccionados, tostado propio y recetas pensadas para acompañar los momentos que importan. Desde 2019 siendo tu rincón favorito.
+      </p>
+      <div class="hero-actions">
+        <a href="#menu" class="btn-fill">Ver menú completo</a>
+        <a href="#horarios" class="btn-link">Cómo llegarnos</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-quote">
+        <p>"El mejor café de la ciudad, sin dudas. Un lugar al que volvés siempre."</p>
+        <span>— Sofía M., cliente fiel desde 2020</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-visual"></div>
+    <div class="about-text">
+      <p class="section-tag">Nuestra historia</p>
+      <h2>Nacimos de una obsesión<br>por el café bien hecho.</h2>
+      <p>Empezamos en 2019 con un local pequeño, una máquina italiana y muchas ganas. Hoy tostamos nuestros propios granos, formamos a nuestro equipo en técnicas de especialidad y cuidamos cada detalle de tu taza.</p>
+      <p>El producto cambia de temporada, las recetas evolucionan, pero la filosofía es siempre la misma: tomarse el tiempo necesario para hacerlo bien.</p>
+      <div class="about-stats">
+        <div>
+          <span class="stat-num">6+</span>
+          <span class="stat-label">Años sirviendo</span>
+        </div>
+        <div>
+          <span class="stat-num">12</span>
+          <span class="stat-label">Variedades de origen</span>
+        </div>
+        <div>
+          <span class="stat-num">4.9</span>
+          <span class="stat-label">Calificación Google</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="section-header">
+      <span class="section-tag">Lo que más pedís</span>
+      <h2>Favoritos de la casa</h2>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <span class="menu-icon">☕</span>
+        <h4>Flat White</h4>
+        <p>Doble ristretto con leche texturizada. Intenso y sedoso, sin nada que sobre.</p>
+        <div class="menu-price">$1.800</div>
+      </div>
+      <div class="menu-card">
+        <span class="menu-icon">🥐</span>
+        <h4>Croissant de manteca</h4>
+        <p>Elaboración propia, horneado cada mañana. Hojaldrado, dorado y perfecto.</p>
+        <div class="menu-price">$2.400</div>
+      </div>
+      <div class="menu-card">
+        <span class="menu-icon">🍵</span>
+        <h4>Matcha Latte</h4>
+        <p>Ceremonial grade japonés, leche de avena y toque de vainilla natural.</p>
+        <div class="menu-price">$2.600</div>
+      </div>
+      <div class="menu-card">
+        <span class="menu-icon">🍰</span>
+        <h4>Tarta de limón</h4>
+        <p>Base de masa sablé, curd de limón de estación y merengue tostado.</p>
+        <div class="menu-price">$3.200</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hours" id="horarios">
+    <div class="hours-block">
+      <h3>Horarios de atención</h3>
+      <div class="hours-row"><span class="hours-day">Lunes a Viernes</span><span class="hours-time">8:00 — 20:00</span></div>
+      <div class="hours-row"><span class="hours-day">Sábados</span><span class="hours-time">9:00 — 20:00</span></div>
+      <div class="hours-row"><span class="hours-day">Domingos</span><span class="hours-time">10:00 — 18:00</span></div>
+      <div class="hours-row"><span class="hours-day">Feriados</span><span class="hours-time">10:00 — 17:00</span></div>
+    </div>
+    <div class="location-block">
+      <h3>Dónde encontrarnos</h3>
+      <p>Córdoba 1240, Rosario<br>Santa Fe, Argentina</p>
+      <br>
+      <p>@lapausacafe<br>hola@lapausacafe.com.ar</p>
+      <br>
+      <a href="#">Ver en Google Maps →</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">La Pausa</span>
+      <p>Córdoba 1240, Rosario · +54 341 555-0192</p>
+    </div>
+    <div class="footer-credit">
+      Diseñado y desarrollado por <a href="#">TLD Studio.</a> &copy; 2025
+    </div>
+  </footer>
+
+</body>
+</html>

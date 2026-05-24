@@ -739,6 +739,16 @@
         @media (max-width: 480px) {
             .hero-h1 { font-size: 2.2rem; }
         }
+
+        /* ── Portfolio — mockup cards ── */
+        .ph-hotel { background: #0A1628; }
+        .ph-cafe  { background: #F2E8D4; }
+        .ph-rest  { background: #1A3228; }
+        .ph-inst  { background: #EBF2FB; }
+        .ph-arq   { background: #111111; }
+
+        .port-card--wide { grid-column: 1 / -1; }
+        .port-card--wide .card-img { aspect-ratio: 21 / 8; }
     </style>
 </head>
 <body>
@@ -859,6 +869,93 @@
                 <span class="card-cat">Landing Page</span>
             </div>
         </a>
+
+        <!-- Grand Vista Hotel -->
+        <a class="port-card reveal" href="mockups/hotel.html" target="_blank" rel="noopener noreferrer">
+            <div class="card-img">
+                <div class="card-ph ph-hotel">
+                    <div class="ph-shape rect" style="border-color:rgba(201,168,76,0.25);width:38%;height:52%;top:24%;left:12%;transform:rotate(-3deg);"></div>
+                    <div class="ph-shape rect" style="border-color:rgba(201,168,76,0.12);width:26%;height:38%;top:32%;right:14%;transform:rotate(6deg);"></div>
+                </div>
+                <div class="card-hover">
+                    <div class="hover-text"><h3>Grand Vista Hotel</h3><p>Hotel & Spa · Concepto</p></div>
+                </div>
+            </div>
+            <div class="card-meta">
+                <span class="card-title">Grand Vista Hotel</span>
+                <span class="card-cat">Hotelería</span>
+            </div>
+        </a>
+
+        <!-- La Pausa Café -->
+        <a class="port-card reveal" href="mockups/cafeteria.html" target="_blank" rel="noopener noreferrer">
+            <div class="card-img">
+                <div class="card-ph ph-cafe">
+                    <div class="ph-shape circ" style="border-color:rgba(61,35,20,0.15);width:40%;height:52%;top:24%;left:14%;"></div>
+                    <div class="ph-shape circ" style="border-color:rgba(61,35,20,0.09);width:32%;height:44%;top:30%;right:16%;"></div>
+                </div>
+                <div class="card-hover">
+                    <div class="hover-text"><h3>La Pausa Café</h3><p>Café & Bakery · Concepto</p></div>
+                </div>
+            </div>
+            <div class="card-meta">
+                <span class="card-title">La Pausa Café</span>
+                <span class="card-cat">Cafetería</span>
+            </div>
+        </a>
+
+        <!-- Raíces Restaurante -->
+        <a class="port-card reveal" href="mockups/restaurante.html" target="_blank" rel="noopener noreferrer">
+            <div class="card-img">
+                <div class="card-ph ph-rest">
+                    <div class="ph-shape rect" style="border-color:rgba(196,114,58,0.3);width:44%;height:55%;top:22%;left:28%;transform:rotate(7deg);"></div>
+                    <div class="ph-shape circ" style="border-color:rgba(237,232,224,0.1);width:22%;height:30%;top:56%;left:10%;transform:none;"></div>
+                </div>
+                <div class="card-hover">
+                    <div class="hover-text"><h3>Raíces</h3><p>Restaurante gourmet · Concepto</p></div>
+                </div>
+            </div>
+            <div class="card-meta">
+                <span class="card-title">Raíces</span>
+                <span class="card-cat">Restaurante</span>
+            </div>
+        </a>
+
+        <!-- Fundación Horizonte -->
+        <a class="port-card reveal" href="mockups/institucional.html" target="_blank" rel="noopener noreferrer">
+            <div class="card-img">
+                <div class="card-ph ph-inst">
+                    <div class="ph-shape rect" style="border-color:rgba(26,60,107,0.14);width:50%;height:28%;top:22%;left:25%;transform:none;border-radius:2px;"></div>
+                    <div class="ph-shape rect" style="border-color:rgba(26,60,107,0.09);width:36%;height:18%;top:60%;left:32%;transform:none;border-radius:1px;"></div>
+                </div>
+                <div class="card-hover">
+                    <div class="hover-text"><h3>Fundación Horizonte</h3><p>ONG / Institucional · Concepto</p></div>
+                </div>
+            </div>
+            <div class="card-meta">
+                <span class="card-title">Fundación Horizonte</span>
+                <span class="card-cat">Institucional</span>
+            </div>
+        </a>
+
+        <!-- Vertex Arquitectos — card destacada full-width -->
+        <a class="port-card port-card--wide reveal" href="mockups/arquitectura.html" target="_blank" rel="noopener noreferrer">
+            <div class="card-img">
+                <div class="card-ph ph-arq" style="display:flex;align-items:center;justify-content:center;">
+                    <span style="font-family:var(--serif);font-style:italic;font-size:clamp(2rem,5vw,4.5rem);color:rgba(255,255,255,0.045);letter-spacing:-0.04em;user-select:none;pointer-events:none;">Vertex Arquitectos</span>
+                    <div class="ph-shape rect" style="border-color:rgba(255,255,255,0.06);width:10%;height:75%;top:12%;left:4%;transform:none;"></div>
+                    <div class="ph-shape rect" style="border-color:rgba(224,90,30,0.18);width:8%;height:60%;top:20%;right:6%;transform:none;"></div>
+                </div>
+                <div class="card-hover">
+                    <div class="hover-text"><h3>Vertex Arquitectos</h3><p>Estudio de arquitectura · Concepto</p></div>
+                </div>
+            </div>
+            <div class="card-meta">
+                <span class="card-title">Vertex Arquitectos</span>
+                <span class="card-cat">Arquitectura</span>
+            </div>
+        </a>
+
     </div>
 </section>
 

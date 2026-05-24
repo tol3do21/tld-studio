@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raíces — Restaurante</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --green: #1E3A2F;
+      --green-deep: #0F1F18;
+      --green-mid: #2D5040;
+      --offwhite: #EDE8E0;
+      --light: #F5F2EC;
+      --terra: #C4723A;
+      --terra-light: #E0986A;
+      --gray: #8A8274;
+    }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--light); color: var(--green); }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 5rem;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 400;
+      letter-spacing: 0.08em; color: var(--offwhite); text-decoration: none;
+    }
+    .nav-center { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-center a {
+      color: rgba(237,232,224,0.7); text-decoration: none;
+      font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 300;
+      transition: color 0.3s;
+    }
+    .nav-center a:hover { color: var(--offwhite); }
+    .nav-btn {
+      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500;
+      color: var(--terra); text-decoration: none; border: 1px solid var(--terra);
+      padding: 0.6rem 1.5rem; transition: all 0.3s;
+    }
+    .nav-btn:hover { background: var(--terra); color: var(--offwhite); }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(165deg, var(--green-deep) 0%, var(--green) 50%, var(--green-mid) 100%);
+      display: flex; align-items: flex-end; padding: 0 5rem 7rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(ellipse at 10% 90%, rgba(196,114,58,0.12) 0%, transparent 50%),
+                        radial-gradient(ellipse at 90% 10%, rgba(196,114,58,0.06) 0%, transparent 40%);
+    }
+    .hero-content { position: relative; max-width: 700px; }
+    .hero-award {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      background: rgba(196,114,58,0.15); border: 1px solid rgba(196,114,58,0.3);
+      padding: 0.4rem 1rem; margin-bottom: 2rem;
+      color: var(--terra-light); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      font-weight: 400; line-height: 1; color: var(--offwhite); margin-bottom: 1.5rem;
+    }
+    .hero h1 span { display: block; font-style: italic; color: var(--terra-light); }
+    .hero-sub {
+      color: rgba(237,232,224,0.6); font-size: 0.95rem; font-weight: 300; line-height: 1.8;
+      max-width: 480px; margin-bottom: 3rem;
+    }
+    .hero-actions { display: flex; gap: 1.5rem; align-items: center; }
+    .btn-terra {
+      background: var(--terra); color: var(--offwhite);
+      padding: 1rem 2.5rem; font-size: 0.78rem; letter-spacing: 0.12em;
+      text-transform: uppercase; font-weight: 500; text-decoration: none; display: inline-block;
+      transition: background 0.3s;
+    }
+    .btn-terra:hover { background: var(--terra-light); }
+    .btn-ghost-light {
+      color: rgba(237,232,224,0.7); font-size: 0.78rem; letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+      border-bottom: 1px solid rgba(237,232,224,0.3); padding-bottom: 2px;
+    }
+
+    /* STORY */
+    .story {
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
+    .story-text { background: var(--light); padding: 6rem 5rem; }
+    .story-text .section-tag { color: var(--terra); font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; display: block; margin-bottom: 1.5rem; }
+    .story-text h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; line-height: 1.2; margin-bottom: 1.5rem; }
+    .story-text p { color: var(--gray); line-height: 1.9; font-size: 0.92rem; font-weight: 300; margin-bottom: 1rem; }
+    .chef-tag {
+      display: flex; align-items: center; gap: 1rem; margin-top: 2.5rem;
+      padding-top: 2rem; border-top: 1px solid #ddd;
+    }
+    .chef-avatar {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--green), var(--green-mid));
+      flex-shrink: 0;
+    }
+    .chef-name { font-weight: 500; font-size: 0.9rem; }
+    .chef-title { font-size: 0.78rem; color: var(--gray); font-weight: 300; }
+
+    .story-visual {
+      background: linear-gradient(145deg, #2d5040 0%, #1e3a2f 40%, #162c24 100%);
+      position: relative; min-height: 550px;
+    }
+    .story-visual-card {
+      position: absolute; bottom: 3rem; right: -1.5rem;
+      background: var(--offwhite); padding: 1.5rem 2rem; max-width: 240px;
+    }
+    .story-visual-card p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.95rem; line-height: 1.6; color: var(--green); }
+    .story-visual-card span { font-size: 0.72rem; color: var(--gray); display: block; margin-top: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* MENU */
+    .menu { padding: 7rem 5rem; background: var(--green); }
+    .menu-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
+    .menu-header .section-tag { color: var(--terra-light); font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; display: block; margin-bottom: 1rem; }
+    .menu-header h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; color: var(--offwhite); }
+    .menu-header a { color: var(--terra-light); font-size: 0.78rem; text-decoration: none; border-bottom: 1px solid var(--terra); padding-bottom: 2px; }
+    .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .menu-item {
+      padding: 2rem 0; border-bottom: 1px solid rgba(237,232,224,0.12);
+      display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-start: start;
+    }
+    .menu-item:nth-child(odd) { padding-right: 4rem; }
+    .menu-item:nth-child(even) { padding-left: 4rem; border-left: 1px solid rgba(237,232,224,0.12); }
+    .menu-item-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--offwhite); margin-bottom: 0.4rem; font-weight: 400; }
+    .menu-item-desc { font-size: 0.8rem; color: rgba(237,232,224,0.5); font-weight: 300; line-height: 1.6; }
+    .menu-item-price { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terra-light); white-space: nowrap; }
+    .menu-badge {
+      display: inline-block; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--terra); color: var(--offwhite); padding: 0.15rem 0.5rem; margin-left: 0.5rem; vertical-align: middle;
+    }
+
+    /* RESERVAS */
+    .reservas { padding: 6rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .reservas-text .section-tag { color: var(--terra); font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; display: block; margin-bottom: 1.5rem; }
+    .reservas-text h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; margin-bottom: 1.5rem; line-height: 1.2; }
+    .reservas-text p { color: var(--gray); line-height: 1.8; font-size: 0.9rem; font-weight: 300; margin-bottom: 2rem; }
+    .reservas-info { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .info-block { border-left: 2px solid var(--terra); padding-left: 1rem; }
+    .info-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.25rem; }
+    .info-value { font-family: 'Playfair Display', serif; font-size: 1rem; }
+    .reservas-form { background: var(--offwhite); padding: 2.5rem; }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label { display: block; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.5rem; font-weight: 500; }
+    .form-group input, .form-group select {
+      width: 100%; border: none; border-bottom: 1px solid #ccc; background: transparent;
+      padding: 0.75rem 0; font-size: 0.9rem; font-family: 'DM Sans', sans-serif; color: var(--green);
+      outline: none; transition: border-color 0.3s;
+    }
+    .form-group input:focus, .form-group select:focus { border-color: var(--terra); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+    footer { background: var(--green-deep); padding: 3rem 5rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--offwhite); font-weight: 400; }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { color: rgba(237,232,224,0.5); text-decoration: none; font-size: 0.8rem; }
+    .footer-credit { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(237,232,224,0.08); text-align: center; font-size: 0.72rem; color: rgba(237,232,224,0.35); }
+    .footer-credit a { color: var(--terra-light); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .nav-center { display: none; }
+      .hero { padding: 0 1.5rem 5rem; align-items: flex-end; }
+      .story { grid-template-columns: 1fr; }
+      .story-text { padding: 4rem 1.5rem; }
+      .story-visual { min-height: 300px; }
+      .story-visual-card { right: 1rem; bottom: 1rem; }
+      .menu { padding: 4rem 1.5rem; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .menu-item:nth-child(odd), .menu-item:nth-child(even) { padding: 1.5rem 0; border-left: none; }
+      .reservas { padding: 4rem 1.5rem; grid-template-columns: 1fr; gap: 2rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="nav-logo">Raíces</a>
+    <ul class="nav-center">
+      <li><a href="#">Historia</a></li>
+      <li><a href="#">Menú</a></li>
+      <li><a href="#">Vinos</a></li>
+      <li><a href="#">Eventos</a></li>
+    </ul>
+    <a href="#reservas" class="nav-btn">Reservar mesa</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-award">★ Mejor Restaurante — Guía Mendoza 2024</div>
+      <h1>Cocina de <span>temporada y tierra.</span></h1>
+      <p class="hero-sub">Productos de productores locales, técnicas contemporáneas y el sabor que sólo da la tierra mendocina. Una experiencia gastronómica que cambia con cada estación.</p>
+      <div class="hero-actions">
+        <a href="#reservas" class="btn-terra">Reservar mesa</a>
+        <a href="#menu" class="btn-ghost-light">Ver menú</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="story">
+    <div class="story-text">
+      <span class="section-tag">Nuestra filosofía</span>
+      <h2>El sabor empieza en la tierra, no en la cocina.</h2>
+      <p>Trabajamos directamente con más de quince productores de la región. Visitamos las fincas, conocemos las personas y entendemos las estaciones. Eso se refleja en cada plato.</p>
+      <p>El menú no es fijo: cambia según lo que el campo tiene para dar. Eso nos mantiene honestos, creativos y conectados con el territorio.</p>
+      <div class="chef-tag">
+        <div class="chef-avatar"></div>
+        <div>
+          <div class="chef-name">Chef Tomás Herrera</div>
+          <div class="chef-title">Formado en Buenos Aires · París · San Sebastián</div>
+        </div>
+      </div>
+    </div>
+    <div class="story-visual">
+      <div class="story-visual-card">
+        <p>"Cada plato es una conversación entre el cocinero y el productor."</p>
+        <span>Tomás Herrera</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="menu-header">
+      <div>
+        <span class="section-tag">Temporada Otoño 2025</span>
+        <h2>Menú de degustación</h2>
+      </div>
+      <a href="#">Ver carta completa →</a>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Burrata de campo con membrillo <span class="menu-badge">Veggie</span></div>
+          <div class="menu-item-desc">Queso de estancia local, membrillo artesanal, pistachos y reducción de aceto.</div>
+        </div>
+        <div class="menu-item-price">$4.800</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Ravioles de zapallo asado</div>
+          <div class="menu-item-desc">Relleno de zapallo cabutia, manteca de salvia y parmesano de 24 meses.</div>
+        </div>
+        <div class="menu-item-price">$6.200</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Cordero de Malargüe a baja temperatura</div>
+          <div class="menu-item-desc">12 horas de cocción, puré de zanahoria ahumada y chimichurri de hierbas.</div>
+        </div>
+        <div class="menu-item-price">$9.800</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Trucha de río con quinoa crujiente <span class="menu-badge">Chef rec.</span></div>
+          <div class="menu-item-desc">Trucha de los Andes, emulsión de limón de temporada y huevas de trucha.</div>
+        </div>
+        <div class="menu-item-price">$7.500</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Volcán de chocolate con helado de malbec</div>
+          <div class="menu-item-desc">Chocolate 70% con corazón líquido, helado de uva malbec de la bodega.</div>
+        </div>
+        <div class="menu-item-price">$3.600</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Tabla de quesos regionales</div>
+          <div class="menu-item-desc">Selección de 5 quesos artesanales con dulce de cayote, nueces y pan de campo.</div>
+        </div>
+        <div class="menu-item-price">$4.200</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reservas" id="reservas">
+    <div class="reservas-text">
+      <span class="section-tag">Reservaciones</span>
+      <h2>Reservá tu mesa con anticipación.</h2>
+      <p>Trabajamos con capacidad limitada para cuidar la experiencia de cada comensal. Recomendamos reservar con al menos 48 horas de anticipación.</p>
+      <div class="reservas-info">
+        <div class="info-block">
+          <div class="info-label">Martes a Domingo</div>
+          <div class="info-value">12:30 — 15:00 · 20:00 — 23:30</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Teléfono</div>
+          <div class="info-value">+54 261 430-2211</div>
+        </div>
+      </div>
+    </div>
+    <div class="reservas-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" placeholder="Tu nombre">
+        </div>
+        <div class="form-group">
+          <label>Personas</label>
+          <select><option>2 personas</option><option>3–4 personas</option><option>5–6 personas</option></select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Fecha</label>
+          <input type="date">
+        </div>
+        <div class="form-group">
+          <label>Turno</label>
+          <select><option>Mediodía (12:30)</option><option>Noche (20:00)</option></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Notas o alergias</label>
+        <input type="text" placeholder="Ej. celíacos, aniversario, etc.">
+      </div>
+      <button type="button" style="width:100%;background:var(--terra);color:var(--offwhite);border:none;padding:1rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;cursor:pointer;">Confirmar reserva</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">Raíces</span>
+      <div class="footer-links">
+        <a href="#">Menú</a>
+        <a href="#">Carta de vinos</a>
+        <a href="#">Eventos privados</a>
+        <a href="#">Contacto</a>
+      </div>
+    </div>
+    <div class="footer-credit">
+      Diseñado y desarrollado por <a href="#">TLD Studio.</a> &copy; 2025
+    </div>
+  </footer>
+
+</body>
+</html>

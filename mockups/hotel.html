@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grand Vista — Hotel & Spa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --navy: #0A1628;
+      --gold: #C9A84C;
+      --gold-light: #E8D5A3;
+      --cream: #FAFAF7;
+      --gray: #6B6B6B;
+    }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--navy); }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 4rem;
+      background: rgba(10,22,40,0.94);
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 400; letter-spacing: 0.12em;
+      color: var(--gold); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75); text-decoration: none;
+      font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 300;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-btn {
+      background: var(--gold); color: var(--navy);
+      padding: 0.6rem 1.8rem; font-size: 0.75rem; letter-spacing: 0.15em;
+      text-transform: uppercase; font-weight: 600; text-decoration: none;
+      transition: background 0.3s;
+    }
+    .nav-btn:hover { background: var(--gold-light); }
+
+    .hero {
+      height: 100vh;
+      background: linear-gradient(155deg, #060f1e 0%, #0e2240 45%, #162e52 75%, #0a1a35 100%);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(201,168,76,0.04) 0%, transparent 40%);
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 1rem;
+      color: var(--gold); font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .hero-tag::before, .hero-tag::after {
+      content: ''; display: block; width: 40px; height: 1px; background: var(--gold);
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 300; line-height: 1.1; color: #fff; margin-bottom: 1.5rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero p {
+      color: rgba(255,255,255,0.6); font-size: 1rem; font-weight: 300;
+      letter-spacing: 0.04em; max-width: 480px; margin: 0 auto 3rem; line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold); color: var(--navy);
+      padding: 1rem 2.5rem; font-size: 0.78rem; letter-spacing: 0.15em;
+      text-transform: uppercase; font-weight: 600; text-decoration: none;
+      transition: transform 0.3s; display: inline-block;
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: #fff;
+      padding: 1rem 2.5rem; font-size: 0.78rem; letter-spacing: 0.15em;
+      text-transform: uppercase; font-weight: 300;
+      border: 1px solid rgba(255,255,255,0.35); text-decoration: none; display: inline-block;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,0.35); font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
+      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+    }
+    .scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom, var(--gold), transparent); }
+
+    /* ROOMS */
+    .rooms { padding: 7rem 4rem; }
+    .section-header { text-align: center; margin-bottom: 4.5rem; }
+    .section-tag {
+      display: inline-block; color: var(--gold);
+      font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .section-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 400;
+    }
+    .rooms-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .room-card { cursor: pointer; }
+    .room-img {
+      height: 280px; position: relative; overflow: hidden;
+    }
+    .room-card:nth-child(1) .room-img { background: linear-gradient(140deg, #12284a 0%, #1c3d6e 60%, #243f6a 100%); }
+    .room-card:nth-child(2) .room-img { background: linear-gradient(140deg, #0f1f3a 0%, #182e56 60%, #1e3560 100%); }
+    .room-card:nth-child(3) .room-img { background: linear-gradient(140deg, #0b1a30 0%, #152440 60%, #1a2d50 100%); }
+    .room-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,22,40,0.5), transparent 60%);
+    }
+    .room-img-badge {
+      position: absolute; top: 1rem; right: 1rem; z-index: 1;
+      background: var(--gold); color: var(--navy); padding: 0.3rem 0.8rem;
+      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600;
+    }
+    .room-body { padding: 1.5rem 0; border-bottom: 1px solid #e8e8e8; }
+    .room-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 400; margin-bottom: 0.5rem;
+    }
+    .room-desc { color: var(--gray); font-size: 0.875rem; font-weight: 300; line-height: 1.6; margin-bottom: 1rem; }
+    .room-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; }
+    .room-price { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; }
+    .room-price span { font-size: 0.8rem; color: var(--gray); font-family: 'Jost', sans-serif; }
+    .btn-ghost {
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 2px;
+    }
+
+    /* AMENIDADES */
+    .amenities { background: var(--navy); padding: 7rem 4rem; text-align: center; }
+    .amenities .section-tag { color: var(--gold); display: block; margin-bottom: 1rem; }
+    .amenities h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: #fff; margin-bottom: 1rem;
+    }
+    .amenities > p { color: rgba(255,255,255,0.5); font-weight: 300; font-size: 0.9rem; margin-bottom: 4rem; }
+    .amenities-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+      max-width: 1000px; margin: 0 auto;
+    }
+    .amenity-item { color: rgba(255,255,255,0.8); }
+    .amenity-icon {
+      width: 52px; height: 52px; border: 1px solid rgba(201,168,76,0.35);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem; font-size: 1.3rem;
+    }
+    .amenity-item h4 { font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 0.5rem; font-weight: 500; }
+    .amenity-item p { font-size: 0.8rem; color: rgba(255,255,255,0.45); font-weight: 300; line-height: 1.6; }
+
+    /* CTA */
+    .cta-section { padding: 7rem 4rem; text-align: center; background: linear-gradient(135deg, #f5f0e8, #fafaf7); }
+    .cta-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 400; margin-bottom: 1rem;
+    }
+    .cta-section h2 em { font-style: italic; color: var(--gold); }
+    .cta-section p { color: var(--gray); margin-bottom: 2.5rem; font-weight: 300; font-size: 0.9rem; }
+
+    footer { background: #04090f; color: rgba(255,255,255,0.45); padding: 3rem 4rem; text-align: center; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold); margin-bottom: 1rem; display: block; }
+    footer p { font-size: 0.8rem; font-weight: 300; margin-bottom: 0.4rem; }
+    .footer-credit { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.72rem; }
+    .footer-credit a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .nav-links { display: none; }
+      .rooms { padding: 4rem 1.5rem; }
+      .rooms-grid { grid-template-columns: 1fr; }
+      .amenities { padding: 4rem 1.5rem; }
+      .amenities-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-section { padding: 4rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="nav-logo">Grand Vista</a>
+    <ul class="nav-links">
+      <li><a href="#habitaciones">Habitaciones</a></li>
+      <li><a href="#">Spa & Bienestar</a></li>
+      <li><a href="#">Gastronomía</a></li>
+      <li><a href="#">Eventos</a></li>
+    </ul>
+    <a href="#reservas" class="nav-btn">Reservar</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-tag">Patagonia, Argentina</p>
+      <h1>El lujo de <em>desconectarte</em><br>del mundo.</h1>
+      <p>Un refugio de montaña donde cada detalle fue pensado para que el tiempo se detenga y los sentidos despierten.</p>
+      <div class="hero-actions">
+        <a href="#reservas" class="btn-primary">Reservar ahora</a>
+        <a href="#habitaciones" class="btn-outline">Ver habitaciones</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Descubrir</span>
+    </div>
+  </section>
+
+  <section class="rooms" id="habitaciones">
+    <div class="section-header">
+      <span class="section-tag">Alojamiento</span>
+      <h2>Habitaciones & Suites</h2>
+    </div>
+    <div class="rooms-grid">
+      <div class="room-card">
+        <div class="room-img">
+          <span class="room-img-badge">Disponible</span>
+        </div>
+        <div class="room-body">
+          <h3 class="room-name">Habitación Superior</h3>
+          <p class="room-desc">Vista al lago, cama king size y bañera de inmersión con vista panorámica a la cordillera.</p>
+          <div class="room-footer">
+            <div class="room-price">$180 <span>/ noche</span></div>
+            <a href="#" class="btn-ghost">Ver detalles →</a>
+          </div>
+        </div>
+      </div>
+      <div class="room-card">
+        <div class="room-img"></div>
+        <div class="room-body">
+          <h3 class="room-name">Suite Montaña</h3>
+          <p class="room-desc">Suite de dos ambientes con terraza privada, chimenea a leña y mayordomo disponible.</p>
+          <div class="room-footer">
+            <div class="room-price">$320 <span>/ noche</span></div>
+            <a href="#" class="btn-ghost">Ver detalles →</a>
+          </div>
+        </div>
+      </div>
+      <div class="room-card">
+        <div class="room-img">
+          <span class="room-img-badge">Exclusiva</span>
+        </div>
+        <div class="room-body">
+          <h3 class="room-name">Villa Privada</h3>
+          <p class="room-desc">Casa independiente con piscina temperada, cocina completa y personal de servicio dedicado.</p>
+          <div class="room-footer">
+            <div class="room-price">$680 <span>/ noche</span></div>
+            <a href="#" class="btn-ghost">Ver detalles →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="amenities">
+    <span class="section-tag">Experiencias</span>
+    <h2>Todo lo que necesitás,<br>en un solo lugar.</h2>
+    <p>Servicios pensados para que tu estadía sea perfecta, del principio al final.</p>
+    <div class="amenities-grid">
+      <div class="amenity-item">
+        <div class="amenity-icon">◈</div>
+        <h4>Spa & Wellness</h4>
+        <p>Tratamientos de autor y masajes terapéuticos con productos naturales.</p>
+      </div>
+      <div class="amenity-item">
+        <div class="amenity-icon">◈</div>
+        <h4>Alta Gastronomía</h4>
+        <p>Restaurante con productos regionales de temporada y carta de vinos patagónicos.</p>
+      </div>
+      <div class="amenity-item">
+        <div class="amenity-icon">◈</div>
+        <h4>Aventura</h4>
+        <p>Trekking guiado, equitación y navegación exclusiva en el lago.</p>
+      </div>
+      <div class="amenity-item">
+        <div class="amenity-icon">◈</div>
+        <h4>Eventos & Bodas</h4>
+        <p>Salones y espacios al aire libre para celebraciones inolvidables.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="reservas">
+    <span class="section-tag">Reservas</span>
+    <h2>Tu próxima <em>escapada</em><br>comienza aquí.</h2>
+    <p>Disponibilidad limitada &nbsp;·&nbsp; Cancelación gratuita hasta 72 hs antes</p>
+    <a href="#" class="btn-primary">Consultar disponibilidad</a>
+  </section>
+
+  <footer>
+    <span class="footer-logo">Grand Vista</span>
+    <p>Ruta 40 Km 2340, Patagonia · Argentina</p>
+    <p>+54 294 456-7890 &nbsp;·&nbsp; reservas@grandvista.com.ar</p>
+    <div class="footer-credit">
+      Diseñado y desarrollado por <a href="#">TLD Studio.</a> &copy; 2025
+    </div>
+  </footer>
+
+</body>
+</html>
