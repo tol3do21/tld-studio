@@ -767,6 +767,178 @@
         }
         .footer-links a:hover { color: var(--black); }
 
+        /* ── Pricing ── */
+        #pricing { background: var(--surface); }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .pricing-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.3s var(--ease), box-shadow 0.3s;
+        }
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(12,12,11,0.08);
+        }
+        .pricing-card.featured {
+            background: var(--black);
+            border-color: var(--black);
+        }
+        .pricing-badge {
+            position: absolute;
+            top: -1px; right: 2rem;
+            background: var(--amber);
+            color: var(--white);
+            font-size: 0.58rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.75rem;
+        }
+        .pricing-name {
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 1.25rem;
+        }
+        .pricing-card.featured .pricing-name { color: rgba(255,255,255,0.45); }
+        .pricing-price {
+            font-family: var(--serif);
+            font-size: 3rem;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            color: var(--black);
+            margin-bottom: 0.3rem;
+        }
+        .pricing-card.featured .pricing-price { color: var(--white); }
+        .pricing-price sup {
+            font-family: var(--sans);
+            font-size: 1rem;
+            font-weight: 400;
+            vertical-align: super;
+            letter-spacing: 0;
+        }
+        .pricing-bs {
+            font-size: 0.72rem;
+            font-weight: 300;
+            color: var(--muted);
+            margin-bottom: 0.5rem;
+        }
+        .pricing-card.featured .pricing-bs { color: rgba(255,255,255,0.35); }
+        .pricing-delivery {
+            font-size: 0.68rem;
+            font-weight: 400;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .pricing-card.featured .pricing-delivery { color: rgba(255,255,255,0.35); border-color: rgba(255,255,255,0.1); }
+        .pricing-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+            margin-bottom: 2rem;
+        }
+        .pricing-features li {
+            font-size: 0.82rem;
+            font-weight: 300;
+            color: var(--text);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            line-height: 1.4;
+        }
+        .pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.75); }
+        .pricing-features li::before {
+            content: '';
+            display: inline-block;
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: var(--amber);
+            margin-top: 0.45rem;
+            flex-shrink: 0;
+        }
+        .pricing-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.9rem 1.5rem;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            border: 1px solid var(--black);
+            color: var(--black);
+            transition: background 0.25s, color 0.25s;
+        }
+        .pricing-cta:hover { background: var(--black); color: var(--white); }
+        .pricing-card.featured .pricing-cta {
+            background: var(--amber);
+            border-color: var(--amber);
+            color: var(--white);
+        }
+        .pricing-card.featured .pricing-cta:hover { background: #b57a30; border-color: #b57a30; }
+        .pricing-note {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.72rem;
+            font-weight: 300;
+            color: var(--muted);
+        }
+        @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; max-width: 400px; } }
+
+        /* ── WhatsApp flotante ── */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 56px; height: 56px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            z-index: 900;
+            transition: transform 0.3s var(--ease), box-shadow 0.3s;
+            text-decoration: none;
+        }
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 28px rgba(37,211,102,0.55);
+        }
+        .whatsapp-btn svg { width: 28px; height: 28px; fill: #fff; }
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 66px;
+            background: var(--black);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 400;
+            white-space: nowrap;
+            padding: 0.4rem 0.85rem;
+            border-radius: 4px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        .whatsapp-btn:hover .whatsapp-tooltip { opacity: 1; }
+
         /* ── Keyframes ── */
         @keyframes up { to { opacity: 1; transform: translateY(0); } }
         @keyframes tick { 0% { top: -100%; } 100% { top: 100%; } }
@@ -832,6 +1004,7 @@
 <div id="mobile-menu">
     <a href="#services" class="mm-link">Servicios</a>
     <a href="#portfolio" class="mm-link">Portafolio</a>
+    <a href="#pricing" class="mm-link">Precios</a>
     <a href="#about" class="mm-link">Nosotros</a>
     <a href="#contact" class="mm-link">Contacto</a>
 </div>
@@ -845,6 +1018,7 @@
     <ul class="nav-links">
         <li><a href="#services">Servicios</a></li>
         <li><a href="#portfolio">Portafolio</a></li>
+        <li><a href="#pricing">Precios</a></li>
         <li><a href="#about">Nosotros</a></li>
         <li><a href="#contact">Contacto</a></li>
     </ul>
@@ -1037,6 +1211,71 @@
     </div>
 </section>
 
+<!-- Pricing -->
+<section id="pricing">
+    <div class="label reveal">03 — Precios</div>
+    <div class="services-top">
+        <h2 class="services-h2 reveal">Inversión<br>clara y <em>justa.</em></h2>
+        <p class="services-sub reveal">Sin sorpresas ni letra chica. Sabés exactamente qué incluye cada plan antes de empezar.</p>
+    </div>
+    <div class="pricing-grid">
+
+        <!-- Básico -->
+        <div class="pricing-card reveal">
+            <div class="pricing-name">Básico</div>
+            <div class="pricing-price"><sup>$</sup>150 <span style="font-size:0.9rem;font-family:var(--sans);font-weight:300;color:var(--muted)">USD</span></div>
+            <div class="pricing-bs">≈ Bs. 1.035 · Pago único</div>
+            <div class="pricing-delivery">Entrega en 5 días hábiles</div>
+            <ul class="pricing-features">
+                <li>Landing page (1 página)</li>
+                <li>Diseño responsivo mobile y desktop</li>
+                <li>SEO básico incluido</li>
+                <li>Formulario de contacto</li>
+                <li>Hosting primer año gratis</li>
+                <li>Configuración de dominio</li>
+            </ul>
+            <a href="#contact" class="pricing-cta">Empezar →</a>
+        </div>
+
+        <!-- Profesional -->
+        <div class="pricing-card featured reveal">
+            <div class="pricing-badge">Más elegido</div>
+            <div class="pricing-name">Profesional</div>
+            <div class="pricing-price"><sup>$</sup>250 <span style="font-size:0.9rem;font-family:var(--sans);font-weight:300;color:rgba(255,255,255,0.35)">USD</span></div>
+            <div class="pricing-bs">≈ Bs. 1.725 · Pago único</div>
+            <div class="pricing-delivery">Entrega en 10 días hábiles</div>
+            <ul class="pricing-features">
+                <li>Sitio completo (hasta 5 páginas)</li>
+                <li>Diseño a medida y exclusivo</li>
+                <li>SEO completo + Google Search Console</li>
+                <li>Google Analytics incluido</li>
+                <li>Formulario + botón WhatsApp</li>
+                <li>Portafolio o galería de productos</li>
+                <li>Hosting primer año gratis</li>
+            </ul>
+            <a href="#contact" class="pricing-cta">Empezar →</a>
+        </div>
+
+        <!-- Mantenimiento -->
+        <div class="pricing-card reveal">
+            <div class="pricing-name">Mantenimiento</div>
+            <div class="pricing-price"><sup>$</sup>40 <span style="font-size:0.9rem;font-family:var(--sans);font-weight:300;color:var(--muted)">USD</span></div>
+            <div class="pricing-bs">≈ Bs. 276 · Por mes</div>
+            <div class="pricing-delivery">Sin contrato mínimo</div>
+            <ul class="pricing-features">
+                <li>Actualizaciones de contenido</li>
+                <li>Monitoreo de velocidad y uptime</li>
+                <li>Informe mensual de visitas</li>
+                <li>Soporte por WhatsApp</li>
+                <li>Respaldo mensual del sitio</li>
+            </ul>
+            <a href="#contact" class="pricing-cta">Consultar →</a>
+        </div>
+
+    </div>
+    <p class="pricing-note reveal">¿Necesitás algo diferente? <a href="#contact" style="color:var(--black);font-weight:500">Escribinos y armamos un plan a medida.</a></p>
+</section>
+
 <!-- About -->
 <section id="about">
     <div class="label reveal">03 — Nosotros</div>
@@ -1201,5 +1440,14 @@
         fsend.disabled = false;
     });
 </script>
+
+<!-- WhatsApp flotante -->
+<a class="whatsapp-btn" href="https://wa.me/59170317749?text=Hola%2C%20vi%20su%20sitio%20web%20y%20me%20interesa%20un%20proyecto." target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp">
+    <span class="whatsapp-tooltip">Escribinos por WhatsApp</span>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+</a>
+
 </body>
 </html>
