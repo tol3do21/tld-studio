@@ -228,7 +228,7 @@
 
         /* ── PRICING ── */
         #pricing { background: var(--surface); }
-        .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; margin-top: 3rem; }
         .pricing-card { background: var(--white); padding: 2.25rem; display: flex; flex-direction: column; border: 1px solid var(--border); transition: border-color .2s; }
         .pricing-card:hover { border-color: var(--text-light); }
         .pricing-card.featured { background: var(--black); border-color: var(--black); }
@@ -325,8 +325,11 @@
             nav { padding: 1.2rem 1.5rem; }
             .nav-links { display: none; }
             .nav-hamburger { display: flex; }
-            .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+            .pricing-grid { grid-template-columns: repeat(2,1fr); max-width: 100%; }
             .addons-grid { grid-template-columns: repeat(2,1fr); }
+        }
+        @media (max-width: 560px) {
+            .pricing-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             section { padding: 5rem 1.5rem; }
@@ -528,21 +531,20 @@
     </div>
     <div class="pricing-grid">
 
-        <!-- Esencial -->
+        <!-- Base -->
         <div class="pricing-card reveal">
-            <div class="pricing-name">Esencial</div>
-            <div class="pricing-price"><sup>$</sup>180 <span class="pricing-suffix">USD</span></div>
+            <div class="pricing-name">Base</div>
+            <div class="pricing-price"><sup>Bs.</sup>1.200</div>
             <div class="pricing-sub">Pago único · 100% al iniciar</div>
             <div class="pricing-delivery">
                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-                Entrega en 5 días hábiles
+                Entrega en 1 semana
             </div>
             <ul class="pricing-features">
-                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Sitio web 1 página</li>
-                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Google Business Profile</li>
-                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Google Maps integrado</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Landing page (1 página)</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>SEO básico (meta, títulos)</li>
                 <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>WhatsApp integrado</li>
-                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Hosting primer año incluido</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Diseño a medida</li>
                 <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>1 ronda de revisión</li>
             </ul>
             <div class="pricing-note-item">
@@ -552,25 +554,48 @@
             <a href="#contact" class="pricing-cta">Empezar <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 3l3.5 3.5L7 10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
 
-        <!-- Completo -->
+        <!-- Plus -->
+        <div class="pricing-card reveal">
+            <div class="pricing-name">Plus</div>
+            <div class="pricing-price"><sup>Bs.</sup>1.500</div>
+            <div class="pricing-sub">Pago único · 100% al iniciar</div>
+            <div class="pricing-delivery">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                Entrega en 1 semana
+            </div>
+            <ul class="pricing-features">
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Landing page (1 página)</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>SEO on-page completo</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Google Analytics</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Google Search Console</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>WhatsApp integrado</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>1 ronda de revisión</li>
+            </ul>
+            <div class="pricing-note-item">
+                <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="currentColor" stroke-width="1.1"/><path d="M5.5 3.5v2.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><circle cx="5.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+                Google Business: add-on opcional
+            </div>
+            <a href="#contact" class="pricing-cta">Empezar <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 3l3.5 3.5L7 10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+
+        <!-- Pro -->
         <div class="pricing-card featured reveal">
             <div class="pricing-badge">Más elegido</div>
-            <div class="pricing-name">Completo</div>
-            <div class="pricing-price"><sup>$</sup>300 <span class="pricing-suffix">USD</span></div>
+            <div class="pricing-name">Pro</div>
+            <div class="pricing-price"><sup>Bs.</sup>2.000</div>
             <div class="pricing-sub">50% ahora · 50% al entregar</div>
             <div class="pricing-delivery">
                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-                Entrega en 10 días hábiles
+                Entrega en 1 semana
             </div>
             <ul class="pricing-features">
-                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Sitio web completo (5 páginas)</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Landing page (1 página)</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>SEO on-page completo</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Google Analytics + Search Console</li>
                 <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Google Business Profile</li>
                 <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>TripAdvisor listing</li>
-                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Google Maps integrado</li>
                 <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>WhatsApp integrado</li>
-                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>SEO + Google Analytics</li>
-                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Hosting primer año incluido</li>
-                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>2 rondas de revisión</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>1 ronda de revisión</li>
             </ul>
             <div class="pricing-note-item">
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="currentColor" stroke-width="1.1"/><path d="M5.5 3.5v2.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><circle cx="5.5" cy="7.5" r=".5" fill="currentColor"/></svg>
@@ -579,37 +604,43 @@
             <a href="#contact" class="pricing-cta">Empezar <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 3l3.5 3.5L7 10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
 
-        <!-- Mantenimiento -->
+        <!-- Full -->
         <div class="pricing-card reveal">
-            <div class="pricing-name">Mantenimiento</div>
-            <div class="pricing-price"><sup>$</sup>35 <span class="pricing-suffix">USD / mes</span></div>
-            <div class="pricing-sub">Sin contrato mínimo</div>
+            <div class="pricing-name">Full</div>
+            <div class="pricing-price"><sup>Bs.</sup>3.000</div>
+            <div class="pricing-sub">50% ahora · 50% al entregar</div>
             <div class="pricing-delivery">
                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-                Respuesta en 24 horas
+                Entrega en 2 semanas
             </div>
             <ul class="pricing-features">
-                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Actualizaciones de contenido</li>
-                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Monitoreo velocidad y uptime</li>
-                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Informe mensual de visitas</li>
-                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Soporte por WhatsApp</li>
-                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Respaldo mensual del sitio</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Sitio completo (múltiples secciones)</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>SEO on-page completo</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Google Analytics + Search Console</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Google Business Profile</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>TripAdvisor listing</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>WhatsApp integrado</li>
+                <li><svg class="chk" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>2 rondas de revisión</li>
             </ul>
-            <a href="#contact" class="pricing-cta">Consultar <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 3l3.5 3.5L7 10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <div class="pricing-note-item">
+                <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="currentColor" stroke-width="1.1"/><path d="M5.5 3.5v2.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><circle cx="5.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+                Dominio: costo aparte
+            </div>
+            <a href="#contact" class="pricing-cta">Empezar <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 3l3.5 3.5L7 10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
     </div>
 
     <div class="addons-wrap reveal">
         <div class="addons-label">Servicios adicionales</div>
         <div class="addons-grid">
-            <div class="addon-chip"><span class="addon-chip-name">Página extra</span><span class="addon-chip-price">+$30</span></div>
-            <div class="addon-chip"><span class="addon-chip-name">Google My Business</span><span class="addon-chip-price">+$20</span></div>
-            <div class="addon-chip"><span class="addon-chip-name">TripAdvisor setup</span><span class="addon-chip-price">+$25</span></div>
-            <div class="addon-chip"><span class="addon-chip-name">Chatbot web (Tidio)</span><span class="addon-chip-price">+$40</span></div>
-            <div class="addon-chip"><span class="addon-chip-name">Ronda extra de revisión</span><span class="addon-chip-price">+$20</span></div>
-            <div class="addon-chip"><span class="addon-chip-name">Dominio .com (1 año)</span><span class="addon-chip-price">+$15</span></div>
-            <div class="addon-chip"><span class="addon-chip-name">Dominio .bo (1 año)</span><span class="addon-chip-price">+$30</span></div>
-            <div class="addon-chip"><span class="addon-chip-name">Formulario avanzado</span><span class="addon-chip-price">+$40</span></div>
+            <div class="addon-chip"><span class="addon-chip-name">Página extra</span><span class="addon-chip-price">+Bs. 300</span></div>
+            <div class="addon-chip"><span class="addon-chip-name">Google My Business</span><span class="addon-chip-price">+Bs. 200</span></div>
+            <div class="addon-chip"><span class="addon-chip-name">TripAdvisor setup</span><span class="addon-chip-price">+Bs. 250</span></div>
+            <div class="addon-chip"><span class="addon-chip-name">Chatbot web (Tidio)</span><span class="addon-chip-price">+Bs. 400</span></div>
+            <div class="addon-chip"><span class="addon-chip-name">Ronda extra de revisión</span><span class="addon-chip-price">+Bs. 200</span></div>
+            <div class="addon-chip"><span class="addon-chip-name">Dominio .com (1 año)</span><span class="addon-chip-price">+Bs. 150</span></div>
+            <div class="addon-chip"><span class="addon-chip-name">Dominio .bo (1 año)</span><span class="addon-chip-price">+Bs. 300</span></div>
+            <div class="addon-chip"><span class="addon-chip-name">Formulario avanzado</span><span class="addon-chip-price">+Bs. 400</span></div>
         </div>
     </div>
     <p class="pricing-note reveal">Necesitas algo diferente — <a href="#contact">escribinos y armamos un plan a medida.</a></p>
