@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tldstudio.netlify.app/sitemap.xml

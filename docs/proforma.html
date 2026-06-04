@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proforma — TLD Studio.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white:   #FAFAF8;
+      --black:   #0C0C0B;
+      --surface: #F3F1EE;
+      --border:  #E2DED8;
+      --muted:   #9C9891;
+      --text:    #2A2926;
+      --amber:   #C8893A;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #fff;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* ── Página ── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 14mm 16mm 12mm;
+      background: #fff;
+      position: relative;
+    }
+
+    /* ── Cabecera ── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--black);
+      margin-bottom: 28px;
+    }
+
+    .logo-block .logo-tld {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 26px;
+      letter-spacing: 0.08em;
+      color: var(--black);
+    }
+    .logo-block .logo-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--amber);
+      border-radius: 50%;
+      margin: 0 1px 3px 1px;
+      vertical-align: middle;
+    }
+    .logo-block .logo-sub {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+    .logo-block .tagline {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .header-contact {
+      text-align: right;
+      font-size: 11.5px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .header-contact a { color: var(--muted); text-decoration: none; }
+    .header-contact strong { color: var(--text); }
+
+    /* ── Título documento ── */
+    .doc-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 28px;
+    }
+    .doc-title h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 34px;
+      font-weight: 400;
+      color: var(--black);
+      line-height: 1.1;
+    }
+    .doc-title h1 span {
+      color: var(--amber);
+      font-style: italic;
+    }
+    .doc-meta {
+      text-align: right;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 2;
+    }
+    .doc-meta strong { color: var(--text); }
+    .badge-estado {
+      display: inline-block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 2px;
+      margin-top: 4px;
+    }
+    .badge-estado.pendiente { border-color: var(--amber); color: var(--amber); }
+
+    /* ── Sección cliente ── */
+    .section { margin-bottom: 24px; }
+    .section-label {
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .client-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .field {
+      padding: 10px 14px;
+      background: var(--surface);
+      border-left: 3px solid var(--border);
+    }
+    .field.highlight { border-left-color: var(--amber); }
+    .field label {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+    .field .value {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      min-height: 18px;
+    }
+    .field .value.empty {
+      color: var(--border);
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    /* ── Tabla de servicios ── */
+    .services-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 6px;
+    }
+    .services-table thead tr {
+      background: var(--black);
+      color: var(--white);
+    }
+    .services-table thead th {
+      padding: 9px 12px;
+      text-align: left;
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .services-table thead th:last-child { text-align: right; }
+    .services-table tbody tr {
+      border-bottom: 1px solid var(--border);
+    }
+    .services-table tbody tr:last-child { border-bottom: none; }
+    .services-table tbody td {
+      padding: 10px 12px;
+      font-size: 12.5px;
+      vertical-align: top;
+    }
+    .services-table tbody td:last-child { text-align: right; font-weight: 500; }
+    .services-table .item-name { font-weight: 500; color: var(--text); }
+    .services-table .item-desc { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .services-table tbody tr:nth-child(even) { background: var(--surface); }
+
+    /* ── Totales ── */
+    .totals-block {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 8px;
+    }
+    .totals-table {
+      min-width: 260px;
+    }
+    .totals-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 12.5px;
+    }
+    .totals-row:last-child { border-bottom: none; }
+    .totals-row .t-label { color: var(--muted); }
+    .totals-row .t-val { font-weight: 500; }
+    .totals-row.total-final {
+      background: var(--black);
+      color: var(--white);
+      padding: 10px 14px;
+      margin-top: 4px;
+    }
+    .totals-row.total-final .t-label {
+      color: rgba(255,255,255,0.7);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .totals-row.total-final .t-val {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--white);
+    }
+    .totals-row.anticipo {
+      background: #FEF6EC;
+      padding: 8px 14px;
+      border: 1px solid #F0D4A0;
+    }
+    .totals-row.anticipo .t-label { color: #8a6020; font-weight: 500; }
+    .totals-row.anticipo .t-val { color: var(--amber); font-weight: 600; }
+
+    /* ── Timeline ── */
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .timeline-item {
+      padding: 12px;
+      background: var(--surface);
+      border-top: 3px solid var(--border);
+      text-align: center;
+    }
+    .timeline-item.active { border-top-color: var(--amber); }
+    .timeline-item .step-num {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .timeline-item .step-name {
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+    .timeline-item .step-desc {
+      font-size: 10.5px;
+      color: var(--muted);
+    }
+
+    /* ── Incluye / No incluye ── */
+    .includes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .includes-col h4 {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .includes-list { list-style: none; }
+    .includes-list li {
+      font-size: 12px;
+      padding: 3px 0;
+      padding-left: 16px;
+      position: relative;
+      color: var(--text);
+    }
+    .includes-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #4caf50;
+      font-weight: 700;
+      font-size: 11px;
+    }
+    .excludes-list { list-style: none; }
+    .excludes-list li {
+      font-size: 12px;
+      padding: 3px 0;
+      padding-left: 16px;
+      position: relative;
+      color: var(--muted);
+    }
+    .excludes-list li::before {
+      content: '×';
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    /* ── Condiciones ── */
+    .conditions {
+      background: var(--surface);
+      padding: 14px 16px;
+      font-size: 11.5px;
+      color: var(--muted);
+      line-height: 1.7;
+      border-left: 3px solid var(--amber);
+    }
+    .conditions strong { color: var(--text); font-weight: 600; }
+    .conditions ul { margin-top: 6px; padding-left: 16px; }
+    .conditions ul li { margin-bottom: 3px; }
+
+    /* ── Pago ── */
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .payment-method {
+      padding: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      text-align: center;
+      font-size: 11px;
+    }
+    .payment-method .pm-icon { font-size: 20px; margin-bottom: 4px; }
+    .payment-method .pm-name { font-weight: 600; color: var(--text); font-size: 11.5px; }
+    .payment-method .pm-detail { color: var(--muted); font-size: 10px; margin-top: 2px; }
+
+    /* ── Firma ── */
+    .signature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 8px;
+    }
+    .signature-block { }
+    .signature-label {
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .signature-line {
+      border-bottom: 1px solid var(--text);
+      height: 40px;
+      margin-bottom: 6px;
+    }
+    .signature-name {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* ── Footer ── */
+    .doc-footer {
+      margin-top: 28px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      color: var(--muted);
+    }
+    .doc-footer strong { color: var(--amber); }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 22px 0;
+    }
+
+    /* ── Print ── */
+    @media print {
+      body { background: #fff; }
+      .page { margin: 0; padding: 10mm 14mm; width: 100%; }
+      .no-print { display: none; }
+    }
+
+    /* ── Botón imprimir (solo pantalla) ── */
+    .print-btn {
+      display: block;
+      width: 210mm;
+      margin: 24px auto 0;
+      padding: 14px;
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-align: center;
+    }
+    .print-btn:hover { background: var(--amber); }
+    @media print { .print-btn { display: none; } }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- CABECERA -->
+  <header class="header">
+    <div class="logo-block">
+      <div>
+        <span class="logo-tld">TLD</span><span class="logo-dot"></span><span class="logo-sub">Studio.</span>
+      </div>
+      <div class="tagline">Diseño web · Bolivia</div>
+    </div>
+    <div class="header-contact">
+      <strong>tol3do21@gmail.com</strong><br>
+      <a href="https://wa.me/59170317749">+591 70317749</a><br>
+      <a href="https://tldstudio.netlify.app">tldstudio.netlify.app</a><br>
+      Bolivia — Cochabamba
+    </div>
+  </header>
+
+  <!-- TÍTULO + META -->
+  <div class="doc-title">
+    <h1>Propuesta<br><span>comercial.</span></h1>
+    <div class="doc-meta">
+      <div><strong>Nº</strong> PRO-2025-001</div>
+      <div><strong>Fecha</strong> _____ / _____ / 2025</div>
+      <div><strong>Válida hasta</strong> _____ / _____ / 2025</div>
+      <div class="badge-estado pendiente">Pendiente de aprobación</div>
+    </div>
+  </div>
+
+  <!-- DATOS DEL CLIENTE -->
+  <div class="section">
+    <div class="section-label">Datos del cliente</div>
+    <div class="client-grid">
+      <div class="field highlight">
+        <label>Nombre / Empresa</label>
+        <div class="value">_________________________________</div>
+      </div>
+      <div class="field">
+        <label>WhatsApp / Teléfono</label>
+        <div class="value">_________________________________</div>
+      </div>
+      <div class="field">
+        <label>Correo electrónico</label>
+        <div class="value">_________________________________</div>
+      </div>
+      <div class="field">
+        <label>Rubro / Sector</label>
+        <div class="value">_________________________________</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESCRIPCIÓN DEL PROYECTO -->
+  <div class="section">
+    <div class="section-label">Descripción del proyecto</div>
+    <div class="field">
+      <label>Resumen</label>
+      <div class="value" style="min-height:36px; padding-top:4px;">
+        _______________________________________________________________<br>
+        _______________________________________________________________
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- TABLA DE SERVICIOS -->
+  <div class="section">
+    <div class="section-label">Detalle de servicios</div>
+    <table class="services-table">
+      <thead>
+        <tr>
+          <th style="width:40%">Servicio</th>
+          <th style="width:35%">Descripción</th>
+          <th style="width:10%">Cantidad</th>
+          <th style="width:15%">Precio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="item-name">Sitio web profesional</div>
+            <div class="item-desc">Diseño + desarrollo desde cero</div>
+          </td>
+          <td><div class="item-desc">Hasta ___ páginas, responsive, optimizado</div></td>
+          <td>1</td>
+          <td>$___.__</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="item-name">Dominio (.com / .bo)</div>
+            <div class="item-desc">Registro por 1 año</div>
+          </td>
+          <td><div class="item-desc">__________.___</div></td>
+          <td>1</td>
+          <td>$___.__</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="item-name">Hosting</div>
+            <div class="item-desc">Primer año incluido</div>
+          </td>
+          <td><div class="item-desc">Servidor rápido, SSL gratuito</div></td>
+          <td>1</td>
+          <td style="color:#4caf50; font-weight:600;">GRATIS</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="item-name" style="color:var(--muted)">______________________</div>
+            <div class="item-desc">Adicional / personalización</div>
+          </td>
+          <td><div class="item-desc">___________________________________</div></td>
+          <td>—</td>
+          <td>$___.__</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="item-name" style="color:var(--muted)">______________________</div>
+          </td>
+          <td><div class="item-desc">___________________________________</div></td>
+          <td>—</td>
+          <td>$___.__</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TOTALES -->
+  <div class="totals-block">
+    <div class="totals-table">
+      <div class="totals-row">
+        <span class="t-label">Subtotal</span>
+        <span class="t-val">$___.__</span>
+      </div>
+      <div class="totals-row">
+        <span class="t-label">Descuento</span>
+        <span class="t-val" style="color:#4caf50;">− $___.__</span>
+      </div>
+      <div class="totals-row total-final">
+        <span class="t-label">Total del proyecto</span>
+        <span class="t-val">$___.__</span>
+      </div>
+      <div class="totals-row anticipo" style="display:flex; justify-content:space-between; padding:10px 14px; margin-top:6px;">
+        <span class="t-label">50% Anticipo (al confirmar)</span>
+        <span class="t-val">$___.__</span>
+      </div>
+      <div class="totals-row" style="padding: 6px 14px;">
+        <span class="t-label" style="font-size:11px;">50% Saldo (al finalizar)</span>
+        <span class="t-val" style="font-size:12px;">$___.__</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- TIMELINE -->
+  <div class="section">
+    <div class="section-label">Cronograma estimado</div>
+    <div class="timeline-grid">
+      <div class="timeline-item active">
+        <div class="step-num">Paso 01</div>
+        <div class="step-name">Anticipo + Brief</div>
+        <div class="step-desc">El cliente envía el 50% y completa el formulario de proyecto</div>
+      </div>
+      <div class="timeline-item">
+        <div class="step-num">Paso 02</div>
+        <div class="step-name">Diseño + Preview</div>
+        <div class="step-desc">Entrega de preview en ___ días hábiles para revisión y ajustes</div>
+      </div>
+      <div class="timeline-item">
+        <div class="step-num">Paso 03</div>
+        <div class="step-name">Lanzamiento</div>
+        <div class="step-desc">Pago del 50% restante → sitio publicado y entregado</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INCLUYE / NO INCLUYE -->
+  <div class="section">
+    <div class="section-label">Alcance del proyecto</div>
+    <div class="includes-grid">
+      <div class="includes-col">
+        <h4>✓ Incluye</h4>
+        <ul class="includes-list">
+          <li>Diseño 100% personalizado (sin plantillas)</li>
+          <li>Versión mobile y desktop (responsive)</li>
+          <li>Formulario de contacto funcional</li>
+          <li>Integración con WhatsApp</li>
+          <li>Google Analytics</li>
+          <li>SSL gratuito (https)</li>
+          <li>Hosting primer año sin costo</li>
+          <li>___ ronda(s) de revisión</li>
+        </ul>
+      </div>
+      <div class="includes-col">
+        <h4>× No incluye</h4>
+        <ul class="excludes-list">
+          <li>Fotografías ni videos propios</li>
+          <li>Redacción de textos (copywriting)</li>
+          <li>Dominio (costo aparte si aplica)</li>
+          <li>Mantenimiento mensual (servicio adicional)</li>
+          <li>Redes sociales / publicidad</li>
+          <li>Tienda online / e-commerce</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- CONDICIONES -->
+  <div class="section">
+    <div class="section-label">Términos y condiciones</div>
+    <div class="conditions">
+      <strong>Vigencia:</strong> Esta propuesta es válida por <strong>7 días</strong> desde la fecha de emisión.<br>
+      <ul>
+        <li>Se requiere <strong>50% de anticipo</strong> para reservar fecha e iniciar el proyecto. Para proyectos de $150 USD, el pago es <strong>100% al inicio</strong>.</li>
+        <li>El trabajo inicia dentro de las <strong>48 horas</strong> de recibido el anticipo.</li>
+        <li>El cliente debe proveer contenido (textos, fotos, logo) dentro de los primeros <strong>3 días hábiles</strong>.</li>
+        <li>Cada ronda adicional de revisión fuera del alcance acordado tiene un costo de <strong>$20 USD</strong>.</li>
+        <li>El dominio y el hosting del segundo año en adelante corren por cuenta del cliente (~$5–10 USD/año).</li>
+        <li>Una vez lanzado el sitio, TLD Studio no se hace responsable por cambios realizados por terceros.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MÉTODOS DE PAGO -->
+  <div class="section">
+    <div class="section-label">Métodos de pago</div>
+    <div class="payment-grid">
+      <div class="payment-method">
+        <div class="pm-icon">📱</div>
+        <div class="pm-name">QR Bancario</div>
+        <div class="pm-detail">BCP · Banco Union<br>A solicitud</div>
+      </div>
+      <div class="payment-method">
+        <div class="pm-icon">💚</div>
+        <div class="pm-name">Tigo Money</div>
+        <div class="pm-detail">+591 70317749</div>
+      </div>
+      <div class="payment-method">
+        <div class="pm-icon">🏦</div>
+        <div class="pm-name">Transferencia</div>
+        <div class="pm-detail">Banco a banco<br>A solicitud</div>
+      </div>
+      <div class="payment-method">
+        <div class="pm-icon">💵</div>
+        <div class="pm-name">Efectivo</div>
+        <div class="pm-detail">USD o Bs.<br>Tasa: 6.9</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- FIRMA -->
+  <div class="section">
+    <div class="section-label">Aprobación</div>
+    <div class="signature-grid">
+      <div class="signature-block">
+        <div class="signature-label">Firma del cliente</div>
+        <div class="signature-line"></div>
+        <div class="signature-name">Nombre: _____________________________<br>Fecha: ______________________________</div>
+      </div>
+      <div class="signature-block">
+        <div class="signature-label">TLD Studio. — Proveedor</div>
+        <div class="signature-line"></div>
+        <div class="signature-name">Toledo — TLD Studio.<br>tol3do21@gmail.com</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="doc-footer">
+    <div><strong>TLD Studio.</strong> — tldstudio.netlify.app</div>
+    <div>+591 70317749 · tol3do21@gmail.com</div>
+    <div>Bolivia, 2025</div>
+  </footer>
+
+</div><!-- /page -->
+
+<button class="print-btn no-print" onclick="window.print()">
+  Guardar como PDF (Ctrl+P → Guardar como PDF)
+</button>
+
+</body>
+</html>

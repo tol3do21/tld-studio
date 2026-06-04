@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Post Instagram — TLD Studio.</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1080px;
+      height: 1080px;
+      background: #0C0C0B;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .canvas {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 80px;
+    }
+
+    /* Grid de fondo sutil */
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Línea decorativa */
+    .line-top {
+      position: absolute;
+      top: 0;
+      left: 80px;
+      right: 80px;
+      height: 2px;
+      background: #C8893A;
+    }
+
+    /* Header */
+    .header {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .logo-tld {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 22px;
+      letter-spacing: 0.1em;
+      color: #FAFAF8;
+    }
+    .logo-dot {
+      width: 8px;
+      height: 8px;
+      background: #C8893A;
+      border-radius: 50%;
+      margin: 0 2px 2px;
+    }
+    .logo-sub {
+      font-family: 'DM Serif Display', serif;
+      font-size: 16px;
+      color: rgba(255,255,255,0.6);
+    }
+    .header-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      margin-top: 4px;
+    }
+
+    /* Contenido central */
+    .center {
+      position: relative;
+      z-index: 1;
+    }
+    .eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #C8893A;
+      margin-bottom: 28px;
+    }
+    .headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: 88px;
+      font-weight: 400;
+      color: #FAFAF8;
+      line-height: 1.05;
+      margin-bottom: 36px;
+    }
+    .headline em {
+      font-style: italic;
+      color: #C8893A;
+    }
+    .sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+    }
+
+    /* Divisor */
+    .divider {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+    .divider-dot {
+      width: 6px;
+      height: 6px;
+      background: #C8893A;
+      border-radius: 50%;
+    }
+
+    /* Footer */
+    .footer {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .footer-url {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.05em;
+    }
+    .footer-handle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.05em;
+    }
+    .cta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(200,137,58,0.4);
+      padding: 12px 24px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #C8893A;
+    }
+    .cta-arrow { font-size: 16px; }
+  </style>
+</head>
+<body>
+<div class="canvas">
+  <div class="grid"></div>
+  <div class="line-top"></div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">
+      <span class="logo-tld">TLD</span>
+      <div class="logo-dot"></div>
+      <span class="logo-sub">Studio.</span>
+    </div>
+    <div class="header-tag">Bolivia · 2025</div>
+  </div>
+
+  <!-- Centro -->
+  <div class="center">
+    <div class="eyebrow">Diseño web profesional</div>
+    <div class="headline">Tu negocio<br>merece una<br>web que <em>venda.</em></div>
+    <div class="sub">Sitios a medida · Sin plantillas · Potenciado con IA</div>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-url">tldstudio.netlify.app</div>
+    <div class="cta-pill">
+      Presupuesto gratis
+      <span class="cta-arrow">→</span>
+    </div>
+    <div class="footer-handle">@tldstudio.bo</div>
+  </div>
+
+</div>
+</body>
+</html>

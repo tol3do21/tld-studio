@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "puppeteer": "^25.0.4",
+    "sharp": "^0.34.5"
+  }
+}

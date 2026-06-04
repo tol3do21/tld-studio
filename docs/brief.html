@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brief de Proyecto — TLD Studio.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white:   #FAFAF8;
+      --black:   #0C0C0B;
+      --surface: #F3F1EE;
+      --border:  #E2DED8;
+      --muted:   #9C9891;
+      --text:    #2A2926;
+      --amber:   #C8893A;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #fff;
+      color: var(--text);
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 14mm 16mm 12mm;
+      background: #fff;
+    }
+
+    /* ── Cabecera ── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 18px;
+      border-bottom: 2px solid var(--black);
+      margin-bottom: 26px;
+    }
+
+    .logo-tld {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 24px;
+      letter-spacing: 0.08em;
+      color: var(--black);
+    }
+    .logo-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--amber);
+      border-radius: 50%;
+      margin: 0 1px 2px 1px;
+      vertical-align: middle;
+    }
+    .logo-sub {
+      font-family: 'DM Serif Display', serif;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .tagline {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .header-right {
+      text-align: right;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+    .header-right strong { color: var(--text); }
+
+    /* ── Título ── */
+    .doc-header {
+      margin-bottom: 26px;
+    }
+    .doc-header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 30px;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 6px;
+    }
+    .doc-header h1 span { color: var(--amber); font-style: italic; }
+    .doc-header p {
+      font-size: 12px;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    /* ── Secciones ── */
+    .section { margin-bottom: 22px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .section-num {
+      width: 24px;
+      height: 24px;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 50%;
+      font-size: 10px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-num.amber { background: var(--amber); }
+    .section-title {
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Campos ── */
+    .form-grid {
+      display: grid;
+      gap: 8px;
+    }
+    .form-grid-2 { grid-template-columns: 1fr 1fr; }
+    .form-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+    }
+    .form-field label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .form-field .input-line {
+      border-bottom: 1.5px solid var(--border);
+      height: 26px;
+      transition: border-color 0.2s;
+    }
+    .form-field .input-box {
+      border: 1.5px solid var(--border);
+      height: 50px;
+    }
+    .form-field .input-box-lg {
+      border: 1.5px solid var(--border);
+      height: 70px;
+    }
+
+    /* ── Checkboxes ── */
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      color: var(--text);
+      padding: 6px 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .check-box {
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    /* ── Escala ── */
+    .scale-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .scale-label { font-size: 10.5px; color: var(--muted); min-width: 60px; }
+    .scale-boxes { display: flex; gap: 4px; }
+    .scale-box {
+      width: 28px;
+      height: 28px;
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* ── Referencia estilo ── */
+    .style-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .style-option {
+      padding: 10px 12px;
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .style-option .check-box { margin-top: 2px; }
+    .style-option .style-text .style-name {
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--text);
+    }
+    .style-option .style-text .style-desc {
+      font-size: 10.5px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    /* ── Divider ── */
+    hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+    /* ── Footer ── */
+    .doc-footer {
+      margin-top: 28px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      color: var(--muted);
+    }
+    .doc-footer strong { color: var(--amber); }
+
+    /* ── Nota final ── */
+    .final-note {
+      background: var(--black);
+      color: rgba(255,255,255,0.85);
+      padding: 14px 16px;
+      font-size: 12px;
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+    .final-note strong { color: var(--amber); }
+
+    /* ── Print ── */
+    @media print {
+      body { background: #fff; }
+      .page { margin: 0; padding: 10mm 14mm; width: 100%; }
+      .no-print { display: none; }
+    }
+
+    .print-btn {
+      display: block;
+      width: 210mm;
+      margin: 24px auto 0;
+      padding: 14px;
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-align: center;
+    }
+    .print-btn:hover { background: var(--amber); }
+    @media print { .print-btn { display: none; } }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- CABECERA -->
+  <header class="header">
+    <div>
+      <div>
+        <span class="logo-tld">TLD</span><span class="logo-dot"></span><span class="logo-sub">Studio.</span>
+      </div>
+      <div class="tagline">Diseño web · Bolivia</div>
+    </div>
+    <div class="header-right">
+      <strong>Brief de proyecto</strong><br>
+      +591 70317749<br>
+      tol3do21@gmail.com
+    </div>
+  </header>
+
+  <!-- TÍTULO -->
+  <div class="doc-header">
+    <h1>Brief de<br><span>proyecto.</span></h1>
+    <p>Completa este formulario para que podamos entender tu negocio y crear el sitio web perfecto para ti. Tómate tu tiempo — mientras más detalle nos des, mejor resultado obtendrás.</p>
+  </div>
+
+  <!-- SECCIÓN 1: DATOS DE CONTACTO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-title">Datos de contacto</div>
+    </div>
+    <div class="form-grid form-grid-2">
+      <div class="form-field">
+        <label>Nombre completo</label>
+        <div class="input-line"></div>
+      </div>
+      <div class="form-field">
+        <label>Empresa / Negocio</label>
+        <div class="input-line"></div>
+      </div>
+      <div class="form-field">
+        <label>WhatsApp</label>
+        <div class="input-line"></div>
+      </div>
+      <div class="form-field">
+        <label>Correo electrónico</label>
+        <div class="input-line"></div>
+      </div>
+      <div class="form-field">
+        <label>Ciudad / Departamento</label>
+        <div class="input-line"></div>
+      </div>
+      <div class="form-field">
+        <label>¿Cómo nos encontraste?</label>
+        <div class="input-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- SECCIÓN 2: TU NEGOCIO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-title">Tu negocio</div>
+    </div>
+    <div class="form-grid" style="gap:10px;">
+      <div class="form-field">
+        <label>¿A qué se dedica tu negocio? ¿Qué vendes o ofreces?</label>
+        <div class="input-box"></div>
+      </div>
+      <div class="form-grid form-grid-2">
+        <div class="form-field">
+          <label>¿Quiénes son tus clientes ideales?</label>
+          <div class="input-box"></div>
+        </div>
+        <div class="form-field">
+          <label>¿Qué te diferencia de la competencia?</label>
+          <div class="input-box"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- SECCIÓN 3: EL SITIO WEB -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num amber">3</div>
+      <div class="section-title">El sitio web</div>
+    </div>
+
+    <div style="margin-bottom:12px;">
+      <div class="form-field" style="margin-bottom:6px;">
+        <label>¿Cuál es el objetivo principal del sitio web?</label>
+      </div>
+      <div class="check-grid">
+        <div class="check-item"><div class="check-box"></div>Mostrar mi trabajo / portafolio</div>
+        <div class="check-item"><div class="check-box"></div>Conseguir clientes / leads</div>
+        <div class="check-item"><div class="check-box"></div>Vender productos online</div>
+        <div class="check-item"><div class="check-box"></div>Dar información del negocio</div>
+        <div class="check-item"><div class="check-box"></div>Reservas / citas online</div>
+        <div class="check-item"><div class="check-box"></div>Otro: ________________</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:12px;">
+      <div class="form-field" style="margin-bottom:6px;">
+        <label>¿Qué páginas necesitas? (marca las que apliquen)</label>
+      </div>
+      <div class="check-grid">
+        <div class="check-item"><div class="check-box"></div>Inicio / Home</div>
+        <div class="check-item"><div class="check-box"></div>Sobre nosotros / Quiénes somos</div>
+        <div class="check-item"><div class="check-box"></div>Servicios / Productos</div>
+        <div class="check-item"><div class="check-box"></div>Portafolio / Galería</div>
+        <div class="check-item"><div class="check-box"></div>Menú / Carta</div>
+        <div class="check-item"><div class="check-box"></div>Precios / Tarifas</div>
+        <div class="check-item"><div class="check-box"></div>Blog / Noticias</div>
+        <div class="check-item"><div class="check-box"></div>Contacto</div>
+        <div class="check-item"><div class="check-box"></div>Otra: ________________</div>
+      </div>
+    </div>
+
+    <div class="form-grid form-grid-2">
+      <div class="form-field">
+        <label>¿Ya tienes dominio? (ej: tunegocio.com)</label>
+        <div class="input-line"></div>
+      </div>
+      <div class="form-field">
+        <label>¿Tienes logo? ¿En qué formato?</label>
+        <div class="input-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- SECCIÓN 4: ESTILO Y DISEÑO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div class="section-title">Estilo y diseño</div>
+    </div>
+
+    <div style="margin-bottom:12px;">
+      <div class="form-field" style="margin-bottom:8px;">
+        <label>¿Qué estilo visual prefieres?</label>
+      </div>
+      <div class="style-grid">
+        <div class="style-option">
+          <div class="check-box"></div>
+          <div class="style-text">
+            <div class="style-name">Minimalista / Limpio</div>
+            <div class="style-desc">Mucho espacio, tipografía elegante, pocos colores</div>
+          </div>
+        </div>
+        <div class="style-option">
+          <div class="check-box"></div>
+          <div class="style-text">
+            <div class="style-name">Moderno / Tech</div>
+            <div class="style-desc">Fondos oscuros, colores de acento, animaciones</div>
+          </div>
+        </div>
+        <div class="style-option">
+          <div class="check-box"></div>
+          <div class="style-text">
+            <div class="style-name">Cálido / Natural</div>
+            <div class="style-desc">Colores tierra, fotografías reales, estilo artesanal</div>
+          </div>
+        </div>
+        <div class="style-option">
+          <div class="check-box"></div>
+          <div class="style-text">
+            <div class="style-name">Corporativo / Serio</div>
+            <div class="style-desc">Azul, gris, estructura formal, confianza</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-grid form-grid-2">
+      <div class="form-field">
+        <label>Colores de tu marca (si tienes)</label>
+        <div class="input-line"></div>
+      </div>
+      <div class="form-field">
+        <label>Sitios web que te gustan como referencia</label>
+        <div class="input-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- SECCIÓN 5: CONTENIDO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div class="section-title">Contenido disponible</div>
+    </div>
+
+    <div style="margin-bottom:10px;">
+      <div class="form-field" style="margin-bottom:8px;">
+        <label>¿Qué contenido tienes listo? (marca lo que ya tienes)</label>
+      </div>
+      <div class="check-grid">
+        <div class="check-item"><div class="check-box"></div>Textos / Copys escritos</div>
+        <div class="check-item"><div class="check-box"></div>Fotos de mis productos</div>
+        <div class="check-item"><div class="check-box"></div>Fotos del local / espacio</div>
+        <div class="check-item"><div class="check-box"></div>Logo en buena calidad</div>
+        <div class="check-item"><div class="check-box"></div>Videos / Reels</div>
+        <div class="check-item"><div class="check-box"></div>Nada aún, necesito ayuda</div>
+      </div>
+    </div>
+
+    <div class="form-grid form-grid-3">
+      <div class="form-field">
+        <label>¿Tienes Facebook / Instagram?</label>
+        <div class="input-line"></div>
+      </div>
+      <div class="form-field">
+        <label>¿Tienes Google Maps?</label>
+        <div class="input-line"></div>
+      </div>
+      <div class="form-field">
+        <label>¿WhatsApp de atención al cliente?</label>
+        <div class="input-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- SECCIÓN 6: PLAZOS Y PRESUPUESTO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num amber">6</div>
+      <div class="section-title">Plazo y presupuesto</div>
+    </div>
+    <div class="form-grid form-grid-2">
+      <div class="form-field">
+        <label>¿Para cuándo necesitas el sitio listo?</label>
+        <div class="input-line"></div>
+      </div>
+      <div class="form-field" style="margin-bottom:6px;">
+        <label>Rango de presupuesto aproximado</label>
+      </div>
+    </div>
+    <div class="check-grid" style="grid-template-columns: repeat(4,1fr); margin-top:4px;">
+      <div class="check-item"><div class="check-box"></div>Hasta $150 USD</div>
+      <div class="check-item"><div class="check-box"></div>$150 – $300 USD</div>
+      <div class="check-item"><div class="check-box"></div>$300 – $500 USD</div>
+      <div class="check-item"><div class="check-box"></div>Más de $500 USD</div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 7: NOTAS ADICIONALES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <div class="section-title">Notas adicionales</div>
+    </div>
+    <div class="form-field">
+      <label>¿Algo más que debamos saber? Cuéntanos lo que quieras.</label>
+      <div class="input-box-lg"></div>
+    </div>
+  </div>
+
+  <!-- NOTA FINAL -->
+  <div class="final-note">
+    <strong>¿Qué sigue?</strong> Una vez que recibamos este brief, te contactamos en menos de 24 horas para agendar una llamada rápida de 20 minutos y resolver dudas. Luego te enviamos la propuesta formal con precio y cronograma.
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="doc-footer" style="margin-top:16px;">
+    <div><strong>TLD Studio.</strong> — tldstudio.netlify.app</div>
+    <div>+591 70317749 · tol3do21@gmail.com</div>
+    <div>Bolivia, 2025</div>
+  </footer>
+
+</div><!-- /page -->
+
+<button class="print-btn no-print" onclick="window.print()">
+  Guardar como PDF (Ctrl+P → Guardar como PDF)
+</button>
+
+</body>
+</html>
