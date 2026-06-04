@@ -911,6 +911,43 @@
         @media (max-width: 900px) { .addons-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 500px)  { .addons-grid { grid-template-columns: 1fr; } }
 
+        /* ── Cookie Bar ── */
+        .cookie-bar {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: var(--black);
+            color: rgba(255,255,255,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            padding: 1rem 2rem;
+            font-size: 0.78rem;
+            z-index: 9999;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+        .cookie-bar.visible { transform: translateY(0); }
+        .cookie-bar a { color: var(--amber); text-decoration: none; }
+        .cookie-btn {
+            background: var(--amber);
+            color: var(--white);
+            border: none;
+            padding: 0.45rem 1.2rem;
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .cookie-btn:hover { background: #b57a30; }
+        @media (max-width: 600px) {
+            .cookie-bar { flex-direction: column; text-align: center; padding: 1rem; }
+        }
+
         /* ── Pricing ── */
         #pricing { background: var(--surface); }
         .pricing-grid {
@@ -1582,6 +1619,12 @@
     </ul>
 </footer>
 
+<!-- Cookie Banner -->
+<div class="cookie-bar" id="cookieBar">
+    <p class="cookie-text">Este sitio usa cookies para analizar el tráfico y mejorar tu experiencia. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Más info</a></p>
+    <button class="cookie-btn" onclick="aceptarCookies()">Entendido</button>
+</div>
+
 <script>
     const cur = document.getElementById('cursor');
     document.addEventListener('mousemove', e => {
@@ -1657,6 +1700,15 @@
         fsend.innerHTML = `Enviar mensaje ${ARROW}`;
         fsend.disabled = false;
     });
+
+    // Cookie banner
+    function aceptarCookies() {
+        localStorage.setItem('cookies_ok', '1');
+        document.getElementById('cookieBar').classList.remove('visible');
+    }
+    if (!localStorage.getItem('cookies_ok')) {
+        setTimeout(() => document.getElementById('cookieBar').classList.add('visible'), 1500);
+    }
 </script>
 
 <!-- WhatsApp flotante -->
