@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tldstudio.netlify.app/sitemap.xml
+Sitemap: https://tol3do21.github.io/tld-studio/sitemap.xml
