@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TLD Studio. — Catálogo de Servicios 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+<!-- ─── SVG SPRITE ─────────────────────────────────────────────────────── -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <!-- globe -->
+  <symbol id="ic-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+  </symbol>
+  <!-- zap / lightning -->
+  <symbol id="ic-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+  </symbol>
+  <!-- lock -->
+  <symbol id="ic-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+  </symbol>
+  <!-- file-text -->
+  <symbol id="ic-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+    <polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+  </symbol>
+  <!-- mail -->
+  <symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+  </symbol>
+  <!-- message-circle -->
+  <symbol id="ic-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </symbol>
+  <!-- search -->
+  <symbol id="ic-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+  </symbol>
+  <!-- map-pin -->
+  <symbol id="ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+    <circle cx="12" cy="10" r="3"/>
+  </symbol>
+  <!-- star -->
+  <symbol id="ic-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+  </symbol>
+  <!-- bar-chart-2 -->
+  <symbol id="ic-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+  </symbol>
+  <!-- trending-up -->
+  <symbol id="ic-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+  </symbol>
+  <!-- trending-down -->
+  <symbol id="ic-trend-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/>
+  </symbol>
+  <!-- shield -->
+  <symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+  </symbol>
+  <!-- layout (multi-page) -->
+  <symbol id="ic-layout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+    <line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>
+  </symbol>
+  <!-- calendar -->
+  <symbol id="ic-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+    <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+  </symbol>
+  <!-- target -->
+  <symbol id="ic-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+  </symbol>
+  <!-- infinity -->
+  <symbol id="ic-infinity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 12c-2-2.5-4-4-6-4a4 4 0 0 0 0 8c2 0 4-1.5 6-4z"/>
+    <path d="M12 12c2 2.5 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.5-6 4z"/>
+  </symbol>
+  <!-- dollar-sign -->
+  <symbol id="ic-dollar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+  </symbol>
+  <!-- home -->
+  <symbol id="ic-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+    <polyline points="9 22 9 12 15 12 15 22"/>
+  </symbol>
+  <!-- settings / gear -->
+  <symbol id="ic-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="3"/>
+    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+  </symbol>
+  <!-- check-circle -->
+  <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="20 6 9 17 4 12"/>
+  </symbol>
+  <!-- users -->
+  <symbol id="ic-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+    <circle cx="9" cy="7" r="4"/>
+    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+  </symbol>
+  <!-- monitor -->
+  <symbol id="ic-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+    <line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+  </symbol>
+  <!-- arrow-right -->
+  <symbol id="ic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+  </symbol>
+</svg>
+
+<style>
+/* ─── TOKENS ──────────────────────────────────────────── */
+:root {
+  --black:   #0C0C0B;
+  --white:   #FAFAF8;
+  --amber:   #C8893A;
+  --amber-l: #D9A05C;
+  --surface: #F3F1EE;
+  --muted:   #9C9891;
+  --border:  #E2DED8;
+  --text:    #2A2926;
+  --serif:   'DM Serif Display', Georgia, serif;
+  --sans:    'DM Sans', system-ui, sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--sans); background: #888; }
+
+/* ─── SVG ICON HELPER ─────────────────────────────────── */
+.ico {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.ico-sm { width: 14px; height: 14px; }
+.ico-lg { width: 22px; height: 22px; }
+
+/* ─── PAGE SYSTEM (A4 vertical) ──────────────────────── */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 4mm;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+}
+
+/* ─── TYPOGRAPHY ──────────────────────────────────────── */
+.eyebrow {
+  font-size: 7pt;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 10mm;
+}
+.t-body {
+  font-size: 9.5pt;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ─── UTILITIES ───────────────────────────────────────── */
+.bg-black  { background: var(--black); }
+.bg-surface{ background: var(--surface); }
+.amber     { color: var(--amber); }
+.dot-amber {
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--amber);
+  border-radius: 50%;
+  vertical-align: middle;
+  margin: 0 4px 2px;
+}
+
+/* ─── LOGO ────────────────────────────────────────────── */
+.logo {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 13pt;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
+.logo-light { color: var(--black); }
+.logo .sub  { font-weight: 300; color: var(--muted); }
+
+/* ─── PAGE FOOTER ─────────────────────────────────────── */
+.pfooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4mm 15mm;
+  border-top: 0.5px solid rgba(255,255,255,0.1);
+  font-size: 7pt;
+  font-weight: 300;
+  color: var(--muted);
+  margin-top: auto;
+}
+.pfooter-light { border-color: var(--border); }
+
+/* ────────────────────────────────────────────────────────
+   P A G E   1  —  PORTADA
+──────────────────────────────────────────────────────── */
+#p1 { background: var(--black); }
+.p1-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10mm 15mm 0;
+}
+.p1-tag {
+  font-size: 7pt;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.p1-visual {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8mm 20mm;
+}
+.mockup-wrap { position: relative; width: 170mm; }
+.mockup-screen {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  background: #161614;
+  border: 1.5px solid #2a2a28;
+  padding: 3mm;
+  aspect-ratio: 16/9;
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+  overflow: hidden;
+}
+.ms-nav {
+  height: 4mm;
+  background: #222220;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  padding: 0 2mm;
+  gap: 1.5mm;
+}
+.ms-dot { width: 2mm; height: 2mm; border-radius: 50%; }
+.ms-hero {
+  flex: 1;
+  background: linear-gradient(135deg, #1a1917 0%, #111110 100%);
+  border-radius: 2px;
+  display: flex;
+  align-items: flex-end;
+  padding: 3mm;
+}
+.ms-hero-text { flex: 1; }
+.ms-line { height: 1.5mm; background: var(--white); border-radius: 1px; margin-bottom: 1.5mm; opacity: 0.9; }
+.ms-line.sm { width: 60%; opacity: 0.4; }
+.ms-line.accent { width: 25%; background: var(--amber); opacity: 1; height: 1mm; }
+.ms-sections { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2mm; height: 8mm; }
+.ms-sec { background: #1e1d1b; border-radius: 1px; }
+.mockup-base {
+  height: 5mm;
+  background: #1a1917;
+  border-radius: 0 0 4px 4px;
+  border: 1.5px solid #2a2a28;
+  border-top: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mockup-notch { width: 20mm; height: 2mm; background: #111; border-radius: 2px; }
+.mockup-stand {
+  width: 20mm; height: 3mm;
+  background: linear-gradient(to bottom, #1a1917, #141412);
+  border-radius: 0 0 4px 4px;
+  margin: 0 auto;
+}
+.p1-accent-line {
+  position: absolute;
+  top: 0; left: -4mm;
+  width: 1.5px; height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--amber), transparent);
+  opacity: 0.6;
+}
+.p1-content { padding: 0 15mm 0; }
+.p1-title {
+  font-family: var(--serif);
+  font-size: 28pt;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--white);
+  margin-bottom: 5mm;
+}
+.p1-title em { font-style: italic; color: var(--amber); }
+.p1-sub {
+  font-size: 9.5pt;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 120mm;
+}
+
+/* ────────────────────────────────────────────────────────
+   P A G E   2  —  QUIÉNES SOMOS
+──────────────────────────────────────────────────────── */
+.p2-statement {
+  font-family: var(--serif);
+  font-size: 18pt;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-bottom: 8mm;
+  padding-bottom: 8mm;
+  border-bottom: 0.5px solid var(--border);
+}
+.p2-statement em { font-style: italic; color: var(--amber); }
+.p2-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; margin-bottom: 8mm; }
+.p2-col-label {
+  font-size: 6.5pt; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--amber); margin-bottom: 3mm;
+}
+.p2-col-title { font-family: var(--serif); font-size: 12pt; color: var(--black); margin-bottom: 3mm; }
+.values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 6mm; }
+.value-item { background: var(--surface); padding: 5mm; border-left: 2px solid var(--amber); }
+.value-num { font-family: var(--serif); font-style: italic; font-size: 8pt; color: var(--muted); margin-bottom: 2mm; }
+.value-title { font-size: 8.5pt; font-weight: 600; color: var(--black); margin-bottom: 1.5mm; }
+.value-desc { font-size: 7.5pt; font-weight: 300; color: var(--muted); line-height: 1.6; }
+
+/* ────────────────────────────────────────────────────────
+   P A G E   3  —  EL PROBLEMA
+──────────────────────────────────────────────────────── */
+.p3-big-q {
+  font-family: var(--serif);
+  font-size: 20pt;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-bottom: 8mm;
+}
+.p3-big-q em { font-style: italic; color: var(--amber); }
+.comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin: 6mm 0; }
+.comp-col { background: var(--white); padding: 6mm; }
+.comp-col.dark-col { background: var(--black); }
+.comp-label {
+  font-size: 6pt; font-weight: 600; letter-spacing: 0.15em;
+  text-transform: uppercase; margin-bottom: 4mm;
+  padding-bottom: 3mm; border-bottom: 1px solid var(--border);
+}
+.comp-col.dark-col .comp-label { color: var(--muted); border-color: #333; }
+.comp-item {
+  font-size: 8pt; font-weight: 300; color: var(--muted);
+  padding: 2.5mm 0; border-bottom: 0.5px solid var(--border);
+  display: flex; gap: 3mm; align-items: flex-start;
+}
+.comp-col.dark-col .comp-item { color: rgba(250,250,248,0.5); border-color: rgba(255,255,255,0.06); }
+.comp-item:last-child { border: none; }
+.comp-icon { flex-shrink: 0; margin-top: 1px; }
+.p3-callout {
+  background: var(--black);
+  padding: 5mm 6mm;
+  border-left: 3px solid var(--amber);
+  margin-top: 6mm;
+}
+.p3-callout p { font-size: 9pt; font-weight: 300; color: rgba(250,250,248,0.7); line-height: 1.65; }
+.p3-callout strong { color: var(--white); font-weight: 500; }
+
+/* ────────────────────────────────────────────────────────
+   P L A N   T E M P L A T E
+──────────────────────────────────────────────────────── */
+.plan-header { padding: 10mm 15mm; display: flex; justify-content: space-between; align-items: flex-start; }
+.plan-badge-wrap { display: flex; flex-direction: column; align-items: flex-start; gap: 3mm; }
+.plan-badge {
+  font-size: 6pt; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; padding: 1.5mm 3mm;
+  border: 1px solid var(--amber); color: var(--amber); border-radius: 1px;
+}
+.plan-badge.featured { background: var(--amber); color: var(--white); }
+.plan-name { font-family: var(--serif); font-size: 20pt; line-height: 1; letter-spacing: -0.02em; }
+.plan-price-block { text-align: right; }
+.plan-price { font-family: var(--serif); font-size: 32pt; line-height: 1; letter-spacing: -0.04em; }
+.plan-currency { font-family: var(--sans); font-size: 10pt; font-weight: 300; color: var(--muted); }
+.plan-note { font-size: 7pt; font-weight: 300; color: var(--muted); margin-top: 1.5mm; }
+.plan-body { padding: 0 15mm; flex: 1; }
+.plan-divider { height: 0.5px; background: var(--border); margin-bottom: 6mm; }
+.plan-divider-dark { background: rgba(255,255,255,0.1); }
+.plan-desc {
+  font-size: 9pt; font-weight: 300; color: var(--muted);
+  line-height: 1.65; margin-bottom: 6mm; padding-bottom: 6mm;
+  border-bottom: 0.5px solid var(--border);
+}
+.plan-desc-dark { color: rgba(250,250,248,0.5); border-color: rgba(255,255,255,0.08); }
+.feat-list { display: flex; flex-direction: column; }
+.feat-item {
+  display: grid;
+  grid-template-columns: 10mm 1fr;
+  gap: 4mm;
+  padding: 3.5mm 0;
+  border-bottom: 0.5px solid var(--border);
+  align-items: center;
+}
+.feat-item:last-child { border: none; }
+.feat-icon-wrap {
+  width: 9mm; height: 9mm;
+  background: var(--surface);
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 2px; flex-shrink: 0;
+  color: var(--amber);
+}
+.feat-title { font-size: 8.5pt; font-weight: 600; color: var(--black); margin-bottom: 0.5mm; }
+.feat-sub   { font-size: 7.5pt; font-weight: 300; color: var(--muted); line-height: 1.5; }
+.feat-item-dark { border-color: rgba(255,255,255,0.06); }
+.feat-item-dark .feat-icon-wrap { background: rgba(255,255,255,0.05); color: var(--amber); }
+.feat-item-dark .feat-title { color: var(--white); }
+.feat-item-dark .feat-sub   { color: rgba(250,250,248,0.45); }
+
+/* ────────────────────────────────────────────────────────
+   P A G E   8  —  CONTACTO
+──────────────────────────────────────────────────────── */
+.p8-body { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 12mm 15mm; }
+.p8-big {
+  font-family: var(--serif);
+  font-size: 30pt; line-height: 1.05;
+  letter-spacing: -0.025em; color: var(--white); margin-bottom: 8mm;
+}
+.p8-big em { font-style: italic; color: var(--amber); }
+.p8-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-bottom: 10mm; }
+.p8-step { padding: 5mm; border: 0.5px solid rgba(255,255,255,0.1); }
+.p8-step-num { font-family: var(--serif); font-style: italic; font-size: 8pt; color: var(--muted); margin-bottom: 2mm; }
+.p8-step-title { font-size: 9pt; font-weight: 600; color: var(--white); margin-bottom: 1.5mm; }
+.p8-step-desc { font-size: 7.5pt; font-weight: 300; color: rgba(250,250,248,0.45); line-height: 1.6; }
+.p8-contact { display: flex; gap: 4mm; align-items: center; }
+.p8-cta {
+  display: inline-flex; align-items: center; gap: 3mm;
+  background: var(--amber); color: var(--white);
+  font-size: 9pt; font-weight: 600; padding: 4mm 7mm;
+  letter-spacing: 0.02em;
+}
+.p8-meta { font-size: 8pt; font-weight: 300; color: var(--muted); line-height: 1.7; }
+
+/* ─── PRINT ───────────────────────────────────────────── */
+@media print {
+  body { background: none; }
+  .page { width: 210mm; height: 297mm; min-height: unset; margin: 0; page-break-after: always; break-after: page; }
+  @page { size: A4 portrait; margin: 0; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+     P Á G I N A   1  —  PORTADA
+══════════════════════════════════════ -->
+<div class="page bg-black" id="p1">
+  <div class="p1-header">
+    <div class="logo">TLD<span class="dot-amber"></span><span class="sub">Studio.</span></div>
+    <div class="p1-tag">Catálogo de Servicios · 2026</div>
+  </div>
+
+  <div class="p1-visual">
+    <div class="mockup-wrap">
+      <div class="p1-accent-line"></div>
+      <div class="mockup-screen">
+        <div class="ms-nav">
+          <div class="ms-dot" style="background:#3a3a38"></div>
+          <div class="ms-dot" style="background:#3a3a38"></div>
+          <div class="ms-dot" style="background:#C8893A"></div>
+        </div>
+        <div class="ms-hero" style="background: url('img/hero.jpg') center/cover; padding: 0; border-radius: 2px;">
+        </div>
+      </div>
+      <div class="mockup-base"><div class="mockup-notch"></div></div>
+      <div class="mockup-stand"></div>
+    </div>
+  </div>
+
+  <div class="p1-content">
+    <div class="eyebrow" style="margin-bottom:5mm">Diseño Web · SEO · Infraestructura Digital</div>
+    <h1 class="p1-title">Tu negocio en línea.<br><em>Sin complicaciones.</em></h1>
+    <p class="p1-sub">Construimos sitios web que aparecen en Google, generan confianza y convierten visitantes en clientes reales — desde Bs. 1.200.</p>
+  </div>
+
+  <div class="pfooter">
+    <span>tldstudio.bo</span>
+    <span>Propuesta Institucional 2026</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════
+     P Á G I N A   2  —  QUIÉNES SOMOS
+══════════════════════════════════════ -->
+<div class="page" id="p2">
+  <div style="padding:10mm 15mm 0">
+    <div class="logo logo-light">TLD<span class="dot-amber"></span><span class="sub">Studio.</span></div>
+  </div>
+  <div style="padding:10mm 15mm; flex:1; display:flex; flex-direction:column;">
+    <div class="eyebrow">Nuestra identidad</div>
+    <div class="p2-statement">
+      Diseño construido como <em>arquitectura.</em><br>Cada elemento tiene un propósito.
+    </div>
+    
+    <div style="background: var(--black); width: 100%; height: 55mm; margin-bottom: 8mm; border-radius: 2px; display: flex; align-items: center; justify-content: center;">
+      <div style="font-family: var(--sans); font-weight: 700; font-size: 36pt; color: var(--white); letter-spacing: -0.03em; display: flex; align-items: center;">
+        TLD<span class="dot-amber" style="width:10px; height:10px; margin: 0 12px;"></span><span style="font-weight: 300; color: var(--muted);">Studio</span>
+      </div>
+    </div>
+    <div class="p2-cols">
+      <div>
+        <div class="p2-col-label">Misión</div>
+        <div class="p2-col-title">¿Para qué existimos?</div>
+        <p class="t-body">Ayudamos a los negocios bolivianos a tener presencia digital profesional y funcional — con sitios web bien diseñados, optimizados para Google y que realmente traen resultados.</p>
+      </div>
+      <div>
+        <div class="p2-col-label">Visión</div>
+        <div class="p2-col-title">¿A dónde vamos?</div>
+        <p class="t-body">Ser el estudio de referencia para pequeñas y medianas empresas en Bolivia que quieren crecer en línea, con calidad técnica de nivel internacional a un precio que su negocio puede pagar.</p>
+      </div>
+    </div>
+    <div class="values-grid">
+      <div class="value-item">
+        <div class="value-num">01</div>
+        <div class="value-title">Velocidad de Ingeniería</div>
+        <div class="value-desc">Diseño metódico y estructurado. Lo que otra agencia tarda 4 semanas, nosotros lo entregamos en 7 a 10 días hábiles.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">02</div>
+        <div class="value-title">SEO Nativo</div>
+        <div class="value-desc">No hacemos páginas bonitas que nadie encuentra. El posicionamiento en Google está integrado en cada proyecto desde el primer día.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">03</div>
+        <div class="value-title">Precio Boliviano</div>
+        <div class="value-desc">Una agencia tradicional cobra entre $800 y $3.000 por un sitio. Nosotros ofrecemos la misma calidad técnica a una fracción del costo.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">04</div>
+        <div class="value-title">Transparencia Total</div>
+        <div class="value-desc">Precios claros, tiempos realistas y comunicación directa. Sin letra chica, sin costos ocultos, sin promesas vacías.</div>
+      </div>
+    </div>
+  </div>
+  <div class="pfooter pfooter-light">
+    <span>TLD Studio. — Catálogo 2026</span>
+    <span>02</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════
+     P Á G I N A   3  —  EL PROBLEMA
+══════════════════════════════════════ -->
+<div class="page bg-surface" id="p3">
+  <div style="padding:10mm 15mm 0">
+    <div class="logo logo-light">TLD<span class="dot-amber"></span><span class="sub">Studio.</span></div>
+  </div>
+  <div style="padding:10mm 15mm; flex:1; display:flex; flex-direction:column;">
+    <div class="eyebrow">¿Por qué tu negocio necesita una web?</div>
+    <div class="p3-big-q">
+      Tienes el mejor restaurante de Sucre, pero está en un callejón sin letrero. <em>Google es la avenida principal.</em>
+    </div>
+
+    <div class="comparison">
+      <div class="comp-col">
+        <div class="comp-label" style="color:var(--muted)">Redes Sociales (Facebook, Instagram)</div>
+        <div class="comp-item">
+          <svg class="ico ico-sm comp-icon" style="color:#9C9891"><use href="#ic-calendar"/></svg>
+          Tu contenido dura 24 h. Después desaparece.
+        </div>
+        <div class="comp-item">
+          <svg class="ico ico-sm comp-icon" style="color:#9C9891"><use href="#ic-target"/></svg>
+          La gente entra a entretenerse, no a comprar.
+        </div>
+        <div class="comp-item">
+          <svg class="ico ico-sm comp-icon" style="color:#9C9891"><use href="#ic-lock"/></svg>
+          No es tuyo. La plataforma puede cambiar o cerrarte.
+        </div>
+        <div class="comp-item">
+          <svg class="ico ico-sm comp-icon" style="color:#9C9891"><use href="#ic-trend-down"/></svg>
+          El alcance orgánico cae año a año.
+        </div>
+      </div>
+      <div class="comp-col dark-col">
+        <div class="comp-label">Sitio Web Optimizado para Google</div>
+        <div class="comp-item">
+          <svg class="ico ico-sm comp-icon" style="color:var(--amber)"><use href="#ic-infinity"/></svg>
+          Tu página existe los 365 días del año, 24/7.
+        </div>
+        <div class="comp-item">
+          <svg class="ico ico-sm comp-icon" style="color:var(--amber)"><use href="#ic-dollar"/></svg>
+          El cliente que busca en Google ya quiere comprar.
+        </div>
+        <div class="comp-item">
+          <svg class="ico ico-sm comp-icon" style="color:var(--amber)"><use href="#ic-home"/></svg>
+          Es 100% tuyo. Nadie te puede borrar ni cobrar alcance.
+        </div>
+        <div class="comp-item">
+          <svg class="ico ico-sm comp-icon" style="color:var(--amber)"><use href="#ic-trend"/></svg>
+          El SEO acumula valor con el tiempo, como un activo.
+        </div>
+      </div>
+    </div>
+
+    <div class="p3-callout">
+      <p>Cuando alguien busca <strong>"clínica dental en Sucre"</strong> o <strong>"restaurante cerca de mí"</strong>, esa persona tiene una necesidad real y dinero para gastar. Si tu negocio no aparece en Google en ese momento, le estás mandando ese cliente a tu competencia.</p>
+    </div>
+  </div>
+  <div class="pfooter pfooter-light">
+    <span>TLD Studio. — Catálogo 2026</span>
+    <span>03</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════
+     P Á G I N A   4  —  PLAN ESENCIAL
+══════════════════════════════════════ -->
+<div class="page" id="p4">
+  <div class="plan-header">
+    <div class="plan-badge-wrap">
+      <div class="plan-badge">Plan 01</div>
+      <div class="plan-name">Presencia<br>Esencial</div>
+    </div>
+    <div class="plan-price-block">
+      <div class="plan-price">1.200 <span class="plan-currency">Bs.</span></div>
+      <div class="plan-note">Pago único · Entrega en 5 días hábiles</div>
+    </div>
+  </div>
+  <div class="plan-body">
+    <div class="plan-divider"></div>
+    <p class="plan-desc" style="border:none; padding:0; margin-bottom:4mm;">El punto de partida para negocios que necesitan existir formalmente en internet. Una página bien construida, rápida y lista para aparecer en Google.</p>
+    <img src="img/portfolio/cafeteria.jpg" alt="Ejemplo Esencial" style="width: 100%; height: 55mm; object-fit: cover; object-position: top; border-radius: 2px; border: 1px solid var(--border); margin-bottom: 6mm;">
+    <div class="feat-list">
+      <div class="feat-item">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-globe"/></svg></div>
+        <div>
+          <div class="feat-title">Dominio .com por 1 año</div>
+          <div class="feat-sub">Tu dirección en internet. Incluye gestión técnica y configuración DNS completa. (ej: tuempresa.com)</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-zap"/></svg></div>
+        <div>
+          <div class="feat-title">Hosting Cloud Ultrarrápido — 1 año gratis</div>
+          <div class="feat-sub">El servidor donde vive tu página 24 h al día, 365 días al año. Infraestructura de nivel enterprise.</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-lock"/></svg></div>
+        <div>
+          <div class="feat-title">Certificado de Seguridad SSL</div>
+          <div class="feat-sub">El candado en el navegador que le dice al cliente y a Google que tu sitio es seguro y confiable.</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-monitor"/></svg></div>
+        <div>
+          <div class="feat-title">Diseño Landing Page (1 página)</div>
+          <div class="feat-sub">Diseño responsivo completo para celular, tablet y escritorio. Secciones de Inicio, Servicios y Contacto.</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-mail"/></svg></div>
+        <div>
+          <div class="feat-title">1 Correo Corporativo</div>
+          <div class="feat-sub">Cuenta de correo con tu dominio (ej: info@tuempresa.com). Genera credibilidad inmediata ante tus clientes.</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-chat"/></svg></div>
+        <div>
+          <div class="feat-title">Botón de Contacto por WhatsApp</div>
+          <div class="feat-sub">Integración directa al número de tu negocio para que el cliente te escriba con un solo clic.</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-search"/></svg></div>
+        <div>
+          <div class="feat-title">Configuración SEO Básica</div>
+          <div class="feat-sub">Estructura de código, títulos y descripciones optimizados para que Google entienda y posicione tu sitio.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pfooter pfooter-light">
+    <span>TLD Studio. — Catálogo 2026</span>
+    <span>04</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     P Á G I N A   5  —  NEGOCIO LOCAL
+═══════════════════════════════════════ -->
+<div class="page bg-black" id="p5">
+  <div class="plan-header">
+    <div class="plan-badge-wrap">
+      <div class="plan-badge featured">
+        <svg class="ico-sm" style="display:inline-block;vertical-align:middle;margin-right:2px;color:#fff"><use href="#ic-star"/></svg>
+        Más Popular
+      </div>
+      <div class="plan-name" style="color:var(--white)">Negocio<br>Local</div>
+    </div>
+    <div class="plan-price-block">
+      <div class="plan-price" style="color:var(--amber)">1.500 <span class="plan-currency">Bs.</span></div>
+      <div class="plan-note">Pago único · Entrega en 7-10 días hábiles</div>
+    </div>
+  </div>
+  <div class="plan-body">
+    <div class="plan-divider plan-divider-dark"></div>
+    <p class="plan-desc plan-desc-dark" style="border:none; padding:0; margin-bottom:4mm;">Para restaurantes, clínicas, tiendas y negocios establecidos. Diseño completo, posicionamiento en Google Maps y correos corporativos para todo tu equipo.</p>
+    <img src="img/portfolio/restaurante.jpg" alt="Ejemplo Local" style="width: 100%; height: 55mm; object-fit: cover; object-position: top; border-radius: 2px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 6mm;">
+    <div class="feat-list">
+      <div class="feat-item feat-item-dark">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-globe"/></svg></div>
+        <div>
+          <div class="feat-title">Dominio .com.bo o .com — 1 año</div>
+          <div class="feat-sub">Dominio local boliviano que transmite presencia regional y genera más confianza en el mercado nacional.</div>
+        </div>
+      </div>
+      <div class="feat-item feat-item-dark">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-zap"/></svg></div>
+        <div>
+          <div class="feat-title">Hosting Cloud Ultrarrápido — 1 año gratis</div>
+          <div class="feat-sub">Servidor de alta disponibilidad con certificado SSL incluido.</div>
+        </div>
+      </div>
+      <div class="feat-item feat-item-dark">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-layout"/></svg></div>
+        <div>
+          <div class="feat-title">Diseño Multi-sección (Landing extensa o 4 páginas)</div>
+          <div class="feat-sub">Inicio, Servicios/Menú, Nosotros y Contacto. Responsivo y optimizado para celular.</div>
+        </div>
+      </div>
+      <div class="feat-item feat-item-dark">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-users"/></svg></div>
+        <div>
+          <div class="feat-title">5 Correos Corporativos</div>
+          <div class="feat-sub">Cuentas para todo tu equipo (ventas@, info@, gerencia@…). Profesionalismo desde el primer contacto.</div>
+        </div>
+      </div>
+      <div class="feat-item feat-item-dark">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-pin"/></svg></div>
+        <div>
+          <div class="feat-title">Perfil de Google Business (Google Maps)</div>
+          <div class="feat-sub">Configuramos y verificamos tu negocio para que aparezca en Google Maps cuando alguien busque en tu ciudad.</div>
+        </div>
+      </div>
+      <div class="feat-item feat-item-dark">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-star"/></svg></div>
+        <div>
+          <div class="feat-title">Perfil en TripAdvisor</div>
+          <div class="feat-sub">Ideal para restaurantes y negocios turísticos. Configuración completa para comenzar a recibir reseñas.</div>
+        </div>
+      </div>
+      <div class="feat-item feat-item-dark">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-search"/></svg></div>
+        <div>
+          <div class="feat-title">SEO Local Completo</div>
+          <div class="feat-sub">Estructura, palabras clave, velocidad y configuración técnica para dominar las búsquedas locales.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pfooter">
+    <span>TLD Studio. — Catálogo 2026</span>
+    <span>05</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     P Á G I N A   6  —  CORPORATIVO
+════════════════════════════════════════ -->
+<div class="page bg-surface" id="p6">
+  <div class="plan-header">
+    <div class="plan-badge-wrap">
+      <div class="plan-badge">Plan 03</div>
+      <div class="plan-name">Corporativo</div>
+    </div>
+    <div class="plan-price-block">
+      <div class="plan-price">2.200 <span class="plan-currency">Bs.</span></div>
+      <div class="plan-note">Pago único · Entrega en 10-14 días hábiles</div>
+    </div>
+  </div>
+  <div class="plan-body">
+    <div class="plan-divider"></div>
+    <p class="plan-desc" style="border:none; padding:0; margin-bottom:4mm;">Para empresas establecidas que quieren dominar su nicho en los resultados de búsqueda. Diseño avanzado, analítica profesional y un mes de acompañamiento técnico gratuito.</p>
+    <img src="img/portfolio/institucional.jpg" alt="Ejemplo Corporativo" style="width: 100%; height: 55mm; object-fit: cover; object-position: top; border-radius: 2px; border: 1px solid var(--border); margin-bottom: 6mm;">
+    <div class="feat-list">
+      <div class="feat-item">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-globe"/></svg></div>
+        <div>
+          <div class="feat-title">Dominio .com.bo o .com — 1 año</div>
+          <div class="feat-sub">El dominio de tu elección, con gestión técnica completa incluida.</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-layout"/></svg></div>
+        <div>
+          <div class="feat-title">Diseño Avanzado (hasta 7 páginas)</div>
+          <div class="feat-sub">Diseño a medida con arquitectura de información profesional. Incluye galería, portafolio o catálogo si aplica.</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-users"/></svg></div>
+        <div>
+          <div class="feat-title">5 Correos Corporativos + Hosting Cloud</div>
+          <div class="feat-sub">Infraestructura completa. Hosting de alta velocidad y SSL incluidos el primer año.</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-pin"/></svg></div>
+        <div>
+          <div class="feat-title">Google Business + TripAdvisor</div>
+          <div class="feat-sub">Posicionamiento local completo. Presencia en Google Maps y en plataformas de recomendación.</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-chart"/></svg></div>
+        <div>
+          <div class="feat-title">SEO Avanzado + Google Search Console</div>
+          <div class="feat-sub">Indexación profesional, análisis de palabras clave y configuración técnica de alto rendimiento.</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-trend"/></svg></div>
+        <div>
+          <div class="feat-title">Google Analytics 4</div>
+          <div class="feat-sub">Sabrás cuántas personas visitan tu web, de dónde vienen y qué páginas les interesan más.</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon-wrap"><svg class="ico"><use href="#ic-shield"/></svg></div>
+        <div>
+          <div class="feat-title">1 Mes de Soporte Técnico Gratuito</div>
+          <div class="feat-sub">Acompañamiento post-lanzamiento para ajustes de contenido y soporte directo por WhatsApp.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pfooter pfooter-light">
+    <span>TLD Studio. — Catálogo 2026</span>
+    <span>06</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     P Á G I N A   7  —  MANTENIMIENTO
+════════════════════════════════════════ -->
+<div class="page bg-surface" id="p7">
+  <div style="padding:10mm 15mm 0">
+    <div class="logo logo-light">TLD<span class="dot-amber"></span><span class="sub">Studio.</span></div>
+  </div>
+  <div style="padding:10mm 15mm; flex:1; display:flex; flex-direction:column;">
+    <div class="eyebrow">Más Allá de la Entrega</div>
+    <div style="font-family:var(--serif); font-size:22pt; line-height:1.1; letter-spacing:-0.02em; color:var(--black); margin-bottom:6mm;">
+      Tu página necesita cuidado para <em style="font-style:italic;color:var(--amber)">seguir rindiendo.</em>
+    </div>
+    <p class="t-body" style="max-width:130mm; margin-bottom:8mm">Un sitio web no es un afiche: es una infraestructura viva. El dominio vence, los certificados necesitan renovarse, el contenido envejece. Un pequeño descuido puede hacer que tu página desaparezca de Google de un día para otro.</p>
+
+    <div style="background:var(--black); padding:8mm; border-left:3px solid var(--amber); margin-bottom:8mm;">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6mm;">
+        <div>
+          <div style="font-size:6.5pt; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--amber); margin-bottom:3mm;">Soporte &amp; Mantenimiento Anual</div>
+          <div style="font-family:var(--serif); font-size:26pt; color:var(--white); line-height:1; letter-spacing:-0.03em;">300 <span style="font-family:var(--sans); font-size:11pt; font-weight:300; color:var(--muted)">Bs. / año</span></div>
+        </div>
+        <div style="font-size:7.5pt; font-weight:300; color:var(--muted); text-align:right; line-height:1.6;">Un solo pago anual.<br>Sin mensualidades.<br>Sin contratos.</div>
+      </div>
+      <div style="height:0.5px; background:rgba(255,255,255,0.08); margin-bottom:6mm;"></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:4mm;">
+        <div style="display:flex; gap:3mm; align-items:flex-start;">
+          <svg class="ico" style="color:var(--amber); flex-shrink:0; margin-top:1px"><use href="#ic-file"/></svg>
+          <div>
+            <div style="font-size:8.5pt; font-weight:600; color:var(--white); margin-bottom:1mm;">Hasta 5 actualizaciones de contenido</div>
+            <div style="font-size:7.5pt; font-weight:300; color:rgba(250,250,248,0.45); line-height:1.5">Cambios de texto, fotos, precios u horarios cuando lo necesites.</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:3mm; align-items:flex-start;">
+          <svg class="ico" style="color:var(--amber); flex-shrink:0; margin-top:1px"><use href="#ic-zap"/></svg>
+          <div>
+            <div style="font-size:8.5pt; font-weight:600; color:var(--white); margin-bottom:1mm;">Monitoreo de Velocidad y Seguridad</div>
+            <div style="font-size:7.5pt; font-weight:300; color:rgba(250,250,248,0.45); line-height:1.5">Revisamos que tu sitio cargue rápido y esté siempre seguro.</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:3mm; align-items:flex-start;">
+          <svg class="ico" style="color:var(--amber); flex-shrink:0; margin-top:1px"><use href="#ic-settings"/></svg>
+          <div>
+            <div style="font-size:8.5pt; font-weight:600; color:var(--white); margin-bottom:1mm;">Renovación Técnica (SSL y Caché)</div>
+            <div style="font-size:7.5pt; font-weight:300; color:rgba(250,250,248,0.45); line-height:1.5">Mantenemos los certificados activos para que Google no te penalice.</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:3mm; align-items:flex-start;">
+          <svg class="ico" style="color:var(--amber); flex-shrink:0; margin-top:1px"><use href="#ic-chat"/></svg>
+          <div>
+            <div style="font-size:8.5pt; font-weight:600; color:var(--white); margin-bottom:1mm;">Soporte Técnico por WhatsApp</div>
+            <div style="font-size:7.5pt; font-weight:300; color:rgba(250,250,248,0.45); line-height:1.5">Respuesta directa el mismo día para cualquier consulta o urgencia.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="t-body" style="font-size:8pt"><strong style="color:var(--text)">Nota sobre renovación:</strong> A partir del segundo año, el costo de renovación de infraestructura (dominio + hosting) es de aproximadamente <strong style="color:var(--text)">350 Bs.</strong> anuales, independientemente del plan contratado.</p>
+  </div>
+  <div class="pfooter pfooter-light">
+    <span>TLD Studio. — Catálogo 2026</span>
+    <span>07</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     P Á G I N A   8  —  CONTACTO
+════════════════════════════════════════ -->
+<div class="page bg-black" id="p8">
+  <div style="padding:10mm 15mm 0">
+    <div class="logo">TLD<span class="dot-amber"></span><span class="sub">Studio.</span></div>
+  </div>
+  <div class="p8-body">
+    <div class="eyebrow">Hablemos</div>
+    <div class="p8-big">¿Listo para que tu negocio<br>aparezca en <em>Google?</em></div>
+
+    <div class="p8-steps">
+      <div class="p8-step">
+        <div class="p8-step-num">01</div>
+        <div class="p8-step-title">Reunión Inicial (Gratis)</div>
+        <div class="p8-step-desc">Una charla de 30 minutos por WhatsApp o presencial para entender tu negocio y definir el plan ideal.</div>
+      </div>
+      <div class="p8-step">
+        <div class="p8-step-num">02</div>
+        <div class="p8-step-title">Propuesta Técnica</div>
+        <div class="p8-step-desc">En 24 horas te enviamos el plan detallado, tiempos exactos de entrega y el presupuesto final.</div>
+      </div>
+      <div class="p8-step">
+        <div class="p8-step-num">03</div>
+        <div class="p8-step-title">Diseño y Desarrollo</div>
+        <div class="p8-step-desc">Trabajamos con precisión técnica para entregar un sitio que funciona, carga rápido y posiciona desde el día 1.</div>
+      </div>
+      <div class="p8-step">
+        <div class="p8-step-num">04</div>
+        <div class="p8-step-title">Lanzamiento y Seguimiento</div>
+        <div class="p8-step-desc">Publicamos tu sitio y te entregamos todo configurado. Tú te enfocas en tu negocio, nosotros en lo técnico.</div>
+      </div>
+    </div>
+
+    <div class="p8-contact">
+      <div class="p8-cta">
+        <svg class="ico" style="color:#fff"><use href="#ic-chat"/></svg>
+        Escribir por WhatsApp
+      </div>
+      <div class="p8-meta">
+        <strong style="color:var(--white)">TLD Studio.</strong><br>
+        Sucre, Bolivia<br>
+        tldstudio.bo
+      </div>
+    </div>
+  </div>
+  <div class="pfooter">
+    <span>© 2026 TLD Studio. Todos los derechos reservados.</span>
+    <span>08</span>
+  </div>
+</div>
+
+</body>
+</html>
